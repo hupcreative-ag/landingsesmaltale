@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esmaltale | Parque Shopping Bahia - Primeira Visita com Desconto</title>
+  <!-- Importando Fontes Google: Outfit para títulos e Inter para o corpo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- CONTAINER DE ISOLAMENTO DA LANDING PAGE -->
+<div id="esmaltale-landing">
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero-section">
+    <!-- Camada de textura/ambiente com a foto da loja em opacidade reduzida -->
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <img src="assets/logo_branca.png" alt="Esmaltale Logo" class="hero-logo" fetchpriority="high">
+      
+      <span class="hero-badge">PRIMEIRA VISITA</span>
+      
+      <h1 class="hero-title">Sua primeira visita na Esmaltale com 15% de desconto.</h1>
+      
+      <p class="hero-subtitle">Vivencie uma experiência completa de beleza e cuidado na nossa unidade do Parque Shopping Bahia.</p>
+      
+      <button class="cta-button" onclick="openBookingModal()">Agende agora</button>
+    </div>
+  </section>
+
+  <!-- ==================== BLOCO DE OFERTAS (CUPONS) ==================== -->
+  <section class="offers-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">PRESENTE PARA VOCÊ</span>
+        <h2 class="section-title">Escolha seu Cupom Exclusivo</h2>
+        <p class="section-description">Aproveite as condições especiais para a sua visita em nossa unidade.</p>
+      </div>
+      
+      <div class="coupons-grid">
+        <!-- Cupom Principal (15% OFF) -->
+        <div class="coupon-card primary-coupon" onclick="openBookingModal()">
+          <div class="coupon-decor-left"></div>
+          <div class="coupon-decor-right"></div>
+          <div class="coupon-tag-promo">15% OFF</div>
+          <div class="coupon-content">
+            <h3 class="coupon-title">Sua primeira vez na Esmaltale</h3>
+            <p class="coupon-value">15% de Desconto</p>
+            <p class="coupon-text">Válido no primeiro serviço realizado por novas clientes na unidade Parque Shopping Bahia.</p>
+            <div class="coupon-footer">
+              <span class="coupon-instruction">Mostre este cupom na recepção para resgatar</span>
+            </div>
+          </div>
+          <button class="coupon-action-btn">Garantir Desconto</button>
+        </div>
+        
+        <!-- Cupom Secundário (5% OFF) -->
+        <div class="coupon-card secondary-coupon" onclick="openBookingModal()">
+          <div class="coupon-decor-left"></div>
+          <div class="coupon-decor-right"></div>
+          <div class="coupon-tag-promo">5% OFF</div>
+          <div class="coupon-content">
+            <h3 class="coupon-title">Um mimo para quem já é da casa</h3>
+            <p class="coupon-value">5% de Desconto</p>
+            <p class="coupon-text">Presente especial para quem já é nossa cliente aproveitar em qualquer serviço na unidade.</p>
+            <div class="coupon-footer">
+              <span class="coupon-instruction">Mostre este cupom na recepção para resgatar</span>
+            </div>
+          </div>
+          <button class="coupon-action-btn secondary">Garantir Mimo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SOBRE A UNIDADE ==================== -->
+  <section class="about-section">
+    <div class="section-container">
+      <div class="about-grid">
+        <div class="about-info">
+          <span class="section-tag">NOSSO ESPAÇO</span>
+          <h2 class="section-title">Conforto e sofisticação no Parque Shopping Bahia</h2>
+          <p class="about-text">
+            Localizada em Lauro de Freitas/Salvador, a unidade Parque Shopping Bahia da Esmaltale foi planejada detalhadamente para proporcionar momentos únicos de relaxamento e autocuidado.
+          </p>
+          <p class="about-text">
+            Contamos com poltronas confortáveis, materiais rigorosamente esterilizados e uma equipe técnica especialista nas últimas tendências de estética de unhas e bem-estar.
+          </p>
+          
+          <div class="location-box">
+            <div class="location-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="location-details">
+              <h4>Onde nos encontrar</h4>
+              <p>Piso L2, corredor da Lojas Americanas</p>
+              <span class="ref-text">Parque Shopping Bahia - Salvador / Lauro de Freitas</span>
+            </div>
+          </div>
+          
+          <button class="cta-outline-button" onclick="openBookingModal()">Agendar uma visita</button>
+        </div>
+        
+        <div class="about-visual">
+          <div class="about-image-wrapper">
+            <img src="assets/Lojas/parque-shopping-bahia.jpg" alt="Unidade Esmaltale Parque Shopping Bahia" class="about-image" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVIÇOS ==================== -->
+  <section class="services-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">O QUE FAZEMOS</span>
+        <h2 class="section-title">Serviços Especializados</h2>
+        <p class="section-description">Confira as especialidades que você pode agendar com o seu desconto.</p>
+      </div>
+      
+      <div class="services-grid">
+        <!-- Manicure & Pedicure -->
+        <div class="service-card" onclick="openBookingModal()">
+          <img src="assets/Servicos/Manicure.jpg" alt="Manicure & Pedicure" class="service-img" loading="lazy">
+          <div class="service-overlay">
+            <div class="service-info">
+              <h3>Manicure & Pedicure</h3>
+              <p>Cuidado clássico e completo para a saúde e beleza das suas unhas.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Alongamento de Unhas -->
+        <div class="service-card" onclick="openBookingModal()">
+          <img src="assets/Servicos/alongamento.jpg" alt="Alongamento de Unhas" class="service-img" loading="lazy">
+          <div class="service-overlay">
+            <div class="service-info">
+              <h3>Alongamento de Unhas</h3>
+              <p>Técnicas modernas em gel ou acrílico para unhas impecáveis e alongadas.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Blindagem & Esmaltação em Gel -->
+        <div class="service-card" onclick="openBookingModal()">
+          <img src="assets/Servicos/Banhodegel.jpg" alt="Blindagem & Esmaltação em Gel" class="service-img" loading="lazy">
+          <div class="service-overlay">
+            <div class="service-info">
+              <h3>Blindagem & Esmaltação em Gel</h3>
+              <p>Proteção extra com brilho e durabilidade de semanas para o esmalte.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Spa de Mãos & Pés -->
+        <div class="service-card" onclick="openBookingModal()">
+          <img src="assets/Servicos/spadospes.jpg" alt="Spa de Mãos & Pés" class="service-img" loading="lazy">
+          <div class="service-overlay">
+            <div class="service-info">
+              <h3>Spa de Mãos & Pés</h3>
+              <p>Hidratação profunda, esfoliação e massagem para máximo relaxamento.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Podologia -->
+        <div class="service-card" onclick="openBookingModal()">
+          <img src="assets/Servicos/podologia.jpg" alt="Podologia" class="service-img" loading="lazy">
+          <div class="service-overlay">
+            <div class="service-info">
+              <h3>Podologia</h3>
+              <p>Tratamentos especializados focados na saúde e conforto dos seus pés.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GALERIA DE RESULTADOS ==================== -->
+  <section class="gallery-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">PROVA SOCIAL</span>
+        <h2 class="section-title">Resultados Reais</h2>
+        <p class="section-description">Inspire-se com os trabalhos e esmaltações feitas em nossa loja.</p>
+      </div>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item item-1">
+          <img src="assets/Galeria/01.jpg" alt="Resultado Esmaltale 1" loading="lazy">
+        </div>
+        <div class="gallery-item item-2">
+          <img src="assets/Galeria/02.jpg" alt="Resultado Esmaltale 2" loading="lazy">
+        </div>
+        <div class="gallery-item item-3">
+          <img src="assets/Galeria/03.jpg" alt="Resultado Esmaltale 3" loading="lazy">
+        </div>
+        <div class="gallery-item item-4">
+          <img src="assets/Galeria/04.jpg" alt="Resultado Esmaltale 4" loading="lazy">
+        </div>
+        <div class="gallery-item item-5">
+          <img src="assets/Galeria/05.jpg" alt="Resultado Esmaltale 5" loading="lazy">
+        </div>
+        <div class="gallery-item item-6">
+          <img src="assets/Galeria/06.jpg" alt="Resultado Esmaltale 6" loading="lazy">
+        </div>
+        <div class="gallery-item item-7">
+          <img src="assets/Galeria/07.jpg" alt="Resultado Esmaltale 7" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA FINAL ==================== -->
+  <section class="cta-final-section">
+    <div class="cta-final-bg"></div>
+    <div class="section-container cta-final-content">
+      <h2 class="cta-final-title">Pronta para vivenciar a Esmaltale?</h2>
+      <p class="cta-final-subtitle">Os descontos da semana são limitados. Agende seu horário hoje mesmo e garanta sua oferta especial na unidade Parque Shopping Bahia.</p>
+      <button class="cta-button" onclick="openBookingModal()">Agende seu horário agora</button>
+    </div>
+  </section>
+
+  <!-- ==================== INSTAGRAM BANNER ==================== -->
+  <section class="instagram-banner">
+    <a href="https://www.instagram.com/esmaltale" target="_blank" rel="noopener noreferrer" class="instagram-link">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="instagram-icon"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      <span>Siga nosso perfil @esmaltale no Instagram</span>
+    </a>
+  </section>
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <footer class="footer-section">
+    <div class="section-container footer-content">
+      <img src="assets/Logo_cor.png" alt="Esmaltale Logo" class="footer-logo" loading="lazy">
+      <p class="footer-address">Parque Shopping Bahia — Piso L2, Lauro de Freitas - BA</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/esmaltale" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <span class="footer-divider">•</span>
+        <a href="https://www.trinks.com/esmaltale-salvador-norte-shopping" target="_blank" rel="noopener noreferrer">Trinks</a>
+      </div>
+      <p class="footer-copyright">© 2026 Esmaltale Estética e Beleza. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== BOTÃO FLUTUANTE DE AGENDAMENTO ==================== -->
+  <button class="floating-cta" onclick="openBookingModal()" aria-label="Agendar agora">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+    <span>Agende agora</span>
+  </button>
+
+  <!-- ==================== MODAL DE AGENDAMENTO (NATIVO DIALOG) ==================== -->
+  <dialog id="booking-modal" closedby="any" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeBookingModal()" aria-label="Fechar modal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      
+      <div class="modal-header">
+        <h3 id="modal-title">Como prefere agendar?</h3>
+        <p class="modal-subtitle">Escolha o canal de sua preferência para reservar o seu horário na unidade Parque Shopping Bahia.</p>
+      </div>
+      
+      <div class="modal-body">
+        <!-- Botão WhatsApp -->
+        <a href="https://wa.me/5571983259511?text=Ol%C3%A1%21+Vim+da+campanha+de+primeira+visita+e+gostaria+de+agendar+um+servi%C3%A7o+na+unidade+Parque+Shopping+Bahia." target="_blank" rel="noopener noreferrer" class="booking-option-btn whatsapp-btn">
+          <div class="btn-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <div class="btn-text">
+            <strong>Agendar pelo WhatsApp</strong>
+            <span>Fale com nossa recepção por mensagem</span>
+          </div>
+        </a>
+        
+        <!-- Botão Trinks -->
+        <a href="https://www.trinks.com/esmaltale-salvador-norte-shopping" target="_blank" rel="noopener noreferrer" class="booking-option-btn trinks-btn">
+          <div class="btn-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </div>
+          <div class="btn-text">
+            <strong>Agendamento Online (Trinks)</strong>
+            <span>Escolha profissional e horário na hora</span>
+          </div>
+        </a>
+      </div>
+      
+      <div class="modal-footer-note">
+        <p>Apresente o seu cupom no momento do atendimento para validar o desconto.</p>
+      </div>
+    </div>
+  </dialog>
+
+</div>
+
+<!-- ==================== ESTILOS CSS ESCOPADOS ==================== -->
+<style>
+/* CSS RESET E ISOLAMENTO DOS ESTILOS NO CONTAINER DO WORDPRESS */
+#esmaltale-landing {
+  all: initial;
+  display: block;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #2A2428;
+  background-color: #FCF5F6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#esmaltale-landing *,
+#esmaltale-landing *::before,
+#esmaltale-landing *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+
+#esmaltale-landing img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+#esmaltale-landing button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+#esmaltale-landing a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#esmaltale-landing svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* VARIÁVEIS DE ESTILO INTERNAS (ESCOPADAS) */
+#esmaltale-landing {
+  --color-pink: #E0609A;
+  --color-pink-dark: #A11E5D;
+  --color-coral: #E8605A;
+  --color-purple: #6B1F7C;
+  --color-purple-dark: #2A2428;
+  --color-neutral-bg: #FCF5F6;
+  --color-white: #FFFFFF;
+  
+  --radius-normal: 16px;
+  --radius-large: 20px;
+  
+  --shadow-soft: 0 10px 30px rgba(107, 31, 124, 0.04);
+  --shadow-medium: 0 15px 40px rgba(42, 36, 40, 0.08);
+  --shadow-hover: 0 20px 40px rgba(107, 31, 124, 0.12);
+  
+  --transition-smooth: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* SEÇÃO CONTAINER PADRÃO */
+#esmaltale-landing .section-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+#esmaltale-landing .section-header {
+  text-align: center;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#esmaltale-landing .section-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-pink-dark);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+#esmaltale-landing .section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.7rem; /* 1.6rem a 1.8rem no mobile */
+  font-weight: 800;
+  color: var(--color-purple-dark);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+#esmaltale-landing .section-description {
+  font-size: 1rem;
+  color: var(--color-purple-dark);
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+/* 1. ESTILO HERO SECTION */
+@keyframes heroGradientLoop {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#esmaltale-landing .hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+  background: linear-gradient(-45deg, var(--color-purple), var(--color-pink), var(--color-coral), var(--color-purple));
+  background-size: 400% 400%;
+  animation: heroGradientLoop 15s ease infinite;
+  overflow: hidden;
+  text-align: center;
+}
+
+#esmaltale-landing .hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/Lojas/parque-shopping-bahia02.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+  mix-blend-mode: luminosity;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#esmaltale-landing .hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#esmaltale-landing .hero-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 32px;
+}
+
+#esmaltale-landing .hero-badge {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--color-white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 8px 18px;
+  border-radius: var(--radius-large);
+  margin-bottom: 24px;
+}
+
+#esmaltale-landing .hero-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem; /* 1.8rem a 2.2rem no mobile */
+  font-weight: 800; /* peso 800 */
+  color: var(--color-white);
+  line-height: 1.1; /* line-height 1.1 */
+  letter-spacing: -0.02em; /* letter-spacing -0.02em */
+  margin-bottom: 20px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#esmaltale-landing .hero-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  margin-bottom: 32px;
+  max-width: 580px;
+}
+
+#esmaltale-landing .cta-button {
+  background-color: var(--color-white);
+  color: var(--color-purple);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 18px 40px;
+  border-radius: var(--radius-large);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: var(--transition-smooth);
+  letter-spacing: 0.02em;
+}
+
+#esmaltale-landing .cta-button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  background-color: var(--color-neutral-bg);
+}
+
+#esmaltale-landing .cta-button:active {
+  transform: translateY(-1px);
+}
+
+/* 2. ESTILO BLOCO DE OFERTAS (CUPONS) */
+#esmaltale-landing .offers-section {
+  padding-top: 48px; /* 40 a 56px no mobile */
+  padding-bottom: 48px;
+  background-color: var(--color-neutral-bg);
+}
+
+#esmaltale-landing .coupons-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#esmaltale-landing .coupon-card {
+  position: relative;
+  background-color: var(--color-white);
+  border-radius: var(--radius-large);
+  padding: 32px 24px;
+  border: 1px dashed rgba(224, 96, 154, 0.25);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+#esmaltale-landing .coupon-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+  border-color: rgba(224, 96, 154, 0.5);
+}
+
+/* Marcadores de cupom rasgado nas laterais */
+#esmaltale-landing .coupon-decor-left,
+#esmaltale-landing .coupon-decor-right {
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-neutral-bg);
+  border-radius: 50%;
+  z-index: 2;
+}
+#esmaltale-landing .coupon-decor-left {
+  left: -10px;
+  transform: translateY(-50%);
+}
+#esmaltale-landing .coupon-decor-right {
+  right: -10px;
+  transform: translateY(-50%);
+}
+
+#esmaltale-landing .coupon-tag-promo {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background-color: rgba(161, 30, 93, 0.1);
+  color: var(--color-pink-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-normal);
+}
+
+#esmaltale-landing .coupon-content {
+  margin-bottom: 24px;
+  padding-right: 48px;
+}
+
+#esmaltale-landing .coupon-title {
+  font-size: 1.25rem; /* 1.2rem a 1.4rem */
+  font-weight: 700; /* peso 700 */
+  color: var(--color-pink-dark);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+#esmaltale-landing .coupon-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800; /* peso 800 */
+  color: var(--color-purple);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+#esmaltale-landing .coupon-text {
+  font-size: 0.95rem;
+  color: var(--color-purple-dark);
+  opacity: 0.8;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+#esmaltale-landing .coupon-footer {
+  border-top: 1px dashed rgba(42, 36, 40, 0.1);
+  padding-top: 16px;
+  width: 100%;
+}
+
+#esmaltale-landing .coupon-instruction {
+  font-size: 0.85rem; /* 0.85rem a 0.9rem */
+  font-weight: 400; /* peso 400 para manter 3 pesos por seção */
+  color: var(--color-purple-dark);
+  opacity: 0.65; /* opacidade reduzida (65-70%) */
+}
+
+#esmaltale-landing .coupon-action-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+  color: var(--color-white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: var(--radius-normal);
+  transition: var(--transition-smooth);
+  text-align: center;
+}
+
+#esmaltale-landing .coupon-card:hover .coupon-action-btn {
+  background: linear-gradient(135deg, var(--color-pink-dark), #7c1244);
+}
+
+#esmaltale-landing .coupon-action-btn.secondary {
+  background-color: var(--color-purple);
+}
+
+#esmaltale-landing .coupon-card:hover .coupon-action-btn.secondary {
+  background-color: #551463;
+}
+
+/* 3. ESTILO SOBRE A UNIDADE */
+#esmaltale-landing .about-section {
+  padding-top: 48px; /* 40 a 56px no mobile */
+  padding-bottom: 48px;
+  background-color: var(--color-white);
+}
+
+#esmaltale-landing .about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+#esmaltale-landing .about-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-purple-dark);
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+
+#esmaltale-landing .location-box {
+  display: flex;
+  gap: 16px;
+  background-color: var(--color-neutral-bg);
+  padding: 24px;
+  border-radius: var(--radius-large);
+  margin-bottom: 32px;
+}
+
+#esmaltale-landing .location-icon {
+  flex-shrink: 0;
+  color: var(--color-pink-dark);
+  margin-top: 2px;
+}
+
+#esmaltale-landing .location-details h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-purple-dark);
+  margin-bottom: 4px;
+}
+
+#esmaltale-landing .location-details p {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-purple-dark);
+  margin-bottom: 4px;
+}
+
+#esmaltale-landing .location-details .ref-text {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-purple-dark);
+  opacity: 0.65;
+}
+
+#esmaltale-landing .cta-outline-button {
+  display: inline-block;
+  border: 2px solid var(--color-pink-dark);
+  color: var(--color-pink-dark);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: var(--radius-large);
+  transition: var(--transition-smooth);
+}
+
+#esmaltale-landing .cta-outline-button:hover {
+  background-color: var(--color-pink-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+#esmaltale-landing .about-image-wrapper {
+  position: relative;
+  border-radius: var(--radius-large);
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+}
+
+/* Elemento decorativo atrás da foto da unidade */
+#esmaltale-landing .about-image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(224, 96, 154, 0.1), rgba(107, 31, 124, 0.1));
+  pointer-events: none;
+}
+
+#esmaltale-landing .about-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+/* 4. ESTILO SERVIÇOS */
+#esmaltale-landing .services-section {
+  padding-top: 48px; /* 40 a 56px no mobile */
+  padding-bottom: 48px;
+  background-color: var(--color-neutral-bg);
+}
+
+#esmaltale-landing .services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+#esmaltale-landing .service-card {
+  position: relative;
+  height: 320px;
+  border-radius: var(--radius-large);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+#esmaltale-landing .service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+#esmaltale-landing .service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+#esmaltale-landing .service-card:hover .service-img {
+  transform: scale(1.05);
+}
+
+#esmaltale-landing .service-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(42, 36, 40, 0.95) 0%, rgba(42, 36, 40, 0.4) 60%, rgba(0, 0, 0, 0) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+
+#esmaltale-landing .service-info {
+  color: var(--color-white);
+  transition: var(--transition-smooth);
+}
+
+#esmaltale-landing .service-info h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem; /* 1.2rem a 1.4rem */
+  font-weight: 700; /* peso 700 */
+  margin-bottom: 8px;
+  color: var(--color-white);
+}
+
+#esmaltale-landing .service-info p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+}
+
+/* 5. ESTILO GALERIA DE RESULTADOS */
+#esmaltale-landing .gallery-section {
+  padding-top: 48px; /* 40 a 56px no mobile */
+  padding-bottom: 48px;
+  background-color: var(--color-white);
+}
+
+#esmaltale-landing .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+#esmaltale-landing .gallery-item {
+  position: relative;
+  border-radius: var(--radius-normal);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth);
+}
+
+#esmaltale-landing .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+#esmaltale-landing .gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-medium);
+}
+
+#esmaltale-landing .gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+/* Layout assimétrico para telas maiores */
+@media (min-width: 768px) {
+  #esmaltale-landing .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+    gap: 20px;
+  }
+  
+  #esmaltale-landing .gallery-item {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+
+  #esmaltale-landing .gallery-item.item-1 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  #esmaltale-landing .gallery-item.item-6 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  
+  #esmaltale-landing .gallery-item.item-7 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+/* 6. ESTILO CTA FINAL SECTION */
+#esmaltale-landing .cta-final-section {
+  position: relative;
+  padding-top: 56px; /* 40 a 56px no mobile */
+  padding-bottom: 56px;
+  background-color: var(--color-purple);
+  text-align: center;
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+#esmaltale-landing .cta-final-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(224, 96, 154, 0.15) 0%, rgba(107, 31, 124, 0.15) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+#esmaltale-landing .cta-final-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+
+#esmaltale-landing .cta-final-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+#esmaltale-landing .cta-final-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 7. ESTILO INSTAGRAM BANNER */
+#esmaltale-landing .instagram-banner {
+  background-color: var(--color-neutral-bg);
+  border-top: 1px solid rgba(107, 31, 124, 0.05);
+  border-bottom: 1px solid rgba(107, 31, 124, 0.05);
+  padding: 24px 16px;
+  text-align: center;
+}
+
+#esmaltale-landing .instagram-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--color-pink-dark);
+  font-weight: 700; /* peso 700 */
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+}
+
+#esmaltale-landing .instagram-icon {
+  stroke: var(--color-pink-dark);
+  transition: var(--transition-smooth);
+}
+
+#esmaltale-landing .instagram-link:hover {
+  color: var(--color-purple);
+}
+
+#esmaltale-landing .instagram-link:hover .instagram-icon {
+  stroke: var(--color-purple);
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* 8. ESTILO RODAPÉ */
+#esmaltale-landing .footer-section {
+  background-color: var(--color-white);
+  padding: 40px 24px;
+  text-align: center;
+}
+
+#esmaltale-landing .footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#esmaltale-landing .footer-logo {
+  width: 140px;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+#esmaltale-landing .footer-address {
+  font-size: 0.95rem;
+  color: var(--color-purple-dark);
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+
+#esmaltale-landing .footer-socials {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  font-weight: 700; /* peso 700 */
+  color: var(--color-pink-dark);
+}
+
+#esmaltale-landing .footer-socials a {
+  transition: var(--transition-smooth);
+}
+
+#esmaltale-landing .footer-socials a:hover {
+  color: var(--color-purple);
+}
+
+#esmaltale-landing .footer-divider {
+  color: rgba(42, 36, 40, 0.2);
+}
+
+#esmaltale-landing .footer-copyright {
+  font-size: 0.8rem;
+  color: var(--color-purple-dark);
+  opacity: 0.5;
+}
+
+/* BOTÃO FLUTUANTE DE CTA */
+#esmaltale-landing .floating-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+  color: var(--color-white);
+  border-radius: var(--radius-large); /* 20px, nunca totalmente circular */
+  padding: 16px 24px;
+  box-shadow: 0 10px 25px rgba(224, 96, 154, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 700; /* peso 700 */
+  z-index: 99;
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#esmaltale-landing .floating-cta svg {
+  stroke: var(--color-white);
+}
+
+#esmaltale-landing .floating-cta:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(224, 96, 154, 0.5);
+}
+
+/* DIALOG MODAL DE AGENDAMENTO */
+#booking-modal {
+  border: none;
+  border-radius: var(--radius-large);
+  padding: 0;
+  background: transparent;
+  max-width: 480px;
+  width: 90%;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  z-index: 1000;
+}
+
+/* Estilo do Backdrop (Fundo Escuro e Borrado) */
+#booking-modal::backdrop {
+  background-color: rgba(42, 36, 40, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Classes alternativas para compatibilidade com Polyfill caso necessário */
+#booking-modal.\:popover-open,
+#booking-modal:popover-open {
+  display: block;
+}
+
+#esmaltale-landing .modal-card {
+  position: relative;
+  background-color: var(--color-white);
+  border-radius: var(--radius-large);
+  padding: 36px 24px;
+  width: 100%;
+}
+
+#esmaltale-landing .modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--color-purple-dark);
+  opacity: 0.5;
+  transition: var(--transition-smooth);
+  padding: 4px;
+}
+
+#esmaltale-landing .modal-close-btn:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+#esmaltale-landing .modal-header {
+  margin-bottom: 28px;
+}
+
+#esmaltale-landing .modal-header h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem; /* 1.2rem a 1.4rem */
+  font-weight: 700; /* peso 700 */
+  color: var(--color-purple-dark);
+  margin-bottom: 10px;
+}
+
+#esmaltale-landing .modal-subtitle {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-purple-dark);
+  opacity: 0.7;
+}
+
+#esmaltale-landing .modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+#esmaltale-landing .booking-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border-radius: var(--radius-normal);
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(42, 36, 40, 0.08);
+}
+
+#esmaltale-landing .booking-option-btn.whatsapp-btn {
+  background-color: #25D366;
+  color: var(--color-white);
+  border: none;
+}
+
+#esmaltale-landing .booking-option-btn.whatsapp-btn svg {
+  stroke: var(--color-white);
+  fill: rgba(255, 255, 255, 0.15);
+}
+
+#esmaltale-landing .booking-option-btn.whatsapp-btn:hover {
+  background-color: #20ba59;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+#esmaltale-landing .booking-option-btn.trinks-btn {
+  background-color: var(--color-purple);
+  color: var(--color-white);
+  border: none;
+}
+
+#esmaltale-landing .booking-option-btn.trinks-btn svg {
+  stroke: var(--color-white);
+}
+
+#esmaltale-landing .booking-option-btn.trinks-btn:hover {
+  background-color: #551463;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(107, 31, 124, 0.3);
+}
+
+#esmaltale-landing .btn-icon {
+  flex-shrink: 0;
+}
+
+#esmaltale-landing .btn-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+#esmaltale-landing .btn-text strong {
+  font-size: 1rem;
+  font-weight: 700; /* peso 700 */
+}
+
+#esmaltale-landing .btn-text span {
+  font-size: 0.85rem; /* 0.85rem a 0.9rem */
+  font-weight: 400; /* peso 400 */
+  opacity: 0.7; /* opacidade reduzida */
+}
+
+#esmaltale-landing .modal-footer-note {
+  border-top: 1px solid rgba(42, 36, 40, 0.06);
+  padding-top: 18px;
+  text-align: center;
+}
+
+#esmaltale-landing .modal-footer-note p {
+  font-size: 0.85rem; /* 0.85rem a 0.9rem */
+  color: var(--color-purple-dark);
+  opacity: 0.65; /* opacidade reduzida (65-70%) */
+  font-weight: 400; /* peso 400 */
+}
+
+/* ==================== AJUSTES DE RESPONSIVIDADE E MOBILE-FIRST ==================== --> */
+
+/* 1. Mobile-First Default (Sizing mobile 375px a 430px já coberto acima) */
+@media (max-width: 480px) {
+  #esmaltale-landing .floating-cta span {
+    display: none; /* Deixa apenas o ícone no mobile */
+  }
+  #esmaltale-landing .floating-cta {
+    padding: 16px;
+    border-radius: var(--radius-large); /* 20px, nunca totalmente circular */
+  }
+}
+
+/* 2. Sizing para Tablets (Larguras de 600px a 767px) */
+@media (min-width: 600px) {
+  #esmaltale-landing {
+    /* Espaçamentos intermediários */
+  }
+  
+  #esmaltale-landing .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  #esmaltale-landing .coupons-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  #esmaltale-landing .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3. Sizing para Desktop (Larguras acima de 768px) */
+@media (min-width: 768px) {
+  #esmaltale-landing .section-container {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+  
+  #esmaltale-landing .section-header {
+    margin-bottom: 48px;
+  }
+
+  #esmaltale-landing .section-title {
+    font-size: 2.1rem; /* 2rem a 2.2rem no desktop */
+  }
+  
+  #esmaltale-landing .hero-section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+  
+  #esmaltale-landing .hero-title {
+    font-size: 3.2rem; /* 2.5rem a 3.5rem no desktop */
+  }
+  
+  #esmaltale-landing .offers-section {
+    padding-top: 80px; /* 64 a 96px no desktop */
+    padding-bottom: 80px;
+  }
+  
+  #esmaltale-landing .coupons-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  #esmaltale-landing .about-section {
+    padding-top: 80px; /* 64 a 96px no desktop */
+    padding-bottom: 80px;
+  }
+  
+  #esmaltale-landing .about-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 64px;
+  }
+  
+  #esmaltale-landing .services-section {
+    padding-top: 80px; /* 64 a 96px no desktop */
+    padding-bottom: 80px;
+  }
+  
+  #esmaltale-landing .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  
+  /* Ajuste visual para manter a simetria com 5 itens no grid de 3 colunas */
+  #esmaltale-landing .services-grid .service-card:nth-child(4) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  #esmaltale-landing .services-grid .service-card:nth-child(5) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  
+  #esmaltale-landing .gallery-section {
+    padding-top: 80px; /* 64 a 96px no desktop */
+    padding-bottom: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #esmaltale-landing .services-grid {
+    /* Centraliza os 2 últimos elementos do grid quando tiver 3 colunas */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  #esmaltale-landing .services-grid .service-card:nth-child(1),
+  #esmaltale-landing .services-grid .service-card:nth-child(2),
+  #esmaltale-landing .services-grid .service-card:nth-child(3) {
+    grid-column: span 2;
+  }
+  
+  #esmaltale-landing .services-grid .service-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+  
+  #esmaltale-landing .services-grid .service-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+}
+</style>
+
+<!-- ==================== LOGICA JAVASCRIPT EMBUDIDA ==================== -->
+<script>
+(function() {
+  const modal = document.getElementById('booking-modal');
+
+  // Abre o modal de agendamento e gerencia foco/scroll
+  window.openBookingModal = function() {
+    if (modal) {
+      modal.showModal();
+      document.body.style.overflow = 'hidden';
+      
+      // Acessibilidade: focar na primeira opção de agendamento (WhatsApp)
+      const firstOpt = modal.querySelector('.whatsapp-btn');
+      if (firstOpt) firstOpt.focus();
+    }
+  };
+
+  // Fecha o modal de agendamento e restaura scroll
+  window.closeBookingModal = function() {
+    if (modal) {
+      modal.close();
+      document.body.style.overflow = '';
+    }
+  };
+
+  // Garante que o scroll da página seja restaurado caso o modal feche via tecla Esc
+  if (modal) {
+    modal.addEventListener('cancel', () => {
+      document.body.style.overflow = '';
+    });
+    
+    modal.addEventListener('close', () => {
+      document.body.style.overflow = '';
+    });
+
+    // FALLBACK DE LIGHT-DISMISS PARA SAFARI (Fecha ao clicar no backdrop)
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      modal.addEventListener('click', (event) => {
+        // Se o clique foi no dialog em si e não nos seus filhos
+        if (event.target === modal) {
+          const rect = modal.getBoundingClientRect();
+          const isInside = (
+            rect.top <= event.clientY &&
+            event.clientY <= rect.top + rect.height &&
+            rect.left <= event.clientX &&
+            event.clientX <= rect.left + rect.width
+          );
+          if (!isInside) {
+            closeBookingModal();
+          }
+        }
+      });
+    }
+  }
+})();
+</script>
+
+</body>
+</html>
