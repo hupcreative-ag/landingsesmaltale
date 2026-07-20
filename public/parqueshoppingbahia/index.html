@@ -1046,89 +1046,56 @@ body, html {
 #esmaltale-landing .coupons-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
-  max-width: 800px;
+  gap: 20px;
+  max-width: 440px; /* Reduzido no mobile para dar respiro lateral */
   margin-left: auto;
   margin-right: auto;
   position: relative;
   z-index: 1;
 }
 
-/* Wrapper para aplicar drop-shadow de brilho */
+/* Clean, ultra-elegant coupon card wrapper */
 #esmaltale-landing .shine-wrapper {
-  filter: drop-shadow(0 10px 20px rgba(107, 31, 124, 0.25)) 
-          drop-shadow(0 0 15px rgba(224, 96, 154, 0.4));
-  transition: transform 0.3s ease, filter 0.3s ease;
   width: 100%;
+  filter: none;
+  transition: transform 0.3s ease;
 }
 
-#esmaltale-landing .shine-wrapper:hover {
-  transform: translateY(-4px);
-  filter: drop-shadow(0 15px 30px rgba(107, 31, 124, 0.35)) 
-          drop-shadow(0 0 25px rgba(224, 96, 154, 0.6));
-}
-
-/* Shine border arredondado */
 #esmaltale-landing .shine-border {
   position: relative;
-  padding: 2px;
   overflow: hidden;
   z-index: 1;
   display: flex;
-  background: transparent;
-  border-radius: 20px; /* Cantos arredondados */
-}
-
-#esmaltale-landing .shine-border::before {
-  content: '';
-  position: absolute;
-  inset: -150%;
-  z-index: -1;
-  animation: spin-border 4s linear infinite;
-  filter: blur(2px);
-}
-
-/* Conic gradient de destaque para o cupom de 15% */
-#esmaltale-landing .shine-border.primary-shine::before {
-  background: conic-gradient(from 0deg, #E0609A, #E8605A, #6B1F7C, #A11E5D, #E0609A);
-  animation-duration: 3s;
-}
-
-/* Conic gradient roxo para o cupom de 5% */
-#esmaltale-landing .shine-border.secondary-shine::before {
-  background: conic-gradient(from 0deg, #6B1F7C, #b070c0, #6B1F7C, #b070c0, #6B1F7C);
-  animation-duration: 5.5s;
-}
-
-#esmaltale-landing .shine-border::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
   background: var(--color-white);
-  border-radius: 18px; /* Arredondado proporcional */
-  z-index: -1;
+  border-radius: 20px;
+  border: 1px solid rgba(107, 31, 124, 0.12);
+  box-shadow: 0 8px 24px rgba(107, 31, 124, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-#esmaltale-landing .shine-border .coupon-card {
-  border: none;
-  box-shadow: none;
-  background: transparent;
-  width: 100%;
-  padding: 24px; /* Mais compacto para evitar espaço vazio */
+#esmaltale-landing .shine-wrapper:hover .shine-border {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(107, 31, 124, 0.1);
+  border-color: rgba(224, 96, 154, 0.35);
+}
+
+#esmaltale-landing .shine-border::before,
+#esmaltale-landing .shine-border::after {
+  display: none;
 }
 
 #esmaltale-landing .coupon-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Alinha no topo */
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   cursor: pointer;
   overflow: hidden;
-  border-radius: 18px; /* Arredondado */
-  gap: 16px; /* Gap consistente entre os elementos */
-  min-height: auto; /* Deixa a altura se ajustar naturalmente */
+  border-radius: 20px;
+  gap: 14px;
+  min-height: auto;
 }
 
 /* Marcadores de cupom rasgado nas laterais */
@@ -1136,23 +1103,23 @@ body, html {
 #esmaltale-landing .coupon-decor-right {
   position: absolute;
   top: 50%;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   background-color: var(--color-neutral-bg);
   border-radius: 50%;
   z-index: 2;
 }
 #esmaltale-landing .coupon-decor-left {
-  left: -8px;
+  left: -7px;
   transform: translateY(-50%);
 }
 #esmaltale-landing .coupon-decor-right {
-  right: -8px;
+  right: -7px;
   transform: translateY(-50%);
 }
 
 #esmaltale-landing .coupon-content {
-  margin-bottom: 8px; /* Reduzido de 24px */
+  margin-bottom: 4px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -1160,50 +1127,53 @@ body, html {
 }
 
 #esmaltale-landing .coupon-title {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 600;
   color: var(--color-pink-dark);
-  margin-bottom: 6px; /* Reduzido */
+  margin-bottom: 4px;
   letter-spacing: 0.02em;
 }
 
 #esmaltale-landing .coupon-value {
   font-family: 'Poppins', sans-serif;
-  font-size: 2.2rem; /* Tamanho proporcional */
+  font-size: 1.85rem; /* Tamanho mais elegante */
   font-weight: 800;
-  color: var(--color-purple); /* Sólido, sem gradiente metálico */
+  color: var(--color-purple);
   line-height: 1.1;
-  margin-bottom: 6px; /* Reduzido */
-  text-shadow: none; /* Sombra removida */
-  filter: none; /* Filtros removidos */
+  margin-bottom: 4px;
+  text-shadow: none;
+  filter: none;
 }
 
 #esmaltale-landing .coupon-sub-label {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--color-pink-dark); /* Mesma cor do título do card (rosa/vinho elegante) */
-  text-transform: none; /* Retira caixa alta */
+  color: var(--color-pink-dark);
+  text-transform: none;
   letter-spacing: 0.01em;
-  margin-top: -8px; /* Ajustado */
-  margin-bottom: 10px; /* Reduzido */
+  margin-top: -6px;
+  margin-bottom: 8px;
 }
 
 #esmaltale-landing .coupon-text {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--color-purple-dark);
-  opacity: 0.85;
-  line-height: 1.4;
+  opacity: 0.8;
+  line-height: 1.45;
   margin-bottom: 0px;
+  max-width: 300px;
 }
 
 #esmaltale-landing .coupon-action-btn {
   width: 100%;
+  max-width: 240px;
   background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
   color: var(--color-white);
-  font-size: 0.95rem;
-  font-weight: 700;
-  padding: 14px; /* Aumentado */
-  border-radius: var(--radius-normal);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 11px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(224, 96, 154, 0.25);
   transition: var(--transition-smooth);
   text-align: center;
 }
@@ -2186,13 +2156,14 @@ body, html {
   }
   
   #esmaltale-landing .offers-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 64px;
+    padding-bottom: 64px;
   }
   
   #esmaltale-landing .coupons-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 36px; /* Aumentado */
+    max-width: 720px;
+    gap: 24px;
   }
   
   #esmaltale-landing .about-section {
