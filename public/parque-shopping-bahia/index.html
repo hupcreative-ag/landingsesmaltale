@@ -345,6 +345,8 @@
           <p class="ticket-coupon-sub">em serviços Esmaltale</p>
           <h3 class="ticket-coupon-title" id="ticket-title-val">Na sua primeira visita</h3>
           
+          <p class="ticket-coupon-desc" id="ticket-desc-val">Válido no primeiro serviço realizado por novas clientes.</p>
+
           <div class="ticket-location">
             <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
@@ -490,7 +492,7 @@ body, html {
   font-family: 'Outfit', sans-serif;
   font-size: 1.7rem; /* 1.6rem a 1.8rem no mobile */
   font-weight: 800;
-  color: var(--color-purple-dark);
+  color: var(--color-purple); /* Cor roxa da marca no lugar da preta */
   line-height: 1.2;
   margin-bottom: 16px;
 }
@@ -894,11 +896,11 @@ body, html {
 
 #esmaltale-landing .coupon-sub-label {
   font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--color-pink-dark);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: -4px;
+  font-weight: 600;
+  color: var(--color-pink-dark); /* Mesma cor do título do card (rosa/vinho elegante) */
+  text-transform: none; /* Retira caixa alta */
+  letter-spacing: 0.01em;
+  margin-top: -6px;
   margin-bottom: 12px;
 }
 
@@ -2025,7 +2027,7 @@ body, html {
   background-image: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('assets/Lojas/parque-shopping-bahia02.jpg');
   background-size: cover;
   background-position: center;
-  padding: 24px 20px;
+  padding: 30px 24px 24px; /* Aumentado padding para dar mais altura e respiro ao cupom */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2049,7 +2051,18 @@ body, html {
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--color-purple);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+}
+
+#esmaltale-landing .ticket-coupon-desc {
+  font-size: 0.8rem;
+  color: var(--color-purple-dark);
+  opacity: 0.85;
+  line-height: 1.45;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  max-width: 280px;
+  font-weight: 500;
 }
 
 #esmaltale-landing .ticket-location {
@@ -2256,9 +2269,16 @@ body, html {
     document.getElementById('ticket-badge-val').textContent = val + '% de Desconto';
     document.getElementById('ticket-title-val').textContent = title;
     
-    // Limpa descrições legadas se existirem no DOM
-    const legacyDesc = document.getElementById('ticket-desc-val');
-    if (legacyDesc) legacyDesc.style.display = 'none';
+    // Configura e exibe a descrição condicional
+    const descEl = document.getElementById('ticket-desc-val');
+    if (descEl) {
+      descEl.style.display = 'block';
+      if (val === '15') {
+        descEl.textContent = 'Válido no primeiro serviço realizado por novas clientes.';
+      } else {
+        descEl.textContent = 'Presente especial para quem já é nossa cliente.';
+      }
+    }
     
     const legacyCode = document.getElementById('ticket-code-val');
     if (legacyCode) legacyCode.textContent = 'ESMALTALE' + val;
