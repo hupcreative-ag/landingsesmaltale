@@ -106,27 +106,35 @@
     <div class="section-container">
       <div class="about-grid">
         <div class="about-info">
-          <span class="section-tag">NOSSO ESPAÇO</span>
-          <h2 class="section-title">Conforto e sofisticação no Parque Shopping Bahia</h2>
+          <span class="section-tag">VENHA NOS VISITAR</span>
+          <h2 class="section-title">Estamos no Parque Shopping Bahia!</h2>
           <p class="about-text">
-            Localizada em Lauro de Freitas/Salvador, a unidade Parque Shopping Bahia da Esmaltale foi planejada detalhadamente para proporcionar momentos únicos de relaxamento e autocuidado.
+            Localizada em Lauro de Freitas/Salvador, a unidade Parque Shopping Bahia da Esmaltale foi planejada para proporcionar uma pausa de relaxamento e autocuidado na sua rotina.
           </p>
           <p class="about-text">
-            Contamos com poltronas confortáveis, materiais rigorosamente esterilizados e uma equipe técnica especialista nas últimas tendências de estética de unhas e bem-estar.
+            Contamos com poltronas confortáveis, materiais rigorosamente esterilizados e uma equipe especialista no cuidado e bem-estar das suas unhas, mãos e pés.
           </p>
           
           <div class="location-box">
-            <div class="location-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="location-icon-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <div class="location-details">
-              <h4>Onde nos encontrar</h4>
-              <p>Piso L2, corredor da Lojas Americanas</p>
-              <span class="ref-text">Parque Shopping Bahia - Salvador / Lauro de Freitas</span>
+              <span class="location-badge">Onde nos encontrar</span>
+              <p class="location-text">Piso L2, no corredor das Lojas Americanas.</p>
             </div>
           </div>
           
-          <button class="cta-outline-button" onclick="openBookingModal()">Agendar uma visita</button>
+          <div class="about-actions">
+            <a href="https://wa.me/5571983259511?text=Ol%C3%A1%21+Gostaria+de+agendar+um+atendimento+na+unidade+Parque+Shopping+Bahia." target="_blank" rel="noopener noreferrer" class="about-action-btn about-whatsapp-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-svg"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              Fale com a recepção
+            </a>
+            <a href="https://www.trinks.com/esmaltale-salvador-norte-shopping" target="_blank" rel="noopener noreferrer" class="about-action-btn about-trinks-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-svg"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Agende agora no Trinks
+            </a>
+          </div>
         </div>
         
         <div class="about-visual">
@@ -472,7 +480,7 @@ body, html {
   display: inline-block;
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--color-pink-dark);
+  color: #E0609A; /* rosa oficial */
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -956,54 +964,108 @@ body, html {
 
 #esmaltale-landing .location-box {
   display: flex;
+  align-items: flex-start;
   gap: 16px;
-  background-color: var(--color-neutral-bg);
-  padding: 24px;
+  background-color: var(--color-white);
+  border: 1px solid rgba(107, 31, 124, 0.15);
+  padding: 20px;
   border-radius: var(--radius-large);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
-#esmaltale-landing .location-icon {
+#esmaltale-landing .location-icon-wrapper {
   flex-shrink: 0;
-  color: var(--color-pink-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(224, 96, 154, 0.1);
+  color: #E0609A;
   margin-top: 2px;
 }
 
-#esmaltale-landing .location-details h4 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-purple-dark);
-  margin-bottom: 4px;
+#esmaltale-landing .location-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-#esmaltale-landing .location-details p {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--color-purple-dark);
-  margin-bottom: 4px;
+#esmaltale-landing .location-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #E0609A; /* rosa oficial */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: rgba(224, 96, 154, 0.1);
+  padding: 4px 10px;
+  border-radius: 12px;
+  align-self: flex-start;
 }
 
-#esmaltale-landing .location-details .ref-text {
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: var(--color-purple-dark);
-  opacity: 0.65;
-}
-
-#esmaltale-landing .cta-outline-button {
-  display: inline-block;
-  border: 2px solid var(--color-pink-dark);
-  color: var(--color-pink-dark);
+#esmaltale-landing .location-text {
   font-size: 0.95rem;
   font-weight: 700;
-  padding: 16px 32px;
-  border-radius: var(--radius-large);
-  transition: var(--transition-smooth);
+  color: var(--color-purple-dark);
+  margin: 0;
 }
 
-#esmaltale-landing .cta-outline-button:hover {
-  background-color: var(--color-pink-dark);
+#esmaltale-landing .about-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+@media (min-width: 576px) {
+  #esmaltale-landing .about-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+#esmaltale-landing .about-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-radius: var(--radius-normal);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+#esmaltale-landing .about-action-btn .btn-svg {
+  width: 18px;
+  height: 18px;
+}
+
+#esmaltale-landing .about-whatsapp-btn {
+  background-color: #25D366;
   color: var(--color-white);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15);
+}
+
+#esmaltale-landing .about-whatsapp-btn:hover {
+  background-color: #20ba59;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.25);
+}
+
+#esmaltale-landing .about-trinks-btn {
+  background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+  color: var(--color-white);
+  box-shadow: 0 4px 12px rgba(224, 96, 154, 0.15);
+  animation: buttonPulseHighlight 2.5s infinite ease-in-out;
+}
+
+#esmaltale-landing .about-trinks-btn:hover {
+  filter: brightness(1.05);
   transform: translateY(-2px);
 }
 
