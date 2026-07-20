@@ -735,6 +735,21 @@ body, html {
   max-width: 100%;
 }
 
+/* PREVENÇÃO DE QUEBRA DE PALAVRAS AO MEIO NO RESPONSIVO */
+#esmaltale-landing h1,
+#esmaltale-landing h2,
+#esmaltale-landing h3,
+#esmaltale-landing h4,
+#esmaltale-landing p,
+#esmaltale-landing span,
+#esmaltale-landing a,
+#esmaltale-landing button {
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  word-wrap: normal !important;
+  hyphens: manual !important;
+}
+
 /* VARIÁVEIS DE ESTILO INTERNAS (ESCOPADAS) */
 #esmaltale-landing {
   --color-pink: #E0609A;
@@ -1700,6 +1715,16 @@ body, html {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+#esmaltale-landing .blur-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+#esmaltale-landing .blur-space {
+  display: inline-block;
+  white-space: pre;
 }
 
 #esmaltale-landing .blur-char {
@@ -3078,6 +3103,14 @@ body, html {
 }
 
 @media (max-width: 480px) {
+  #esmaltale-landing .cta-final-title {
+    font-size: 1.75rem;
+  }
+
+  #instagram-modal {
+    padding: 16px;
+  }
+  
   #instagram-modal .insta-feed-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
@@ -3507,36 +3540,36 @@ body, html {
     
     elements.forEach(el => {
       const text = el.textContent.trim();
-      const animateBy = el.getAttribute('data-animate-by') || 'letters';
       const delay = parseInt(el.getAttribute('data-delay') || '50', 10);
       
-      el.innerHTML = ''; // Limpa o conteúdo original
-      el.style.display = 'flex';
-      el.style.flexWrap = 'wrap';
-      el.style.justifyContent = 'center';
+      el.innerHTML = '';
       
-      let segments = [];
-      if (animateBy === 'words') {
-        segments = text.split(' ');
-      } else {
-        segments = text.split('');
-      }
+      const words = text.split(/\s+/);
+      let charCounter = 0;
       
-      segments.forEach((char, idx) => {
-        const span = document.createElement('span');
-        span.className = 'blur-char';
+      words.forEach((wordText, wIdx) => {
+        const wordSpan = document.createElement('span');
+        wordSpan.className = 'blur-word';
         
-        if (char === ' ') {
-          span.innerHTML = '&nbsp;';
-        } else {
+        wordText.split('').forEach((char) => {
+          const span = document.createElement('span');
+          span.className = 'blur-char';
           span.textContent = char;
-        }
+          span.style.animationDelay = `${charCounter * delay}ms`;
+          wordSpan.appendChild(span);
+          charCounter++;
+        });
         
-        span.style.animationDelay = `${idx * delay}ms`;
-        el.appendChild(span);
+        el.appendChild(wordSpan);
+        
+        if (wIdx < words.length - 1) {
+          const spaceSpan = document.createElement('span');
+          spaceSpan.className = 'blur-space';
+          spaceSpan.innerHTML = '&nbsp;';
+          el.appendChild(spaceSpan);
+        }
       });
       
-      // Observer para disparar quando entra no viewport
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
