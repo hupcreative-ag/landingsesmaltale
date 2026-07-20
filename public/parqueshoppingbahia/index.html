@@ -1073,56 +1073,75 @@ body, html {
 #esmaltale-landing .coupons-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
-  max-width: 440px; /* Reduzido no mobile para dar respiro lateral */
+  gap: 28px;
+  max-width: 480px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
   z-index: 1;
 }
 
-/* Clean, ultra-elegant coupon card wrapper */
+/* Wrapper para aplicar drop-shadow de brilho ao ShineBorder */
 #esmaltale-landing .shine-wrapper {
+  position: relative;
   width: 100%;
-  filter: none;
-  transition: transform 0.3s ease;
+  filter: drop-shadow(0 10px 24px rgba(107, 31, 124, 0.18)) 
+          drop-shadow(0 0 16px rgba(224, 96, 154, 0.28));
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+#esmaltale-landing .shine-wrapper:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 14px 32px rgba(107, 31, 124, 0.28)) 
+          drop-shadow(0 0 24px rgba(224, 96, 154, 0.45));
+}
+
+/* Shine border arredondado com efeito de rotação (ShineBorder Component) */
 #esmaltale-landing .shine-border {
   position: relative;
-  overflow: hidden;
-  z-index: 1;
-  display: flex;
-  background: var(--color-white);
   border-radius: 20px;
-  border: 1px solid rgba(107, 31, 124, 0.12);
-  box-shadow: 0 8px 24px rgba(107, 31, 124, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  padding: 2.5px;
+  overflow: hidden;
+  display: flex;
+  background: transparent;
 }
 
-#esmaltale-landing .shine-wrapper:hover .shine-border {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(107, 31, 124, 0.1);
-  border-color: rgba(224, 96, 154, 0.35);
+/* Camada interna animada com Conic Gradient */
+#esmaltale-landing .shine-border::before {
+  content: '';
+  position: absolute;
+  inset: -150%;
+  z-index: 0;
+  animation: spin-border linear infinite;
+  filter: blur(2px);
 }
 
-#esmaltale-landing .shine-border::before,
-#esmaltale-landing .shine-border::after {
-  display: none;
+/* Cores de destaque para o cupom de 15% (Rosa Destaque & Vinho) */
+#esmaltale-landing .shine-border.primary-shine::before {
+  background: conic-gradient(from 0deg, #E0609A, #FF7EB3, #E8605A, #6B1F7C, #A11E5D, #E0609A);
+  animation-duration: 3s;
 }
 
-#esmaltale-landing .coupon-card {
+/* Cores em tons de roxo para o cupom de 5% */
+#esmaltale-landing .shine-border.secondary-shine::before {
+  background: conic-gradient(from 0deg, #6B1F7C, #A855F7, #9333EA, #581C87, #6B1F7C);
+  animation-duration: 4.5s;
+}
+
+/* Card interno de conteúdo */
+#esmaltale-landing .shine-border .coupon-card {
   position: relative;
+  z-index: 1;
+  background: var(--color-white);
+  border-radius: 17.5px;
+  width: 100%;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   text-align: center;
-  cursor: pointer;
-  overflow: hidden;
-  border-radius: 20px;
-  gap: 14px;
-  min-height: auto;
+  gap: 16px;
+  box-sizing: border-box;
 }
 
 /* Marcadores de cupom rasgado nas laterais */
@@ -1130,19 +1149,21 @@ body, html {
 #esmaltale-landing .coupon-decor-right {
   position: absolute;
   top: 50%;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   background-color: var(--color-neutral-bg);
   border-radius: 50%;
-  z-index: 2;
+  z-index: 3;
 }
 #esmaltale-landing .coupon-decor-left {
-  left: -7px;
+  left: -8px;
   transform: translateY(-50%);
+  box-shadow: inset -2px 0 3px rgba(107, 31, 124, 0.08);
 }
 #esmaltale-landing .coupon-decor-right {
-  right: -7px;
+  right: -8px;
   transform: translateY(-50%);
+  box-shadow: inset 2px 0 3px rgba(107, 31, 124, 0.08);
 }
 
 #esmaltale-landing .coupon-content {
@@ -1154,67 +1175,74 @@ body, html {
 }
 
 #esmaltale-landing .coupon-title {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--color-pink-dark);
-  margin-bottom: 4px;
-  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
 }
 
 #esmaltale-landing .coupon-value {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.85rem; /* Tamanho mais elegante */
+  font-size: 2.1rem;
   font-weight: 800;
   color: var(--color-purple);
   line-height: 1.1;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   text-shadow: none;
   filter: none;
 }
 
 #esmaltale-landing .coupon-sub-label {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--color-pink-dark);
   text-transform: none;
   letter-spacing: 0.01em;
-  margin-top: -6px;
-  margin-bottom: 8px;
+  margin-top: -4px;
+  margin-bottom: 10px;
 }
 
 #esmaltale-landing .coupon-text {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--color-purple-dark);
-  opacity: 0.8;
+  opacity: 0.85;
   line-height: 1.45;
   margin-bottom: 0px;
-  max-width: 300px;
+  max-width: 320px;
 }
 
 #esmaltale-landing .coupon-action-btn {
   width: 100%;
-  max-width: 240px;
+  max-width: 260px;
   background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
   color: var(--color-white);
-  font-size: 0.88rem;
-  font-weight: 600;
-  padding: 11px 20px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 12px 24px;
   border-radius: 50px;
-  box-shadow: 0 4px 12px rgba(224, 96, 154, 0.25);
+  box-shadow: 0 4px 14px rgba(224, 96, 154, 0.3);
   transition: var(--transition-smooth);
   text-align: center;
+  border: none;
+  cursor: pointer;
 }
 
 #esmaltale-landing .coupon-card:hover .coupon-action-btn {
+  transform: scale(1.03);
   background: linear-gradient(135deg, var(--color-pink-dark), #7c1244);
+  box-shadow: 0 6px 18px rgba(224, 96, 154, 0.4);
 }
 
 #esmaltale-landing .coupon-action-btn.secondary {
   background: var(--color-purple);
+  box-shadow: 0 4px 14px rgba(107, 31, 124, 0.3);
 }
 
 #esmaltale-landing .coupon-card:hover .coupon-action-btn.secondary {
+  transform: scale(1.03);
   background: #551463;
+  box-shadow: 0 6px 18px rgba(107, 31, 124, 0.4);
 }
 
 @keyframes spin-border {
@@ -2189,8 +2217,8 @@ body, html {
   
   #esmaltale-landing .coupons-grid {
     grid-template-columns: repeat(2, 1fr);
-    max-width: 720px;
-    gap: 24px;
+    max-width: 820px;
+    gap: 32px;
   }
   
   #esmaltale-landing .about-section {
