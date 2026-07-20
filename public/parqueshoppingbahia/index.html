@@ -467,7 +467,7 @@
 
   <!-- ==================== INSTAGRAM BANNER ==================== -->
   <section class="instagram-banner">
-    <a href="https://www.instagram.com/esmaltale" target="_blank" rel="noopener noreferrer" class="instagram-link">
+    <a href="javascript:void(0)" onclick="openInstagramModal()" class="instagram-link">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="instagram-icon"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
       <span>Siga nosso perfil @esmaltale no Instagram</span>
     </a>
@@ -639,15 +639,42 @@
             <span class="divider-line"></span>
           </div>
 
-          <div class="ticket-validity-box">
-            Válido até 04/09/2026
-          </div>
-        </div>
+<!-- ==================== MODAL DE FEED DO INSTAGRAM ==================== -->
+<dialog id="instagram-modal">
+  <div class="insta-modal-wrapper">
+    <button class="modal-close-btn" onclick="closeInstagramModal()" aria-label="Fechar feed do Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <div class="insta-profile-header">
+      <div class="insta-avatar-wrapper">
+        <img src="../assets/logofav.png" alt="@esmaltale Avatar" class="insta-avatar">
       </div>
-      
-      <p class="coupon-use-instruction">
-        Apresente a imagem deste cupom na recepção para utilizar o seu desconto.
-      </p>
+      <div class="insta-profile-info">
+        <div class="insta-handle-row">
+          <h3 class="insta-handle">@esmaltale</h3>
+          <span class="insta-verified-badge" title="Conta Oficial">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#3897f0"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.7 14.3l-3.6-3.6 1.4-1.4 2.2 2.2 5.6-5.6 1.4 1.4-7 7z"/></svg>
+          </span>
+        </div>
+        <p class="insta-bio">Esmalteria & Especialistas em Unhas no Parque Shopping Bahia</p>
+      </div>
+      <a href="https://www.instagram.com/esmaltale" target="_blank" rel="noopener noreferrer" class="insta-follow-btn">
+        Seguir
+      </a>
+    </div>
+
+    <div class="insta-feed-grid" id="insta-feed-container">
+      <!-- Publicações populadas dinamicamente via JS -->
+    </div>
+
+    <div class="insta-modal-footer">
+      <a href="https://www.instagram.com/esmaltale" target="_blank" rel="noopener noreferrer" class="insta-view-more-btn">
+        Ver perfil completo no Instagram &rarr;
+      </a>
+    </div>
+  </div>
+</dialog>
       
       <div class="coupon-modal-actions">
         <button class="action-btn download-btn" onclick="downloadCoupon()">
@@ -2810,6 +2837,179 @@ body, html {
   color: var(--color-pink-dark);
 }
 
+/* MODAL DE FEED DO INSTAGRAM */
+#instagram-modal {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 640px;
+  width: 92%;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  z-index: 1000;
+  overflow: visible;
+  outline: none;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#instagram-modal[open] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#instagram-modal::backdrop {
+  background-color: rgba(42, 36, 40, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+#instagram-modal .insta-modal-wrapper {
+  background-color: var(--color-white);
+  border-radius: 24px;
+  padding: 24px 20px 20px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#instagram-modal .insta-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(107, 31, 124, 0.1);
+  margin-bottom: 16px;
+}
+
+#instagram-modal .insta-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-pink);
+  padding: 2px;
+}
+
+#instagram-modal .insta-profile-info {
+  flex: 1;
+}
+
+#instagram-modal .insta-handle-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#instagram-modal .insta-handle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-purple-dark);
+  margin: 0;
+}
+
+#instagram-modal .insta-bio {
+  font-size: 0.78rem;
+  color: var(--color-purple-dark);
+  opacity: 0.75;
+  margin: 2px 0 0 0;
+}
+
+#instagram-modal .insta-follow-btn {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: var(--color-white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+#instagram-modal .insta-follow-btn:hover {
+  transform: scale(1.05);
+}
+
+#instagram-modal .insta-feed-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  overflow-y: auto;
+  padding-right: 4px;
+  max-height: 50vh;
+}
+
+@media (max-width: 480px) {
+  #instagram-modal .insta-feed-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+#instagram-modal .insta-post-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--color-neutral-bg);
+  text-decoration: none;
+}
+
+#instagram-modal .insta-post-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+#instagram-modal .insta-post-card:hover img {
+  transform: scale(1.08);
+}
+
+#instagram-modal .insta-post-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(42, 36, 40, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--color-white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+#instagram-modal .insta-post-card:hover .insta-post-overlay {
+  opacity: 1;
+}
+
+#instagram-modal .insta-modal-footer {
+  padding-top: 16px;
+  text-align: center;
+  border-top: 1px solid rgba(107, 31, 124, 0.1);
+  margin-top: 16px;
+}
+
+#instagram-modal .insta-view-more-btn {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-purple);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+#instagram-modal .insta-view-more-btn:hover {
+  color: var(--color-pink-dark);
+}
+
 /* OVERRIDES RESPONSIVOS MOBILE GERAIS */
 @media (max-width: 767px) {
   #esmaltale-landing .about-visual {
@@ -2902,6 +3102,63 @@ body, html {
         }
       });
     }
+  }
+
+  // CONTROLE DO MODAL DE FEED DO INSTAGRAM
+  const instagramModal = document.getElementById('instagram-modal');
+
+  window.openInstagramModal = function() {
+    if (instagramModal) {
+      initInstagramFeed();
+      instagramModal.showModal();
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeInstagramModal = function() {
+    if (instagramModal) {
+      instagramModal.close();
+      document.body.style.overflow = '';
+    }
+  };
+
+  if (instagramModal) {
+    instagramModal.addEventListener('click', (event) => {
+      if (event.target === instagramModal) {
+        closeInstagramModal();
+      }
+    });
+  }
+
+  function initInstagramFeed() {
+    const container = document.getElementById('insta-feed-container');
+    if (!container || container.children.length > 0) return;
+
+    const posts = [
+      { img: '../assets/Galeria/01.jpg', likes: '142', comments: '18', link: 'https://www.instagram.com/esmaltale' },
+      { img: '../assets/Galeria/02.jpg', likes: '215', comments: '24', link: 'https://www.instagram.com/esmaltale' },
+      { img: '../assets/Galeria/03.jpg', likes: '189', comments: '15', link: 'https://www.instagram.com/esmaltale' },
+      { img: '../assets/Galeria/04.jpg', likes: '304', comments: '42', link: 'https://www.instagram.com/esmaltale' },
+      { img: '../assets/Galeria/05.jpg', likes: '176', comments: '19', link: 'https://www.instagram.com/esmaltale' },
+      { img: '../assets/Galeria/06.jpg', likes: '280', comments: '31', link: 'https://www.instagram.com/esmaltale' }
+    ];
+
+    container.innerHTML = '';
+    posts.forEach(post => {
+      const card = document.createElement('a');
+      card.href = post.link;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+      card.className = 'insta-post-card';
+      card.innerHTML = `
+        <img src="${post.img}" alt="Publicação Instagram Esmaltale" loading="lazy">
+        <div class="insta-post-overlay">
+          <span>❤️ ${post.likes}</span>
+          <span>💬 ${post.comments}</span>
+        </div>
+      `;
+      container.appendChild(card);
+    });
   }
 
   // LOGICA DO MODAL DE EXIBIÇÃO DO CUPOM E DOWNLOAD PNG
