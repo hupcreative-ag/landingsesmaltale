@@ -12,6 +12,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <!-- html2canvas para download do cupom como imagem -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- canvas-confetti para comemoração ao abrir cupom -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
@@ -65,12 +67,12 @@
         <!-- Wrapper com drop-shadow de brilho para o cupom de 15% -->
         <div class="shine-wrapper">
           <div class="shine-border primary-shine">
-            <div class="coupon-card primary-coupon" onclick="openCouponModal('15', 'Sua primeira vez na Esmaltale', '15% de Desconto', 'Válido no primeiro serviço realizado por novas clientes na unidade Parque Shopping Bahia.')">
+            <div class="coupon-card primary-coupon" onclick="openCouponModal('15', 'Na sua primeira visita')">
               <div class="coupon-decor-left"></div>
               <div class="coupon-decor-right"></div>
               <div class="coupon-content">
                 <h3 class="coupon-title">Sua primeira vez na Esmaltale</h3>
-                <div class="coupon-value">15%</div>
+                <div class="coupon-value">15% de Desconto</div>
                 <p class="coupon-text">Válido no primeiro serviço realizado por novas clientes na unidade Parque Shopping Bahia.</p>
               </div>
               <button class="coupon-action-btn">Garantir Desconto</button>
@@ -81,12 +83,12 @@
         <!-- Wrapper com drop-shadow de brilho para o cupom de 5% -->
         <div class="shine-wrapper">
           <div class="shine-border secondary-shine">
-            <div class="coupon-card secondary-coupon" onclick="openCouponModal('5', 'Um mimo para quem já é da casa', '5% de Desconto', 'Presente especial para quem já é nossa cliente aproveitar em qualquer serviço na unidade.')">
+            <div class="coupon-card secondary-coupon" onclick="openCouponModal('5', 'Para quem já é da casa')">
               <div class="coupon-decor-left"></div>
               <div class="coupon-decor-right"></div>
               <div class="coupon-content">
                 <h3 class="coupon-title">Um mimo para quem já é da casa</h3>
-                <div class="coupon-value">5%</div>
+                <div class="coupon-value">5% de Desconto</div>
                 <p class="coupon-text">Presente especial para quem já é nossa cliente aproveitar em qualquer serviço na unidade.</p>
               </div>
               <button class="coupon-action-btn secondary">Garantir Mimo</button>
@@ -325,25 +327,25 @@
       <div id="coupon-ticket-render" class="coupon-ticket">
         <div class="ticket-header">
           <img src="assets/logo_branca.png" alt="Esmaltale Logo" class="ticket-logo">
-          <span class="ticket-title-sub">Unidade Parque Shopping Bahia</span>
         </div>
         <div class="ticket-body">
-          <div class="ticket-badge" id="ticket-badge-val">15% OFF</div>
-          <h3 class="ticket-coupon-title" id="ticket-title-val">Primeira Visita</h3>
-          <p class="ticket-coupon-desc" id="ticket-desc-val">Válido no primeiro serviço realizado por novas clientes.</p>
+          <div class="ticket-badge" id="ticket-badge-val">15% de Desconto</div>
+          <h3 class="ticket-coupon-title" id="ticket-title-val">Na sua primeira visita</h3>
           
-          <div class="ticket-divider">
-            <span class="divider-circle-left"></span>
-            <span class="divider-circle-right"></span>
-            <span class="divider-line"></span>
+          <div class="ticket-location">
+            <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Parque Shopping Bahia
           </div>
-          
-          <!-- Representação visual de código de barras para dar sensação premium -->
-          <div class="ticket-barcode">
-            <div class="barcode-lines">
-              <span class="bar thin"></span><span class="bar thick"></span><span class="bar thin"></span><span class="bar medium"></span><span class="bar thin"></span><span class="bar thick"></span><span class="bar thin"></span><span class="bar thin"></span><span class="bar medium"></span><span class="bar thick"></span><span class="bar thin"></span>
-            </div>
-            <span class="barcode-number" id="ticket-code-val">ESMALTALE15</span>
+
+          <div class="ticket-validity-box">
+            Válido até 04/09/2026
+          </div>
+
+          <div class="ticket-divider">
+            <span class="divider-line"></span>
           </div>
         </div>
       </div>
@@ -355,11 +357,11 @@
       <div class="coupon-modal-actions">
         <button class="action-btn download-btn" onclick="downloadCoupon()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="action-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Salvar na Galeria
+          Salvar cupom
         </button>
         <button class="action-btn schedule-btn" onclick="goToSchedule()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="action-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Agendar sua Visita
+          Agende sua visita
         </button>
       </div>
     </div>
@@ -684,7 +686,7 @@ body, html {
   transform: translateY(-1px);
 }
 
-/* 2. ESTILO BLOCO DE OFERTAS (CUPONS COMPACTADOS E FORMATO TICKET DIVERTIDO) */
+/* 2. ESTILO BLOCO DE OFERTAS (CUPONS COMPACTADOS E FORMATO TICKET DIVERTIDO E ARREDONDADO) */
 #esmaltale-landing .offers-section {
   padding-top: 16px; /* reduzido para evitar fadiga */
   padding-bottom: 16px;
@@ -748,17 +750,17 @@ body, html {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-  max-width: 800px; /* reduzido para visualização mais compacta */
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
   z-index: 1;
 }
 
-/* Wrapper para aplicar drop-shadow de brilho sem ser cortado pelo clip-path */
+/* Wrapper para aplicar drop-shadow de brilho */
 #esmaltale-landing .shine-wrapper {
   filter: drop-shadow(0 10px 20px rgba(107, 31, 124, 0.25)) 
-          drop-shadow(0 0 15px rgba(224, 96, 154, 0.4)); /* Brilho aumentado */
+          drop-shadow(0 0 15px rgba(224, 96, 154, 0.4));
   transition: transform 0.3s ease, filter 0.3s ease;
   width: 100%;
 }
@@ -766,25 +768,18 @@ body, html {
 #esmaltale-landing .shine-wrapper:hover {
   transform: translateY(-4px);
   filter: drop-shadow(0 15px 30px rgba(107, 31, 124, 0.35)) 
-          drop-shadow(0 0 25px rgba(224, 96, 154, 0.6)); /* Brilho ultra destacado no hover */
+          drop-shadow(0 0 25px rgba(224, 96, 154, 0.6));
 }
 
-/* Shine border com clip-path de formato ticket divertido */
+/* Shine border arredondado */
 #esmaltale-landing .shine-border {
   position: relative;
-  padding: 2px; /* borderWidth */
+  padding: 2px;
   overflow: hidden;
   z-index: 1;
   display: flex;
   background: transparent;
-  clip-path: polygon(
-    0% 16px, 16px 0%, 
-    calc(100% - 16px) 0%, 100% 16px, 
-    100% calc(50% - 10px), calc(100% - 8px) 50%, 100% calc(50% + 10px),
-    100% calc(100% - 16px), calc(100% - 16px) 100%, 
-    16px 100%, 0% calc(100% - 16px),
-    0% calc(50% + 10px), 8px 50%, 0% calc(50% - 10px)
-  );
+  border-radius: 20px; /* Cantos arredondados */
 }
 
 #esmaltale-landing .shine-border::before {
@@ -796,10 +791,10 @@ body, html {
   filter: blur(2px);
 }
 
-/* Conic gradient de destaque para o cupom principal de 15% (cores vibrantes de marca) */
+/* Conic gradient de destaque para o cupom de 15% */
 #esmaltale-landing .shine-border.primary-shine::before {
   background: conic-gradient(from 0deg, #E0609A, #E8605A, #6B1F7C, #A11E5D, #E0609A);
-  animation-duration: 3s; /* rotação rápida para destaque */
+  animation-duration: 3s;
 }
 
 /* Conic gradient roxo para o cupom de 5% */
@@ -811,8 +806,9 @@ body, html {
 #esmaltale-landing .shine-border::after {
   content: '';
   position: absolute;
-  inset: 2px; /* borderWidth */
+  inset: 2px;
   background: var(--color-white);
+  border-radius: 18px; /* Arredondado proporcional */
   z-index: -1;
 }
 
@@ -829,18 +825,31 @@ body, html {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; /* Centralização horizontal completa */
-  text-align: center; /* Centralização de texto */
+  align-items: center;
+  text-align: center;
   cursor: pointer;
   overflow: hidden;
-  clip-path: polygon(
-    0% 15px, 15px 0%, 
-    calc(100% - 15px) 0%, 100% 15px, 
-    100% calc(50% - 9px), calc(100% - 7px) 50%, 100% calc(50% + 9px),
-    100% calc(100% - 15px), calc(100% - 15px) 100%, 
-    15px 100%, 0% calc(100% - 15px),
-    0% calc(50% + 9px), 7px 50%, 0% calc(50% - 9px)
-  );
+  border-radius: 18px; /* Arredondado */
+}
+
+/* Marcadores de cupom rasgado nas laterais */
+#esmaltale-landing .coupon-decor-left,
+#esmaltale-landing .coupon-decor-right {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  background-color: var(--color-neutral-bg);
+  border-radius: 50%;
+  z-index: 2;
+}
+#esmaltale-landing .coupon-decor-left {
+  left: -8px;
+  transform: translateY(-50%);
+}
+#esmaltale-landing .coupon-decor-right {
+  right: -8px;
+  transform: translateY(-50%);
 }
 
 #esmaltale-landing .coupon-content {
@@ -848,11 +857,11 @@ body, html {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center; /* centraliza conteúdo interno */
+  align-items: center;
 }
 
 #esmaltale-landing .coupon-title {
-  font-size: 1rem; /* reduzido */
+  font-size: 1rem;
   font-weight: 700;
   color: var(--color-pink-dark);
   margin-bottom: 8px;
@@ -861,14 +870,13 @@ body, html {
 
 #esmaltale-landing .coupon-value {
   font-family: 'Outfit', sans-serif;
-  font-size: 3rem; /* Aumentado drasticamente para destaque máximo */
-  font-weight: 900;
-  background: linear-gradient(135deg, var(--color-pink-dark), var(--color-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 1;
+  font-size: 2.2rem; /* Tamanho proporcional */
+  font-weight: 800;
+  color: var(--color-purple); /* Sólido, sem gradiente metálico */
+  line-height: 1.1;
   margin-bottom: 8px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  text-shadow: none; /* Sombra removida */
+  filter: none; /* Filtros removidos */
 }
 
 #esmaltale-landing .coupon-text {
@@ -1828,43 +1836,42 @@ body, html {
   height: 14px;
 }
 
-#esmaltale-landing .coupon-modal-actions .download-btn {
-  background-color: var(--color-purple);
-  color: var(--color-white);
-}
-
 #esmaltale-landing .coupon-modal-actions .download-btn:hover {
-  background-color: #551463;
+  background-color: rgba(107, 31, 124, 0.05);
 }
 
-#esmaltale-landing .coupon-modal-actions .schedule-btn {
-  background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
-  color: var(--color-white);
-  animation: buttonPulseGlow 3s infinite ease-in-out;
-}
-
-#esmaltale-landing .coupon-modal-actions .schedule-btn:hover {
-  transform: translateY(-2px);
-}
-
-/* ESTILOS PARA O NOVO MODAL DO CUPOM */
+/* ESTILOS DO MODAL REESTRUTURADOS */
 #coupon-modal {
   border: none;
   background: transparent;
   padding: 0;
-  max-width: 360px; /* mais compacto */
+  max-width: 360px;
   width: 90%;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.95);
   margin: 0;
   z-index: 1000;
   overflow: visible;
   outline: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#coupon-modal[open] {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 #coupon-modal::backdrop {
+  background-color: rgba(42, 36, 40, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+#coupon-modal[open]::backdrop {
   background-color: rgba(42, 36, 40, 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -1872,8 +1879,8 @@ body, html {
 
 #coupon-modal .modal-wrapper {
   background-color: var(--color-white);
-  border-radius: var(--radius-large);
-  padding: 24px 20px 20px;
+  border-radius: 24px; /* Arredondado */
+  padding: 28px 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1881,27 +1888,27 @@ body, html {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
+/* Botão de fechar corrigido e posicionado com segurança dentro da área branca */
 #coupon-modal .modal-close-btn {
   position: absolute;
-  top: -12px;
-  right: -12px;
+  top: 12px;
+  right: 12px;
   width: 32px;
   height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: var(--color-white);
+  background-color: var(--color-neutral-bg);
   color: var(--color-purple-dark);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   transition: var(--transition-smooth);
-  z-index: 10;
   border: none;
   cursor: pointer;
+  z-index: 10;
 }
 
 #coupon-modal .modal-close-btn:hover {
-  background-color: var(--color-neutral-bg);
+  background-color: #f2e2e5;
   transform: rotate(90deg);
 }
 
@@ -1913,50 +1920,35 @@ body, html {
 /* DESIGN DO TICKET DE CUPOM */
 #esmaltale-landing .coupon-ticket {
   width: 100%;
-  background-color: #6B1F7C; /* Fundo roxo da marca */
+  background-color: #6B1F7C;
+  border-radius: 20px; /* Arredondado */
+  overflow: hidden;
   box-shadow: 0 10px 25px rgba(107, 31, 124, 0.15);
   display: flex;
   flex-direction: column;
   padding: 0;
   margin-bottom: 16px;
-  /* Formato de ticket com clip-path divertido */
-  clip-path: polygon(
-    0% 16px, 16px 0%, 
-    calc(100% - 16px) 0%, 100% 16px, 
-    100% calc(65% - 10px), calc(100% - 8px) 65%, 100% calc(65% + 10px),
-    100% calc(100% - 16px), calc(100% - 16px) 100%, 
-    16px 100%, 0% calc(100% - 16px),
-    0% calc(65% + 10px), 8px 65%, 0% calc(65% - 10px)
-  );
 }
 
 #esmaltale-landing .ticket-header {
-  background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
-  padding: 16px;
+  background: #E0609A; /* Fundo rosa sólido destacado */
+  padding: 20px 16px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 4px;
-  text-align: center;
 }
 
 #esmaltale-landing .ticket-logo {
-  width: 110px;
+  width: 130px; /* logo maior e em destaque sozinha */
   height: auto;
 }
 
-#esmaltale-landing .ticket-title-sub {
-  color: var(--color-white);
-  font-size: 0.7rem;
-  font-weight: 700;
-  opacity: 0.9;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
 #esmaltale-landing .ticket-body {
-  background-color: var(--color-white);
-  padding: 20px 16px;
+  /* Fundo aparecendo a foto da loja com overlay translúcido para contraste */
+  background-image: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('assets/Lojas/parque-shopping-bahia02.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1965,81 +1957,54 @@ body, html {
 }
 
 #esmaltale-landing .ticket-badge {
-  background-color: rgba(161, 30, 93, 0.1);
-  color: var(--color-pink-dark);
-  font-size: 1rem;
+  background-color: var(--color-pink-dark);
+  color: var(--color-white);
+  font-size: 1.15rem; /* Mais destacado */
   font-weight: 800;
-  padding: 4px 14px;
-  border-radius: var(--radius-normal);
-  margin-bottom: 10px;
+  padding: 6px 18px;
+  border-radius: var(--radius-large);
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(161, 30, 93, 0.2);
 }
 
 #esmaltale-landing .ticket-coupon-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--color-purple);
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
 
-#esmaltale-landing .ticket-coupon-desc {
-  font-size: 0.8rem;
+#esmaltale-landing .ticket-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--color-purple-dark);
-  opacity: 0.8;
-  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+#esmaltale-landing .ticket-location .location-icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--color-pink-dark);
+}
+
+#esmaltale-landing .ticket-validity-box {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #8c8088;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   margin-bottom: 16px;
 }
 
 #esmaltale-landing .ticket-divider {
   width: 100%;
-  height: 16px;
-  position: relative;
-  margin-bottom: 12px;
-}
-
-#esmaltale-landing .divider-circle-left,
-#esmaltale-landing .divider-circle-right {
-  display: none; /* Ocultados pois o clip-path geral do cupom faz o trabalho perfeitamente */
-}
-
-#esmaltale-landing .divider-line {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  border-top: 2px dashed rgba(42, 36, 40, 0.15);
-  transform: translateY(-50%);
-}
-
-#esmaltale-landing .ticket-barcode {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-#esmaltale-landing .barcode-lines {
-  display: flex;
-  height: 30px;
-  align-items: stretch;
-}
-
-#esmaltale-landing .barcode-lines .bar {
-  background-color: var(--color-purple-dark);
-  margin: 0 1px;
-}
-
-#esmaltale-landing .barcode-lines .bar.thin { width: 1px; }
-#esmaltale-landing .barcode-lines .bar.medium { width: 2.5px; }
-#esmaltale-landing .barcode-lines .bar.thick { width: 4px; }
-
-#esmaltale-landing .barcode-number {
-  font-family: monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  color: var(--color-purple-dark);
-  opacity: 0.7;
+  height: 2px;
+  border-top: 2px dashed rgba(107, 31, 124, 0.15);
+  margin-top: 8px;
 }
 
 #esmaltale-landing .coupon-use-instruction {
@@ -2052,6 +2017,7 @@ body, html {
   font-weight: 500;
 }
 
+/* Ações do Modal */
 #esmaltale-landing .coupon-modal-actions {
   display: flex;
   flex-direction: column;
@@ -2079,13 +2045,43 @@ body, html {
   height: 14px;
 }
 
+/* Botão Salvar Cupom: Branco com contorno roxo e tipografia roxa */
 #esmaltale-landing .coupon-modal-actions .download-btn {
-  background-color: var(--color-purple);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-purple);
+  color: var(--color-purple);
 }
 
 #esmaltale-landing .coupon-modal-actions .download-btn:hover {
-  background-color: #551463;
+  background-color: rgba(107, 31, 124, 0.05);
+}
+
+#esmaltale-landing .coupon-modal-actions .download-btn .action-icon {
+  stroke: var(--color-purple);
+}
+
+/* Botão Agendar: pulsando de forma destacada */
+#esmaltale-landing .coupon-modal-actions .schedule-btn {
+  background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+  color: var(--color-white);
+  animation: buttonPulseHighlight 2.5s infinite ease-in-out;
+}
+
+#esmaltale-landing .coupon-modal-actions .schedule-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+@keyframes buttonPulseHighlight {
+  0% {
+    box-shadow: 0 5px 15px rgba(224, 96, 154, 0.4), 0 0 0 0px rgba(224, 96, 154, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(224, 96, 154, 0.6), 0 0 0 8px rgba(224, 96, 154, 0);
+  }
+  100% {
+    box-shadow: 0 5px 15px rgba(224, 96, 154, 0.4), 0 0 0 0px rgba(224, 96, 154, 0);
+  }
 }
 </style>
 
@@ -2147,20 +2143,35 @@ body, html {
   const couponModal = document.getElementById('coupon-modal');
   let currentCouponData = {};
 
-  window.openCouponModal = function(val, title, badgeText, descText) {
+  window.openCouponModal = function(val, title) {
     if (!couponModal) return;
 
     // Salva os dados ativos para o download
-    currentCouponData = { val, title, badgeText, descText };
+    currentCouponData = { val, title };
 
     // Atualiza os elementos visuais do ticket
-    document.getElementById('ticket-badge-val').textContent = val + '% OFF';
+    document.getElementById('ticket-badge-val').textContent = val + '% de Desconto';
     document.getElementById('ticket-title-val').textContent = title;
-    document.getElementById('ticket-desc-val').textContent = descText;
-    document.getElementById('ticket-code-val').textContent = 'ESMALTALE' + val;
+    
+    // Limpa descrições legadas se existirem no DOM
+    const legacyDesc = document.getElementById('ticket-desc-val');
+    if (legacyDesc) legacyDesc.style.display = 'none';
+    
+    const legacyCode = document.getElementById('ticket-code-val');
+    if (legacyCode) legacyCode.textContent = 'ESMALTALE' + val;
 
     couponModal.showModal();
     document.body.style.overflow = 'hidden';
+
+    // Dispara a chuva de confetes comemorativa!
+    if (window.confetti) {
+      confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.65 },
+        colors: ['#E0609A', '#6B1F7C', '#A11E5D', '#FFD700', '#FFFFFF']
+      });
+    }
   };
 
   window.closeCouponModal = function() {
