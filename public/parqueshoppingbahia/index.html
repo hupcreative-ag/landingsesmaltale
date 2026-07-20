@@ -369,6 +369,16 @@
   <!-- ==================== CTA FINAL ==================== -->
   <section class="cta-final-section">
     <div class="cta-final-bg"></div>
+    <!-- Brilhos elegantes dispersos piscando aleatoriamente -->
+    <div class="cta-sparkles-container" aria-hidden="true">
+      <span class="cta-sparkle sp-1"></span>
+      <span class="cta-sparkle sp-2"></span>
+      <span class="cta-sparkle sp-3"></span>
+      <span class="cta-sparkle sp-4"></span>
+      <span class="cta-sparkle sp-5"></span>
+      <span class="cta-sparkle sp-6"></span>
+      <span class="cta-sparkle sp-7"></span>
+    </div>
     <div class="section-container cta-final-content">
       <h2 class="cta-final-title" data-blur-text data-animate-by="letters" data-delay="50">Você merece brilhar!</h2>
       <p class="cta-final-subtitle">Os descontos da semana são limitados. Agende seu horário hoje mesmo e garanta sua oferta especial na unidade Parque Shopping Bahia.</p>
@@ -1557,6 +1567,47 @@ body, html {
   background: linear-gradient(135deg, rgba(224, 96, 154, 0.15) 0%, rgba(107, 31, 124, 0.15) 100%);
   z-index: 1;
   pointer-events: none;
+}
+
+/* Container de brilhos dispersos */
+#esmaltale-landing .cta-sparkles-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#esmaltale-landing .cta-sparkle {
+  position: absolute;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: var(--color-white);
+  clip-path: polygon(50% 0%, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0% 50%, 37% 37%);
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.9));
+  animation: cta-sparkle-twinkle infinite ease-in-out;
+}
+
+/* Diferentes posições, tamanhos e intervalos para parecer totalmente aleatório e natural */
+#esmaltale-landing .cta-sparkle.sp-1 { top: 18%; left: 8%; width: 10px; height: 10px; animation-duration: 3.2s; animation-delay: 0s; }
+#esmaltale-landing .cta-sparkle.sp-2 { top: 24%; right: 12%; width: 15px; height: 15px; animation-duration: 4.1s; animation-delay: 1.2s; }
+#esmaltale-landing .cta-sparkle.sp-3 { bottom: 22%; left: 12%; width: 13px; height: 13px; animation-duration: 3.8s; animation-delay: 2.3s; }
+#esmaltale-landing .cta-sparkle.sp-4 { bottom: 28%; right: 9%; width: 9px; height: 9px; animation-duration: 4.5s; animation-delay: 0.7s; }
+#esmaltale-landing .cta-sparkle.sp-5 { top: 68%; left: 24%; width: 12px; height: 12px; animation-duration: 3.5s; animation-delay: 1.8s; }
+#esmaltale-landing .cta-sparkle.sp-6 { top: 14%; right: 28%; width: 11px; height: 11px; animation-duration: 4.8s; animation-delay: 2.9s; }
+#esmaltale-landing .cta-sparkle.sp-7 { bottom: 14%; right: 30%; width: 14px; height: 14px; animation-duration: 3.9s; animation-delay: 0.4s; }
+
+@keyframes cta-sparkle-twinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.3) rotate(0deg);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.15) rotate(45deg);
+  }
 }
 
 #esmaltale-landing .cta-final-content {
