@@ -73,6 +73,7 @@
               <div class="coupon-content">
                 <h3 class="coupon-title">Sua primeira vez na Esmaltale</h3>
                 <div class="coupon-value">15% de Desconto</div>
+                <div class="coupon-sub-label">em serviços Esmaltale</div>
                 <p class="coupon-text">Válido no primeiro serviço realizado por novas clientes na unidade Parque Shopping Bahia.</p>
               </div>
               <button class="coupon-action-btn">Garantir Desconto</button>
@@ -89,6 +90,7 @@
               <div class="coupon-content">
                 <h3 class="coupon-title">Um mimo para quem já é da casa</h3>
                 <div class="coupon-value">5% de Desconto</div>
+                <div class="coupon-sub-label">em serviços Esmaltale</div>
                 <p class="coupon-text">Presente especial para quem já é nossa cliente aproveitar em qualquer serviço na unidade.</p>
               </div>
               <button class="coupon-action-btn secondary">Garantir Mimo</button>
@@ -332,8 +334,8 @@
         </div>
         <div class="ticket-body">
           <div class="ticket-badge" id="ticket-badge-val">15% de Desconto</div>
+          <p class="ticket-coupon-sub">em serviços Esmaltale</p>
           <h3 class="ticket-coupon-title" id="ticket-title-val">Na sua primeira visita</h3>
-          <p class="ticket-coupon-sub">em serviços na Esmaltale</p>
           
           <div class="ticket-location">
             <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -880,6 +882,16 @@ body, html {
   margin-bottom: 8px;
   text-shadow: none; /* Sombra removida */
   filter: none; /* Filtros removidos */
+}
+
+#esmaltale-landing .coupon-sub-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-pink-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: -4px;
+  margin-bottom: 12px;
 }
 
 #esmaltale-landing .coupon-text {
@@ -2258,10 +2270,12 @@ body, html {
     downloadBtn.innerHTML = 'Gerando imagem...';
 
     html2canvas(ticket, {
-      scale: 2, // maior qualidade de pixel
+      scale: 3, // Aumentado para 3x para qualidade máxima de retina e nitidez ao salvar
       backgroundColor: null, // fundo transparente nos cantos arredondados
       useCORS: true,
-      logging: false
+      allowTaint: true,
+      logging: false,
+      imageTimeout: 0
     }).then(canvas => {
       const link = document.createElement('a');
       link.download = `cupom-esmaltale-${currentCouponData.val}off.png`;
