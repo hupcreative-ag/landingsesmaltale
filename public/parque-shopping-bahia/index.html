@@ -39,7 +39,7 @@
       
       <p class="hero-subtitle">Das mãos aos pés, com técnica e leveza, em um espaço feito para você dentro do shopping.</p>
       
-      <button class="specular-button" onclick="scrollToCoupons()">Temos um presente para você</button>
+      <button class="specular-button" onclick="scrollToCoupons()">Resgate o seu presente</button>
     </div>
   </section>
 
@@ -593,12 +593,13 @@ body, html {
 #esmaltale-landing .hero-section {
   position: relative;
   width: 100%;
-  min-height: 80vh;
-  min-height: 550px;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 64px 24px;
+  padding: 48px 24px;
   background: linear-gradient(-45deg, var(--color-purple), var(--color-pink), var(--color-coral), var(--color-purple));
   background-size: 400% 400%;
   animation: heroGradientLoop 15s ease infinite;
@@ -782,8 +783,13 @@ body, html {
 
 /* 2. ESTILO BLOCO DE OFERTAS (CUPONS COMPACTADOS E FORMATO TICKET DIVERTIDO E ARREDONDADO) */
 #esmaltale-landing .offers-section {
-  padding-top: 16px; /* reduzido para evitar fadiga */
-  padding-bottom: 16px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 24px;
   background-color: var(--color-neutral-bg);
   position: relative;
   overflow: hidden;
@@ -1886,8 +1892,8 @@ body, html {
   }
   
   #esmaltale-landing .hero-section {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
   
   #esmaltale-landing .hero-title {
@@ -1895,8 +1901,8 @@ body, html {
   }
   
   #esmaltale-landing .offers-section {
-    padding-top: 80px; /* 64 a 96px no desktop */
-    padding-bottom: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
   
   #esmaltale-landing .coupons-grid {
