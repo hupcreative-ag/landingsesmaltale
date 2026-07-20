@@ -1431,29 +1431,37 @@ body, html {
   animation: blurTextInTop 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-/* 6.5 ESTILO NOSSAS UNIDADES */
+/* 6.5 ESTILO NOSSAS UNIDADES (COMPACTO) */
 #esmaltale-landing .units-section {
-  padding-top: 56px;
-  padding-bottom: 56px;
+  padding-top: 36px;
+  padding-bottom: 36px;
   background-color: var(--color-neutral-bg);
 }
 
 #esmaltale-landing .units-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
-@media (min-width: 576px) {
+#esmaltale-landing .units-grid .unit-card:nth-child(5) {
+  grid-column: span 2;
+}
+
+@media (min-width: 768px) {
   #esmaltale-landing .units-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  #esmaltale-landing .units-grid .unit-card:nth-child(5) {
+    grid-column: span 1;
   }
 }
 
 @media (min-width: 992px) {
   #esmaltale-landing .units-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
   }
 }
 
@@ -1468,13 +1476,13 @@ body, html {
 }
 
 #esmaltale-landing .unit-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-medium);
 }
 
 #esmaltale-landing .unit-image-wrapper {
   width: 100%;
-  height: 200px;
+  height: 110px; /* Reduzido bastante de 200px */
   overflow: hidden;
   position: relative;
 }
@@ -1487,11 +1495,11 @@ body, html {
 }
 
 #esmaltale-landing .unit-card:hover .unit-image-wrapper img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 #esmaltale-landing .unit-content {
-  padding: 20px;
+  padding: 12px; /* Reduzido padding */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -1499,18 +1507,18 @@ body, html {
 
 #esmaltale-landing .unit-name {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.2rem;
+  font-size: 0.95rem; /* Reduzido de 1.2rem */
   font-weight: 800;
   color: var(--color-purple);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 #esmaltale-landing .unit-address {
-  font-size: 0.9rem;
+  font-size: 0.8rem; /* Reduzido de 0.9rem */
   font-weight: 600;
   color: var(--color-purple-dark);
   opacity: 0.7;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 #esmaltale-landing .unit-content .whatsapp-link {
@@ -1518,28 +1526,36 @@ body, html {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  background-color: #25D366;
-  color: var(--color-white);
-  padding: 10px 16px;
+  gap: 6px;
+  background-color: transparent; /* Apenas Outline */
+  border: 1px solid #25D366;
+  color: #25D366;
+  padding: 8px 10px;
   border-radius: var(--radius-normal);
-  font-size: 0.9rem;
+  font-size: 0.8rem; /* Botão compacto */
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.15);
+  box-shadow: none;
   transition: var(--transition-smooth);
 }
 
 #esmaltale-landing .unit-content .whatsapp-link:hover {
-  background-color: #20ba59;
-  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.25);
+  background-color: rgba(37, 211, 102, 0.05);
+  color: #20ba59;
+  border-color: #20ba59;
   transform: translateY(-1px);
 }
 
 #esmaltale-landing .unit-content .wa-icon {
-  width: 16px;
-  height: 16px;
-  stroke: var(--color-white);
+  width: 14px;
+  height: 14px;
+  stroke: #25D366;
+  fill: none;
+  transition: var(--transition-smooth);
+}
+
+#esmaltale-landing .unit-content .whatsapp-link:hover .wa-icon {
+  stroke: #20ba59;
 }
 
 /* 7. ESTILO INSTAGRAM BANNER */
