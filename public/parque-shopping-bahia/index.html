@@ -242,7 +242,7 @@
   <section class="cta-final-section">
     <div class="cta-final-bg"></div>
     <div class="section-container cta-final-content">
-      <h2 class="cta-final-title">Pronta para vivenciar a Esmaltale?</h2>
+      <h2 class="cta-final-title" data-blur-text data-animate-by="letters" data-delay="50">Você merece brilhar!</h2>
       <p class="cta-final-subtitle">Os descontos da semana são limitados. Agende seu horário hoje mesmo e garanta sua oferta especial na unidade Parque Shopping Bahia.</p>
       <button class="cta-button" onclick="openBookingModal()">Agende seu horário agora</button>
     </div>
@@ -1311,6 +1311,37 @@ body, html {
 #esmaltale-landing .cta-button:hover {
   transform: translateY(-3px) scale(1.03);
   background-color: var(--color-neutral-bg);
+}
+
+/* EFEITO BLUR TEXT ANIMATION (INSPIRADO NO REACT BITS) */
+@keyframes blurTextInTop {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  50% {
+    filter: blur(6px);
+    opacity: 0.5;
+    transform: translateY(4px);
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#esmaltale-landing .blur-char {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(-30px);
+  will-change: transform, filter, opacity;
+}
+
+#esmaltale-landing .blur-char.animated {
+  animation: blurTextInTop 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 /* 7. ESTILO INSTAGRAM BANNER */
@@ -2484,9 +2515,62 @@ body, html {
     }
   }
 
+  // EFEITO DE BLUR TEXT ANIMATION (INSPIRADO NO REACT BITS)
+  function initBlurText() {
+    const elements = document.querySelectorAll('[data-blur-text]');
+    
+    elements.forEach(el => {
+      const text = el.textContent.trim();
+      const animateBy = el.getAttribute('data-animate-by') || 'letters';
+      const delay = parseInt(el.getAttribute('data-delay') || '50', 10);
+      
+      el.innerHTML = ''; // Limpa o conteúdo original
+      el.style.display = 'flex';
+      el.style.flexWrap = 'wrap';
+      el.style.justifyContent = 'center';
+      
+      let segments = [];
+      if (animateBy === 'words') {
+        segments = text.split(' ');
+      } else {
+        segments = text.split('');
+      }
+      
+      segments.forEach((char, idx) => {
+        const span = document.createElement('span');
+        span.className = 'blur-char';
+        
+        if (char === ' ') {
+          span.innerHTML = '&nbsp;';
+        } else {
+          span.textContent = char;
+        }
+        
+        span.style.animationDelay = `${idx * delay}ms`;
+        el.appendChild(span);
+      });
+      
+      // Observer para disparar quando entra no viewport
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const spans = el.querySelectorAll('.blur-char');
+            spans.forEach(span => {
+              span.classList.add('animated');
+            });
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.15 });
+      
+      observer.observe(el);
+    });
+  }
+
   // Inicialização geral após DOM estar pronto
   window.addEventListener('DOMContentLoaded', () => {
     initSplitText();
+    initBlurText();
   });
 })();
 </script>
