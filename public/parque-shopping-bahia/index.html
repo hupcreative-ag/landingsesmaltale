@@ -10,8 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
   <!-- GSAP para SplitText -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <!-- OGL para SpecularButton WebGL highlight -->
-  <script src="https://cdn.jsdelivr.net/npm/ogl/dist/ogl.umd.js"></script>
 </head>
 <body>
 
@@ -25,9 +23,15 @@
     <div class="hero-content">
       <img src="assets/logo_branca.png" alt="Esmaltale Logo" class="hero-logo" fetchpriority="high">
       
-      <span class="hero-badge">PARQUE SHOPPING BAHIA</span>
+      <span class="hero-badge">
+        <svg class="badge-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        PARQUE SHOPPING BAHIA
+      </span>
       
-      <h1 class="hero-title">Aqui, cuidar de você é nossa especialidade.</h1>
+      <h1 class="hero-title">Aqui, cuidar de você é<br><span class="nowrap">nossa especialidade.</span></h1>
       
       <p class="hero-subtitle">Das mãos aos pés, com técnica e leveza, num espaço feito pra você, com toda a comodidade de estar dentro do shopping.</p>
       
@@ -471,30 +475,39 @@ body, html {
 }
 
 #esmaltale-landing .hero-logo {
-  width: 180px; /* aumentado para maior destaque */
+  width: 220px; /* aumentado para maior destaque */
   height: auto;
   margin-bottom: 32px;
 }
 
 @media (min-width: 768px) {
   #esmaltale-landing .hero-logo {
-    width: 240px; /* ainda maior no desktop */
+    width: 300px; /* ainda maior no desktop */
   }
 }
 
 #esmaltale-landing .hero-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background-color: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: var(--color-white);
-  font-size: 0.85rem;
+  font-size: 0.75rem; /* reduzido de 0.85rem */
   font-weight: 700;
   letter-spacing: 0.08em;
-  padding: 8px 18px;
+  padding: 6px 14px; /* reduzido de 8px 18px */
   border-radius: var(--radius-large);
   margin-bottom: 24px;
+}
+
+#esmaltale-landing .hero-badge .badge-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--color-white);
 }
 
 #esmaltale-landing .hero-title {
@@ -502,7 +515,7 @@ body, html {
   font-size: 2rem; /* 1.8rem a 2.2rem no mobile */
   font-weight: 800; /* peso 800 */
   color: var(--color-white);
-  line-height: 1.1; /* line-height 1.1 */
+  line-height: 1.25; /* line-height 1.25 para evitar encavalamento com <br> */
   letter-spacing: -0.02em; /* letter-spacing -0.02em */
   margin-bottom: 20px;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -513,22 +526,26 @@ body, html {
   will-change: transform, opacity;
 }
 
+#esmaltale-landing .nowrap {
+  white-space: nowrap;
+}
+
 #esmaltale-landing .hero-subtitle {
-  font-size: 1rem;
+  font-size: 1.15rem; /* aumentado de 1rem para maior destaque */
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
   margin-bottom: 32px;
-  max-width: 580px;
+  max-width: 680px;
+}
+
+@media (min-width: 768px) {
+  #esmaltale-landing .hero-subtitle {
+    font-size: 1.3rem; /* aumentado no desktop */
+  }
 }
 
 #esmaltale-landing .specular-button {
-  --sb-radius: 20px;
-  --sb-tint: #ffffff;
-  --sb-tint-opacity: 1;
-  --sb-blur: 0px;
-  --sb-text-color: #6B1F7C;
-
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -537,48 +554,69 @@ body, html {
   margin: 0;
   font-family: inherit;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   line-height: 1;
-  color: var(--sb-text-color);
+  color: #6B1F7C; /* Roxo da marca */
   background-color: var(--color-white);
-  border-radius: var(--sb-radius);
-  box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(107, 31, 124, 0.2);
   cursor: pointer;
   outline: none;
-  transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-  font-size: 0.95rem;
-  padding: 18px 40px;
-  overflow: visible;
+  font-size: 1rem;
+  padding: 18px 42px;
+  text-transform: uppercase;
+  overflow: hidden; /* Importante para conter o brilho animado */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  animation: buttonGlow 3s infinite ease-in-out;
+}
+
+/* Brilho diagonal refletivo (shimmer) */
+#esmaltale-landing .specular-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.85) 30%,
+    rgba(255, 255, 255, 0.85) 40%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: skewX(-30deg);
+  left: -150%;
+  transition: none;
+  animation: shimmerSweep 3s infinite ease-in-out;
+}
+
+#esmaltale-landing .specular-button:hover {
+  transform: translateY(-3px) scale(1.03);
+  background-color: var(--color-neutral-bg);
 }
 
 #esmaltale-landing .specular-button:active {
   transform: scale(0.97);
 }
 
-#esmaltale-landing .specular-button:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-  background-color: var(--color-neutral-bg);
+/* Animação do varrido de brilho */
+@keyframes shimmerSweep {
+  0% { left: -150%; }
+  35% { left: 150%; }
+  100% { left: 150%; }
 }
 
-#esmaltale-landing .specular-button__fx {
-  position: absolute;
-  inset: -20px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-#esmaltale-landing .specular-button__fx canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-#esmaltale-landing .specular-button__label {
-  position: relative;
-  z-index: 2;
+/* Aura pulsante de marca ao redor do botão */
+@keyframes buttonGlow {
+  0% {
+    box-shadow: 0 10px 25px rgba(107, 31, 124, 0.25), 0 0 0 0px rgba(224, 96, 154, 0.45);
+  }
+  50% {
+    box-shadow: 0 15px 30px rgba(107, 31, 124, 0.4), 0 0 0 8px rgba(224, 96, 154, 0);
+  }
+  100% {
+    box-shadow: 0 10px 25px rgba(107, 31, 124, 0.25), 0 0 0 0px rgba(224, 96, 154, 0);
+  }
 }
 
 #esmaltale-landing .cta-button:active {
@@ -1469,28 +1507,61 @@ body, html {
   };
 
   // ANIMAÇÃO SPLITTEXT NO TÍTULO DO HERO (VANILLA + GSAP)
+  // Preserva quebras de linha <br> e evita quebras de palavra ao meio
   function initSplitText() {
     const titleEl = document.querySelector('#esmaltale-landing .hero-title');
     if (titleEl && window.gsap) {
-      const text = titleEl.textContent.trim();
-      titleEl.textContent = '';
+      // Divide por quebras de linha para manter a formatação do layout
+      const lines = titleEl.innerHTML.split(/<br\s*\/?>/i);
+      titleEl.innerHTML = '';
       
-      const chars = text.split('').map(char => {
-        const span = document.createElement('span');
-        span.className = 'split-char';
-        span.textContent = char === ' ' ? '\u00A0' : char;
-        titleEl.appendChild(span);
-        return span;
+      let allChars = [];
+      
+      lines.forEach((lineText, lineIdx) => {
+        const lineDiv = document.createElement('div');
+        lineDiv.className = 'split-line';
+        lineDiv.style.display = 'block';
+        
+        // Resolve tags HTML internas (como wraps de spans do nowrap)
+        const temp = document.createElement('div');
+        temp.innerHTML = lineText;
+        
+        const words = temp.textContent.trim().split(/\s+/);
+        
+        words.forEach((wordText, wordIdx) => {
+          const wordSpan = document.createElement('span');
+          wordSpan.className = 'split-word';
+          wordSpan.style.display = 'inline-block';
+          wordSpan.style.whiteSpace = 'nowrap'; // Impede hifenizações ou quebras estranhas ao meio
+          
+          const chars = wordText.split('').map(char => {
+            const charSpan = document.createElement('span');
+            charSpan.className = 'split-char';
+            charSpan.textContent = char;
+            charSpan.style.display = 'inline-block';
+            wordSpan.appendChild(charSpan);
+            allChars.push(charSpan);
+            return charSpan;
+          });
+          
+          lineDiv.appendChild(wordSpan);
+          if (wordIdx < words.length - 1) {
+            lineDiv.appendChild(document.createTextNode(' '));
+          }
+        });
+        
+        titleEl.appendChild(lineDiv);
       });
 
-      gsap.fromTo(chars, 
+      // Anima todos os caracteres juntos
+      gsap.fromTo(allChars, 
         { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 1.25, // aumentado para maior suavidade
           ease: "power3.out",
-          stagger: 0.04, // stagger de 40ms por caractere
+          stagger: 0.035, // stagger de 35ms para fluidez
           delay: 0.2,
           willChange: 'transform, opacity',
           force3D: true
@@ -1499,199 +1570,9 @@ body, html {
     }
   }
 
-  // EFEITO WEBGL SHINE NO BOTÃO (SPECULARBUTTON + OGL)
-  function initSpecularButton(btn) {
-    if (!btn || !window.ogl) return;
-    
-    const fx = document.createElement('span');
-    fx.className = 'specular-button__fx';
-    btn.appendChild(fx);
-    
-    const textNodes = Array.from(btn.childNodes).filter(node => node !== fx);
-    const label = document.createElement('span');
-    label.className = 'specular-button__label';
-    textNodes.forEach(node => label.appendChild(node));
-    btn.appendChild(label);
-
-    const radius = 20;
-    const lineColor = '#6B1F7C'; // Roxo da marca
-    const baseColor = '#E0609A';  // Rosa da marca no relevo lateral
-    const intensity = 1.0;
-    const shineSize = 15;
-    const shineFade = 35;
-    const thickness = 1.5;
-    const speed = 0.35;
-    const proximity = 250;
-    const followMouse = true;
-    const autoAnimate = true;
-
-    const PAD = 20;
-    const VERT = `#version 300 es
-    in vec2 position;
-    void main() {
-      gl_Position = vec4(position, 0.0, 1.0);
-    }
-    `;
-
-    const FRAG = `#version 300 es
-    precision highp float;
-    uniform vec2 uCenter;
-    uniform vec2 uHalfSize;
-    uniform float uRadius;
-    uniform float uAngle;
-    uniform float uPx;
-    uniform vec3 uLineColor;
-    uniform vec3 uBaseColor;
-    uniform float uIntensity;
-    uniform float uShineSize;
-    uniform float uShineFade;
-    uniform float uThickness;
-    uniform float uBaseWidth;
-    out vec4 fragColor;
-    float sdRoundedRect(vec2 p, vec2 b, float r) {
-      vec2 q = abs(p) - b + r;
-      return length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - r;
-    }
-    float shapeSDF(vec2 p) { return sdRoundedRect(p, uHalfSize, uRadius); }
-    float gaussianLine(float d, float sigma) {
-      float x = d / (sigma + 1e-6);
-      float k = mix(1.0, 1.6, smoothstep(0.0, 1.5, x));
-      return exp(-k * x * x);
-    }
-    void main() {
-      vec2 p = gl_FragCoord.xy - uCenter;
-      float d = shapeSDF(p);
-      vec2 L = vec2(cos(uAngle), sin(uAngle));
-      float base = (1.0 - smoothstep(0.0, uBaseWidth, abs(d))) * 0.45;
-      vec2 nEll = normalize(p / (uHalfSize * uHalfSize) + 1e-6);
-      float phi = acos(clamp(abs(dot(nEll, L)), 0.0, 1.0));
-      float rim = 1.0 - smoothstep(uShineSize - uShineFade, uShineSize + uShineFade + 1e-4, phi);
-      float line = gaussianLine(d, uThickness);
-      float edgeClamp = 1.0 - smoothstep(0.5 * uPx, 3.0 * uPx, abs(d));
-      float hi = line * rim * edgeClamp * uIntensity;
-      vec3 col = uBaseColor * base + uLineColor * hi;
-      float a = clamp(base + hi, 0.0, 1.0);
-      fragColor = vec4(col, a);
-    }
-    `;
-
-    const { Renderer, Program, Mesh, Triangle, Color } = ogl;
-    const dpr = window.devicePixelRatio || 1;
-    const renderer = new Renderer({ alpha: true, premultipliedAlpha: true, antialias: true, dpr });
-    const gl = renderer.gl;
-    gl.clearColor(0, 0, 0, 0);
-    gl.enable(gl.BLEND);
-    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-
-    const geometry = new Triangle(gl);
-    if (geometry.attributes.uv) delete geometry.attributes.uv;
-
-    const program = new Program(gl, {
-      vertex: VERT,
-      fragment: FRAG,
-      uniforms: {
-        uCenter: { value: [0, 0] },
-        uHalfSize: { value: [1, 1] },
-        uRadius: { value: 0 },
-        uAngle: { value: 2.4 },
-        uPx: { value: dpr },
-        uLineColor: { value: [1, 1, 1] },
-        uBaseColor: { value: [0.32, 0.32, 0.32] },
-        uIntensity: { value: 1 },
-        uShineSize: { value: 0.17 },
-        uShineFade: { value: 0.7 },
-        uThickness: { value: 1 },
-        uBaseWidth: { value: dpr }
-      }
-    });
-
-    const mesh = new Mesh(gl, { geometry, program });
-    fx.appendChild(gl.canvas);
-
-    const sizeRef = { w: 1, h: 1 };
-    const resize = () => {
-      const rect = btn.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
-      sizeRef.w = w;
-      sizeRef.h = h;
-      renderer.setSize(w + PAD * 2, h + PAD * 2);
-      program.uniforms.uCenter.value = [(PAD + w / 2) * dpr, (PAD + h / 2) * dpr];
-      program.uniforms.uHalfSize.value = [(w / 2) * dpr, (h / 2) * dpr];
-    };
-    const ro = new ResizeObserver(resize);
-    ro.observe(btn);
-    resize();
-
-    let pointerAngle = null;
-    let proximityT = 0;
-    const onPointerMove = e => {
-      const rect = btn.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const dx = Math.max(rect.left - e.clientX, 0, e.clientX - rect.right);
-      const dy = Math.max(rect.top - e.clientY, 0, e.clientY - rect.bottom);
-      const dist = Math.hypot(dx, dy);
-      if (dist === 0) {
-        const nx = (e.clientX - cx) / (rect.width / 2);
-        const ny = (cy - e.clientY) / (rect.height / 2);
-        pointerAngle = Math.atan2(2 / rect.height, -2 / rect.width) + nx * 0.3 + ny * 0.15;
-      } else {
-        pointerAngle = Math.atan2(cy - e.clientY, e.clientX - cx);
-      }
-      const t = Math.max(0, 1 - dist / Math.max(proximity, 1));
-      proximityT = t * t * (3 - 2 * t);
-    };
-    window.addEventListener('pointermove', onPointerMove);
-
-    let angle = 2.4;
-    let idleAngle = 2.4;
-    let bright = 0;
-    let last = performance.now();
-    let raf = 0;
-
-    const lineC = new Color();
-    const baseC = new Color();
-
-    const update = now => {
-      raf = requestAnimationFrame(update);
-      const dt = Math.min((now - last) / 1000, 0.05);
-      last = now;
-
-      idleAngle += speed * dt;
-      const steer = followMouse && pointerAngle != null && (!autoAnimate || proximityT > 0);
-      const target = steer ? pointerAngle : idleAngle;
-      const diff = ((target - angle + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
-      angle += diff * (1 - Math.exp(-dt * 7));
-
-      const brightTarget = autoAnimate ? 1 : proximityT;
-      bright += (brightTarget - bright) * (1 - Math.exp(-dt * 8));
-
-      lineC.set(lineColor);
-      baseC.set(baseColor);
-      program.uniforms.uAngle.value = angle;
-      program.uniforms.uRadius.value = Math.min(radius, Math.min(sizeRef.w, sizeRef.h) / 2) * dpr;
-      program.uniforms.uLineColor.value = [lineC.r, lineC.g, lineC.b];
-      program.uniforms.uBaseColor.value = [baseC.r, baseC.g, baseC.b];
-      program.uniforms.uIntensity.value = intensity * bright;
-      program.uniforms.uShineSize.value = (shineSize * Math.PI) / 180;
-      program.uniforms.uShineFade.value = (shineFade * Math.PI) / 180;
-      program.uniforms.uThickness.value = thickness * dpr;
-      renderer.render({ scene: mesh });
-    };
-    raf = requestAnimationFrame(update);
-  }
-
   // Inicialização geral após DOM estar pronto
   window.addEventListener('DOMContentLoaded', () => {
-    // Inicializar SplitText no título do Hero
     initSplitText();
-
-    // Inicializar SpecularButton nos botões correspondentes
-    const ctaBtn = document.querySelector('#esmaltale-landing .specular-button');
-    if (ctaBtn) {
-      initSpecularButton(ctaBtn);
-    }
   });
 })();
 </script>
