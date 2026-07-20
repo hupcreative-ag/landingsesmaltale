@@ -635,12 +635,13 @@ body, html {
 #esmaltale-landing .hero-logo {
   width: 220px; /* aumentado para maior destaque */
   height: auto;
-  margin-bottom: 32px;
+  margin-bottom: 56px; /* Aumentado para afastar do titulo */
 }
 
 @media (min-width: 768px) {
   #esmaltale-landing .hero-logo {
     width: 300px; /* ainda maior no desktop */
+    margin-bottom: 72px; /* Aumentado no desktop */
   }
 }
 
@@ -658,7 +659,7 @@ body, html {
   letter-spacing: 0.08em;
   padding: 6px 14px; /* reduzido de 8px 18px */
   border-radius: var(--radius-large);
-  margin-bottom: 24px;
+  margin-bottom: 36px; /* Aumentado de 24px */
 }
 
 #esmaltale-landing .hero-badge .badge-icon {
@@ -675,7 +676,7 @@ body, html {
   color: var(--color-white);
   line-height: 1.25; /* line-height 1.25 para evitar encavalamento com <br> */
   letter-spacing: -0.02em; /* letter-spacing -0.02em */
-  margin-bottom: 20px;
+  margin-bottom: 32px; /* Aumentado de 20px */
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -693,7 +694,7 @@ body, html {
   font-weight: 400;
   color: rgba(255, 255, 255, 0.95);
   line-height: 1.6;
-  margin-bottom: 32px;
+  margin-bottom: 48px; /* Aumentado de 32px */
   max-width: 680px;
 }
 
@@ -783,13 +784,8 @@ body, html {
 
 /* 2. ESTILO BLOCO DE OFERTAS (CUPONS COMPACTADOS E FORMATO TICKET DIVERTIDO E ARREDONDADO) */
 #esmaltale-landing .offers-section {
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 32px 24px;
+  padding-top: 56px;
+  padding-bottom: 56px;
   background-color: var(--color-neutral-bg);
   position: relative;
   overflow: hidden;
@@ -849,7 +845,7 @@ body, html {
 #esmaltale-landing .coupons-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 24px;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -917,7 +913,7 @@ body, html {
   box-shadow: none;
   background: transparent;
   width: 100%;
-  padding: 20px 24px;
+  padding: 36px 28px; /* Taller padding */
 }
 
 #esmaltale-landing .coupon-card {
@@ -930,6 +926,13 @@ body, html {
   cursor: pointer;
   overflow: hidden;
   border-radius: 18px; /* Arredondado */
+  min-height: 280px; /* Altura minima para dar mais protagonismo */
+}
+
+@media (min-width: 768px) {
+  #esmaltale-landing .coupon-card {
+    min-height: 320px; /* Mais alto no desktop */
+  }
 }
 
 /* Marcadores de cupom rasgado nas laterais */
@@ -953,7 +956,7 @@ body, html {
 }
 
 #esmaltale-landing .coupon-content {
-  margin-bottom: 12px;
+  margin-bottom: 24px; /* Aumentado para afastar elementos */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -964,7 +967,7 @@ body, html {
   font-size: 1rem;
   font-weight: 700;
   color: var(--color-pink-dark);
-  margin-bottom: 8px;
+  margin-bottom: 12px; /* Aumentado */
   letter-spacing: 0.02em;
 }
 
@@ -974,7 +977,7 @@ body, html {
   font-weight: 800;
   color: var(--color-purple); /* Sólido, sem gradiente metálico */
   line-height: 1.1;
-  margin-bottom: 8px;
+  margin-bottom: 12px; /* Aumentado */
   text-shadow: none; /* Sombra removida */
   filter: none; /* Filtros removidos */
 }
@@ -985,8 +988,8 @@ body, html {
   color: var(--color-pink-dark); /* Mesma cor do título do card (rosa/vinho elegante) */
   text-transform: none; /* Retira caixa alta */
   letter-spacing: 0.01em;
-  margin-top: -6px;
-  margin-bottom: 12px;
+  margin-top: -8px; /* Ajustado */
+  margin-bottom: 18px; /* Aumentado */
 }
 
 #esmaltale-landing .coupon-text {
@@ -1003,7 +1006,7 @@ body, html {
   color: var(--color-white);
   font-size: 0.95rem;
   font-weight: 700;
-  padding: 12px;
+  padding: 14px; /* Aumentado */
   border-radius: var(--radius-normal);
   transition: var(--transition-smooth);
   text-align: center;
@@ -1891,8 +1894,8 @@ body, html {
   }
   
   #esmaltale-landing .hero-section {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   
   #esmaltale-landing .hero-title {
@@ -1900,13 +1903,13 @@ body, html {
   }
   
   #esmaltale-landing .offers-section {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   
   #esmaltale-landing .coupons-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 36px; /* Aumentado */
   }
   
   #esmaltale-landing .about-section {
