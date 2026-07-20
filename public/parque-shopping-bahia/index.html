@@ -318,6 +318,8 @@
 
   <!-- ==================== MODAL DE EXIBIÇÃO DO CUPOM ==================== -->
   <dialog id="coupon-modal" class="modal-dialog">
+    <!-- Canvas para Confete cair por cima do modal (z-index alto e dentro do dialog top-layer) -->
+    <canvas id="confetti-canvas" style="position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999;"></canvas>
     <div class="modal-wrapper">
       <button class="modal-close-btn" onclick="closeCouponModal()" aria-label="Fechar Modal">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="close-icon"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -331,6 +333,7 @@
         <div class="ticket-body">
           <div class="ticket-badge" id="ticket-badge-val">15% de Desconto</div>
           <h3 class="ticket-coupon-title" id="ticket-title-val">Na sua primeira visita</h3>
+          <p class="ticket-coupon-sub">em serviços na Esmaltale</p>
           
           <div class="ticket-location">
             <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -340,12 +343,12 @@
             Parque Shopping Bahia
           </div>
 
-          <div class="ticket-validity-box">
-            Válido até 04/09/2026
-          </div>
-
           <div class="ticket-divider">
             <span class="divider-line"></span>
+          </div>
+
+          <div class="ticket-validity-box">
+            Válido até 04/09/2026
           </div>
         </div>
       </div>
@@ -1978,11 +1981,17 @@ body, html {
 #esmaltale-landing .ticket-location {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: 0.85rem;
+  gap: 6px;
+  font-size: 0.8rem;
   font-weight: 700;
-  color: var(--color-purple-dark);
-  margin-bottom: 8px;
+  color: var(--color-purple);
+  background-color: rgba(107, 31, 124, 0.06);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(107, 31, 124, 0.1);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 #esmaltale-landing .ticket-location .location-icon {
@@ -1991,20 +2000,30 @@ body, html {
   stroke: var(--color-pink-dark);
 }
 
+#esmaltale-landing .ticket-coupon-sub {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-pink-dark);
+  margin-top: -6px;
+  margin-bottom: 14px;
+}
+
 #esmaltale-landing .ticket-validity-box {
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #8c8088;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-top: 12px;
+  margin-bottom: 0px;
 }
 
 #esmaltale-landing .ticket-divider {
   width: 100%;
   height: 2px;
   border-top: 2px dashed rgba(107, 31, 124, 0.15);
-  margin-top: 8px;
+  margin-top: 12px;
+  margin-bottom: 0px;
 }
 
 #esmaltale-landing .coupon-use-instruction {
@@ -2143,6 +2162,16 @@ body, html {
   const couponModal = document.getElementById('coupon-modal');
   let currentCouponData = {};
 
+  // Confete local para cair por cima do modal (no top-layer)
+  let localConfetti = null;
+  const confettiCanvas = document.getElementById('confetti-canvas');
+  if (confettiCanvas && window.confetti) {
+    localConfetti = confetti.create(confettiCanvas, {
+      resize: true,
+      useWorker: true
+    });
+  }
+
   window.openCouponModal = function(val, title) {
     if (!couponModal) return;
 
@@ -2163,8 +2192,15 @@ body, html {
     couponModal.showModal();
     document.body.style.overflow = 'hidden';
 
-    // Dispara a chuva de confetes comemorativa!
-    if (window.confetti) {
+    // Dispara a chuva de confetes por cima do modal usando o canvas local!
+    if (localConfetti) {
+      localConfetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.4 }, // ligeiramente acima do centro da tela do dialog
+        colors: ['#E0609A', '#6B1F7C', '#A11E5D', '#FFD700', '#FFFFFF']
+      });
+    } else if (window.confetti) {
       confetti({
         particleCount: 120,
         spread: 80,
