@@ -3591,13 +3591,15 @@ body, html {
     slider.style.overflowX = 'auto';
     slider.style.scrollBehavior = 'auto';
     
-    let autoScrollSpeed = 0.18; // Pixels por frame (Velocidade suave e desacelerada)
+    let autoScrollSpeed = 0.35; // Pixels por frame (Velocidade desacelerada e fluida)
+    let currentScrollPos = slider.scrollLeft;
     let scrollInterval = null;
     let isUserInteracting = false;
     let interactionTimeout = null;
     
     function startAutoScroll() {
       if (scrollInterval) return;
+      currentScrollPos = slider.scrollLeft;
       scrollInterval = requestAnimationFrame(scrollStep);
     }
     
@@ -3611,16 +3613,17 @@ body, html {
     function scrollStep() {
       if (isUserInteracting) return;
       
-      slider.scrollLeft += autoScrollSpeed;
+      currentScrollPos += autoScrollSpeed;
       
       // Com 4 conjuntos de 7 imagens (28 slides no total):
       const oneSetWidth = track.scrollWidth / 4;
       
-      // Loop infinito contínuo: quando ultrapassa o tamanho de 1 conjunto, subtrai esse tamanho sem quebrar o fluxo
-      if (oneSetWidth > 0 && slider.scrollLeft >= oneSetWidth) {
-        slider.scrollLeft -= oneSetWidth;
+      // Loop infinito contínuo sem solavancos
+      if (oneSetWidth > 0 && currentScrollPos >= oneSetWidth) {
+        currentScrollPos -= oneSetWidth;
       }
       
+      slider.scrollLeft = currentScrollPos;
       scrollInterval = requestAnimationFrame(scrollStep);
     }
     
@@ -3631,12 +3634,18 @@ body, html {
       clearTimeout(interactionTimeout);
       interactionTimeout = setTimeout(() => {
         isUserInteracting = false;
+        currentScrollPos = slider.scrollLeft;
         startAutoScroll();
       }, 3000); // Retoma após 3 segundos sem toque/arrasto
     }
     
     slider.addEventListener('touchstart', handleUserInteraction, { passive: true });
     slider.addEventListener('touchmove', handleUserInteraction, { passive: true });
+    slider.addEventListener('scroll', () => {
+      if (isUserInteracting) {
+        currentScrollPos = slider.scrollLeft;
+      }
+    }, { passive: true });
     
     // Suporte para mouse drag (arraste desktop)
     let isDown = false;
@@ -3657,6 +3666,7 @@ body, html {
         isDown = false;
         slider.style.cursor = 'grab';
         isUserInteracting = false;
+        currentScrollPos = slider.scrollLeft;
         startAutoScroll();
       }
     });
@@ -3665,6 +3675,7 @@ body, html {
       isDown = false;
       slider.style.cursor = 'grab';
       isUserInteracting = false;
+      currentScrollPos = slider.scrollLeft;
       startAutoScroll();
     });
     
@@ -3674,6 +3685,7 @@ body, html {
       const x = e.pageX - slider.offsetLeft;
       const walk = (x - startX) * 1.5;
       slider.scrollLeft = scrollLeftVal - walk;
+      currentScrollPos = slider.scrollLeft;
       handleUserInteraction();
     });
     
