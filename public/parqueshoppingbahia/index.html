@@ -322,7 +322,6 @@
     <div class="gallery-slider">
       <div class="gallery-track">
         <!-- Slide items -->
-        <!-- Slide items -->
         <div class="gallery-slide" onclick="openGalleryModal('assets/Galeria/01.jpg')"><img src="assets/Galeria/01.jpg" alt="Resultado Esmaltale 1" loading="lazy"></div>
         <div class="gallery-slide" onclick="openGalleryModal('assets/Galeria/02.jpg')"><img src="assets/Galeria/02.jpg" alt="Resultado Esmaltale 2" loading="lazy"></div>
         <div class="gallery-slide" onclick="openGalleryModal('assets/Galeria/03.jpg')"><img src="assets/Galeria/03.jpg" alt="Resultado Esmaltale 3" loading="lazy"></div>
@@ -340,16 +339,6 @@
         <div class="gallery-slide" onclick="openGalleryModal('assets/Galeria/06.jpg')"><img src="assets/Galeria/06.jpg" alt="Resultado Esmaltale 6" loading="lazy"></div>
         <div class="gallery-slide" onclick="openGalleryModal('assets/Galeria/07.jpg')"><img src="assets/Galeria/07.jpg" alt="Resultado Esmaltale 7" loading="lazy"></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ==================== CTA FINAL ==================== -->
-  <section class="cta-final-section">
-    <div class="cta-final-bg"></div>
-    <div class="section-container cta-final-content">
-      <h2 class="cta-final-title" data-blur-text data-animate-by="letters" data-delay="50">Você merece brilhar!</h2>
-      <p class="cta-final-subtitle">Os descontos da semana são limitados. Agende seu horário hoje mesmo e garanta sua oferta especial na unidade Parque Shopping Bahia.</p>
-      <button class="cta-button" onclick="openBookingModal()">Agende seu horário agora</button>
     </div>
   </section>
 
@@ -414,6 +403,18 @@
       </div>
     </div>
   </section>
+
+  <!-- ==================== CTA FINAL ==================== -->
+  <section class="cta-final-section">
+    <div class="cta-final-bg"></div>
+    <div class="section-container cta-final-content">
+      <h2 class="cta-final-title" data-blur-text data-animate-by="letters" data-delay="50">Você merece brilhar!</h2>
+      <p class="cta-final-subtitle">Os descontos da semana são limitados. Agende seu horário hoje mesmo e garanta sua oferta especial na unidade Parque Shopping Bahia.</p>
+      <button class="cta-button" onclick="openBookingModal()">Agende seu horário agora</button>
+    </div>
+  </section>
+
+
 
   <!-- ==================== NOSSAS UNIDADES ==================== -->
   <section class="units-section">
@@ -1450,9 +1451,15 @@ body, html {
 
 #esmaltale-landing .gallery-slider {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
   position: relative;
   padding: 10px 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE / Edge */
+}
+
+#esmaltale-landing .gallery-slider::-webkit-scrollbar {
+  display: none; /* Chrome / Safari / Opera */
 }
 
 #esmaltale-landing .gallery-track {
@@ -3215,11 +3222,10 @@ body, html {
       
       slider.scrollLeft += autoScrollSpeed;
       
-      const totalWidth = track.scrollWidth;
-      const halfWidth = totalWidth / 2;
+      const halfWidth = track.scrollWidth / 2;
       
       // Loop infinito perfeito: retorna para a primeira metade ao passar do meio
-      if (slider.scrollLeft >= halfWidth) {
+      if (halfWidth > 0 && slider.scrollLeft >= halfWidth) {
         slider.scrollLeft -= halfWidth;
       }
       
