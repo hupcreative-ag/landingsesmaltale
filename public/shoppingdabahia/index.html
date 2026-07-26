@@ -3,6 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G651HHSCPV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G651HHSCPV', {
+      'page_title': 'Shopping da Bahia - Esmaltale',
+      'unit': 'shopping_da_bahia'
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Rastrear cliques nos links do WhatsApp
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function(link) {
+        link.addEventListener('click', function() {
+          gtag('event', 'generate_lead', {
+            'event_category': 'conversion',
+            'event_label': 'whatsapp_click',
+            'unit': 'shopping_da_bahia'
+          });
+          gtag('event', 'click_whatsapp', {
+            'unit': 'shopping_da_bahia'
+          });
+        });
+      });
+
+      // Rastrear agendamentos pelo Trinks
+      document.querySelectorAll('a[href*="trinks.com.br"]').forEach(function(link) {
+        link.addEventListener('click', function() {
+          gtag('event', 'begin_checkout', {
+            'event_category': 'conversion',
+            'event_label': 'trinks_click',
+            'unit': 'shopping_da_bahia'
+          });
+          gtag('event', 'click_trinks', {
+            'unit': 'shopping_da_bahia'
+          });
+        });
+      });
+
+      // Rastrear salvamento/download de cupom
+      var downloadBtn = document.getElementById('download-coupon-btn');
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', function() {
+          gtag('event', 'select_promotion', {
+            'event_category': 'conversion',
+            'event_label': 'download_coupon',
+            'unit': 'shopping_da_bahia'
+          });
+        });
+      }
+    });
+  </script>
   <title>Esmaltale | Shopping da Bahia - Esmalteria em Salvador (Piso L3, em frente à Riachuelo)</title>
   <meta name="description" content="Garanta 15% de desconto na primeira visita à Esmaltale no Shopping da Bahia (Piso L3, em frente à Riachuelo em Salvador). Especialistas em alongamento em gel, blindagem, manicure, pedicure e podologia.">
   <meta name="keywords" content="esmalteria shopping da bahia, esmaltale shopping da bahia, esmalteria salvador, alongamento de unhas salvador, banho de gel salvador, esmaltação em gel salvador, podologia salvador, manicure shopping da bahia, unhas de gel salvador">

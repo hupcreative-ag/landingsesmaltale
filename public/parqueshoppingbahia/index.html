@@ -3,6 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G651HHSCPV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G651HHSCPV', {
+      'page_title': 'Parque Shopping Bahia - Esmaltale',
+      'unit': 'parque_shopping_bahia'
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Rastrear cliques nos links do WhatsApp
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function(link) {
+        link.addEventListener('click', function() {
+          gtag('event', 'generate_lead', {
+            'event_category': 'conversion',
+            'event_label': 'whatsapp_click',
+            'unit': 'parque_shopping_bahia'
+          });
+          gtag('event', 'click_whatsapp', {
+            'unit': 'parque_shopping_bahia'
+          });
+        });
+      });
+
+      // Rastrear agendamentos pelo Trinks
+      document.querySelectorAll('a[href*="trinks.com.br"]').forEach(function(link) {
+        link.addEventListener('click', function() {
+          gtag('event', 'begin_checkout', {
+            'event_category': 'conversion',
+            'event_label': 'trinks_click',
+            'unit': 'parque_shopping_bahia'
+          });
+          gtag('event', 'click_trinks', {
+            'unit': 'parque_shopping_bahia'
+          });
+        });
+      });
+
+      // Rastrear salvamento/download de cupom
+      var downloadBtn = document.getElementById('download-coupon-btn');
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', function() {
+          gtag('event', 'select_promotion', {
+            'event_category': 'conversion',
+            'event_label': 'download_coupon',
+            'unit': 'parque_shopping_bahia'
+          });
+        });
+      }
+    });
+  </script>
   <title>Esmaltale | Parque Shopping Bahia - Primeira Visita com 15% de Desconto</title>
   <meta name="description" content="Garanta 15% de desconto na primeira visita à Esmaltale no Parque Shopping Bahia (Piso L2). Especialistas em alongamento em gel, blindagem, manicure, pedicure e podologia em Lauro de Freitas.">
   <meta name="keywords" content="esmalteria lauro de freitas, esmaltale parque shopping bahia, alongamento de unhas lauro de freitas, esmaltação em gel salvador, manicure e pedicure shopping bahia, podologia lauro de freitas">
