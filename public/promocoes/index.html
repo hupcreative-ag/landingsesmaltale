@@ -83,15 +83,10 @@
 
   <main class="page-wrapper">
 
-    <!-- HEADER: Logo + Badge de promoção -->
+    <!-- HEADER: Logo -->
     <header class="page-header">
       <div class="logo-wrapper">
         <img src="../assets/Logo_cor.png" alt="Esmaltale" class="brand-logo">
-      </div>
-
-      <div class="promo-badge">
-        <span class="badge-dot"></span>
-        <span>Cupons ativos agora</span>
       </div>
 
       <h1 class="page-title">Escolha a loja<br>com cupons ativos!</h1>
@@ -115,10 +110,6 @@
               class="card-image"
               loading="eager">
             <div class="card-image-overlay"></div>
-            <div class="coupon-pill">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-              15% OFF 1ª visita
-            </div>
           </div>
           <div class="card-body">
             <div class="card-info">
@@ -130,10 +121,10 @@
               <p class="card-address">Piso L2 — Corredor das Lojas Americanas</p>
             </div>
             <div class="card-cta">
-              <span class="cta-text">Ver cupons</span>
-              <div class="cta-arrow">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </div>
+              <span class="cta-btn">
+                Ver cupons
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
             </div>
           </div>
         </a>
@@ -151,10 +142,6 @@
               class="card-image"
               loading="lazy">
             <div class="card-image-overlay"></div>
-            <div class="coupon-pill">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-              15% OFF 1ª visita
-            </div>
           </div>
           <div class="card-body">
             <div class="card-info">
@@ -166,10 +153,10 @@
               <p class="card-address">Piso L3 — Em frente à Riachuelo</p>
             </div>
             <div class="card-cta">
-              <span class="cta-text">Ver cupons</span>
-              <div class="cta-arrow">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </div>
+              <span class="cta-btn">
+                Ver cupons
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
             </div>
           </div>
         </a>
@@ -525,118 +512,51 @@ a {
   pointer-events: none;
 }
 
-/* Pill de cupom sobre a imagem */
-.coupon-pill {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  background: linear-gradient(135deg, var(--pink-dark), var(--purple));
-  color: #fff;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 5px 11px;
-  border-radius: var(--radius-pill);
-  /* Borda brilhante animada */
-  box-shadow:
-    0 2px 12px rgba(161, 30, 93, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.20);
-  animation: pillGlow 3s ease-in-out infinite;
-}
-
-@keyframes pillGlow {
-  0%, 100% { box-shadow: 0 2px 12px rgba(161, 30, 93, 0.45), inset 0 1px 0 rgba(255,255,255,0.20); }
-  50%       { box-shadow: 0 4px 20px rgba(161, 30, 93, 0.65), inset 0 1px 0 rgba(255,255,255,0.25); }
-}
-
-/* --- Body do card --- */
-.card-body {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 18px 20px;
-}
-
-.card-info {
-  flex: 1;
-  min-width: 0;
-}
-
-/* Tag de cidade */
-.card-location-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--pink);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-
-.card-title {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: var(--purple-dark);
-  line-height: 1.2;
-  margin-bottom: 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.card-address {
-  font-size: 0.8rem;
-  color: var(--purple-dark);
-  opacity: 0.55;
-  line-height: 1.4;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* CTA "Ver cupons →" */
+/* CTA "Ver cupons →" chamativo com pulso */
 .card-cta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
   flex-shrink: 0;
 }
 
-.cta-text {
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: var(--pink);
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--pink-dark), var(--purple));
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 15px rgba(161, 30, 93, 0.35);
+  transition: var(--transition);
+  animation: pulseCta 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   white-space: nowrap;
 }
 
-.cta-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(161, 30, 93, 0.35);
-  transition: var(--transition);
-  flex-shrink: 0;
+.cta-btn svg {
+  transition: transform 250ms ease;
 }
 
-.store-card:hover .cta-arrow {
-  transform: translateX(3px);
-  box-shadow: 0 6px 18px rgba(161, 30, 93, 0.45);
-  background: linear-gradient(135deg, var(--pink-dark), var(--purple));
+.store-card:hover .cta-btn {
+  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+  box-shadow: 0 6px 20px rgba(224, 96, 154, 0.55);
+}
+
+.store-card:hover .cta-btn svg {
+  transform: translateX(4px);
+}
+
+@keyframes pulseCta {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(161, 30, 93, 0.35);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 6px 24px rgba(224, 96, 154, 0.75), 0 0 14px rgba(224, 96, 154, 0.5);
+  }
 }
 
 /* =====================================================
