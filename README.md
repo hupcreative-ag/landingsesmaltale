@@ -69,3 +69,46 @@ Para visualizar e testar as páginas em seu computador:
 * **Cloudflare Workers:** O projeto está configurado no `wrangler.jsonc` para servir a pasta `./public`.
 * **CI/CD Automatizado:** A branch `main` do repositório remoto **hupcreative-ag/landingsesmaltale** está vinculada diretamente ao deploy automático no painel do Cloudflare Workers.
 * **Como publicar:** Qualquer modificação ou nova pasta que receber `git push` na branch `main` será automaticamente compilada e disponibilizada em produção em segundos.
+
+---
+
+## Padrão de Tracking (Checklist Obrigatório para Novas Landings)
+
+Toda nova landing page do projeto **deve** incluir as duas ferramentas de analytics (Google Analytics 4 e Meta Pixel) seguindo rigorosamente as regras abaixo antes de ir para produção:
+
+### Regras de Não Interferência
+1. **Não editar, remover, mover ou reordenar** nenhuma linha do bloco GA4 existente (`G-G651HHSCPV`).
+2. O bloco do Meta Pixel (`ID 798964139939818`) entra como um `<script>` adicional e independente, logo após a tag `</script>` do bloco do GA4.
+3. Dentro dos handlers de clique já existentes (`addEventListener`), a chamada `fbq('track', ...)` é **adicionada após** as chamadas `gtag('event', ...)`, nunca substituindo nem em um `addEventListener` separado. Se o Meta Pixel for bloqueado por adblock, o `fbq(...)` falha silenciosamente sem afetar o `gtag(...)`.
+4. Manter carregamento `async` no Pixel igual ao GA4 para evitar bloquear o parse do `<head>`.
+
+### Bloco do Meta Pixel (Inserir no `<head>` após o GA4)
+```html
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '798964139939818');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=798964139939818&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+```
+
+### Tabela de Mapeamento de Eventos
+
+| Gatilho do Clique | Chamadas GA4 (`gtag`) | Chamada Meta Pixel (`fbq`) |
+| :--- | :--- | :--- |
+| **Clique no WhatsApp** | `gtag('event', 'generate_lead', ...);`<br>`gtag('event', 'click_whatsapp', ...);` | `fbq('track', 'Contact');` |
+| **Clique no Trinks (Agendamento)** | `gtag('event', 'begin_checkout', ...);`<br>`gtag('event', 'click_trinks', ...);` | `fbq('track', 'Schedule');` |
+| **Download de Cupom** | `gtag('event', 'select_promotion', ...);` | `fbq('track', 'Lead');` |
+| **Card de Loja (`/promocoes`)** | `gtag('event', 'select_item', ...);` | `fbq('trackCustom', 'SelectStore', { unit: unit });` |
+

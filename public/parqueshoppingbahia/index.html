@@ -28,6 +28,7 @@
           gtag('event', 'click_whatsapp', {
             'unit': 'parque_shopping_bahia'
           });
+          fbq('track', 'Contact');
         });
       });
 
@@ -42,6 +43,7 @@
           gtag('event', 'click_trinks', {
             'unit': 'parque_shopping_bahia'
           });
+          fbq('track', 'Schedule');
         });
       });
 
@@ -54,10 +56,29 @@
             'event_label': 'download_coupon',
             'unit': 'parque_shopping_bahia'
           });
+          fbq('track', 'Lead');
         });
       }
     });
   </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '798964139939818');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=798964139939818&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
   <title>Esmaltale | Parque Shopping Bahia - Primeira Visita com 15% de Desconto</title>
   <meta name="description" content="Garanta 15% de desconto na primeira visita à Esmaltale no Parque Shopping Bahia (Piso L2). Especialistas em alongamento em gel, blindagem, manicure, pedicure e podologia em Lauro de Freitas.">
   <meta name="keywords" content="esmalteria lauro de freitas, esmaltale parque shopping bahia, alongamento de unhas lauro de freitas, esmaltação em gel salvador, manicure e pedicure shopping bahia, podologia lauro de freitas">
