@@ -175,6 +175,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 
 .aviso[hidden] { display: none; }
+/* O espaço do aviso fica reservado desde o início; o script só o revela. Assim a lista não pula. */
+.aviso.is-carregando { visibility: hidden; }
 
 .aviso__ticket {
   --canhoto: 42px;
@@ -643,7 +645,7 @@ html.js .loja[data-reveal].is-revealed { opacity: 1; transform: none; }
     <span class="topo__tag">Agendamento e cupons</span>
     <h1 class="topo__titulo">Escolha a sua unidade</h1>
     <p class="topo__texto" id="texto-topo">Toque na loja para agendar o seu horário ou pegar o seu cupom de desconto.</p>
-    <p class="aviso" id="aviso-cupom" hidden>
+    <p class="aviso is-carregando" id="aviso-cupom">
       <span class="aviso__ticket">
         <span class="aviso__pct" aria-hidden="true">%</span>
         <span class="aviso__texto" id="aviso-cupom-texto">Cupom ativo</span>
@@ -947,12 +949,14 @@ html.js .loja[data-reveal].is-revealed { opacity: 1; transform: none; }
 
     var comCupom = lojas.filter(function (l) { return l.hasActiveCoupon; }).length;
     document.getElementById('contagem-unidades').textContent = lojas.length + (lojas.length === 1 ? ' unidade' : ' unidades');
+    var aviso = document.getElementById('aviso-cupom');
+    aviso.classList.remove('is-carregando');
     if (comCupom > 0) {
-      document.getElementById('aviso-cupom').hidden = false;
       document.getElementById('aviso-cupom-texto').textContent = comCupom === 1
         ? 'Cupom ativo em 1 unidade'
         : 'Cupom ativo em ' + comCupom + ' unidades';
     } else {
+      aviso.hidden = true;
       document.getElementById('texto-topo').textContent = 'Toque na loja para agendar o seu horário.';
     }
 
@@ -986,8 +990,8 @@ html.js .loja[data-reveal].is-revealed { opacity: 1; transform: none; }
     document.getElementById('ano').textContent = new Date().getFullYear();
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderStores);
-  else renderStores();
+  // O script fica depois de toda a marcação: monta a lista na hora, antes da primeira pintura.
+  renderStores();
 </script>
 
 </body>
