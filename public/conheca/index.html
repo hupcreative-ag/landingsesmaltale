@@ -2,848 +2,993 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Esmaltale | Escolha sua unidade, agende e pegue seu cupom</title>
+  <meta name="description" content="Escolha a unidade Esmaltale, agende seu horário pelo Trinks ou WhatsApp e pegue seu cupom de desconto. Unidades nos principais shoppings da Bahia.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#FBF3F5">
+  <link rel="canonical" href="https://loja.esmaltale.com.br/conheca">
 
-  <!-- Google Analytics GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G651HHSCPV"></script>
+  <link rel="icon" type="image/png" href="/assets/logofav.png">
+  <link rel="apple-touch-icon" href="/assets/logofav.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://loja.esmaltale.com.br/conheca">
+  <meta property="og:title" content="Esmaltale | Escolha sua unidade">
+  <meta property="og:description" content="Agende seu horário e pegue seu cupom de desconto na Esmaltale mais perto de você.">
+  <meta property="og:image" content="https://loja.esmaltale.com.br/assets/Logo_cor.png">
+  <meta property="og:site_name" content="Esmaltale">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/conheca/gazpacho-bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/conheca/logo-esmaltale.svg" as="image">
+  <link rel="preload" href="/assets/conheca/shopping-barra.webp" as="image" fetchpriority="high">
+
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Google Analytics GA4: a fila de eventos existe desde já; a biblioteca carrega depois da página. -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-G651HHSCPV', {
-      'page_title': 'Conheça Nossas Lojas - Esmaltale',
-      'page': 'conheca_hub'
+    gtag('config', 'G-G651HHSCPV', { page_title: 'Conheça Nossas Lojas - Esmaltale', page: 'conheca_hub' });
+    window.addEventListener('load', function () {
+      var carregar = function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-G651HHSCPV';
+        document.head.appendChild(s);
+      };
+      if ('requestIdleCallback' in window) requestIdleCallback(carregar, { timeout: 2500 });
+      else setTimeout(carregar, 1200);
     });
   </script>
 
-  <title>Esmaltale | Conheça Nossas Lojas — Cupons e Unidades</title>
-  <meta name="description" content="Conheça todas as unidades da Esmaltale nos shoppings de Salvador e Lauro de Freitas. Resgate cupons exclusivos de desconto para o Parque Shopping Bahia, Shopping da Bahia, Shopping Paralela e Shopping Barra!">
-  <meta name="keywords" content="esmaltale lojas, esmalteria salvador, esmalteria lauro de freitas, esmaltale unidades, desconto esmaltale">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://loja.esmaltale.com.br/conheca">
+<style>
+/* =====================================================
+   FONTE DOS TÍTULOS (a mesma do esmaltale.com.br)
+   ===================================================== */
+@font-face {
+  font-family: 'Gazpacho';
+  src: url('/assets/conheca/gazpacho-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../assets/logofav.png">
-  <link rel="apple-touch-icon" href="../assets/logofav.png">
+/* =====================================================
+   BASE (tokens do site institucional)
+   ===================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://loja.esmaltale.com.br/conheca">
-  <meta property="og:title" content="Esmaltale | Conheça Nossas Lojas">
-  <meta property="og:description" content="Encontre a unidade Esmaltale mais próxima de você em Salvador e Lauro de Freitas e aproveite os cupons de desconto ativos!">
-  <meta property="og:image" content="https://loja.esmaltale.com.br/assets/Logo_cor.png">
-  <meta property="og:site_name" content="Esmaltale">
-  <meta property="og:locale" content="pt_BR">
+:root {
+  --roxo: #632066;
+  --roxo-hover: #4E1851;
+  --texto: #36213A;
+  --texto-suave: #6B5A6F;
+  --rosa: #E15297;
+  --rosa-escuro: #A8336D;
+  --rosa-claro: #EDB2BD;
+  --rosa-ticket: #C23F7E; /* rosa dos cupons: texto branco legível (AA) */
+  --coral: #E5602E;
+  --blush: #F6E6EA;
+  --fundo: #FBF3F5;
+  --branco: #FFFFFF;
+  --linha: rgba(99, 32, 102, 0.12);
+  --display: 'Gazpacho', Georgia, 'Times New Roman', serif;
+  --sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Esmaltale | Conheça Nossas Lojas">
-  <meta name="twitter:description" content="Encontre a unidade Esmaltale mais próxima de você em Salvador e Lauro de Freitas.">
-  <meta name="twitter:image" content="https://loja.esmaltale.com.br/assets/Logo_cor.png">
+html { -webkit-text-size-adjust: 100%; accent-color: var(--roxo); }
 
-  <!-- Google Fonts: Poppins -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+body {
+  font-family: var(--sans);
+  color: var(--texto);
+  background: var(--fundo);
+  line-height: 1.6;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+::selection { background: var(--rosa-claro); color: var(--texto); }
+:focus-visible { outline: 3px solid var(--rosa); outline-offset: 3px; border-radius: 6px; }
+
+.pagina {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px calc(28px + env(safe-area-inset-bottom));
+}
+
+/* Brilho de 4 pontas (o mesmo desenho do site), piscando devagar */
+.brilho {
+  position: absolute;
+  fill: currentColor;
+  pointer-events: none;
+  animation: pisca 3.8s ease-in-out infinite;
+}
+
+@keyframes pisca {
+  0%, 100% { opacity: 0; transform: scale(0.4) rotate(0deg); }
+  45%, 55% { opacity: 0.9; transform: scale(1) rotate(20deg); }
+}
+
+/* Entrada: começa quase transparente (não zero) para não atrasar a pintura da página */
+@keyframes entra {
+  from { opacity: 0.01; transform: translateY(20px); }
+}
+
+/* =====================================================
+   TOPO
+   ===================================================== */
+.topo {
+  padding: 22px 0 20px;
+  text-align: center;
+  animation: entra 1s var(--expo) both;
+}
+
+.topo__logo { width: 140px; height: auto; margin: 0 auto 26px; }
+
+.topo__tag {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.72rem;
+  font-style: italic;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--texto);
+}
+
+.topo__titulo {
+  font-family: var(--display);
+  font-size: clamp(1.75rem, 7.6vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--roxo);
+  text-wrap: balance;
+}
+
+.topo__texto {
+  max-width: 34ch;
+  margin: 10px auto 0;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--texto-suave);
+}
+
+/* Aviso de cupons: ticket pequeno, com canhoto, picote e recortes em cima e embaixo */
+.aviso {
+  display: inline-block;
+  margin-top: 20px;
+  filter: drop-shadow(0 6px 14px rgba(168, 51, 109, 0.16));
+}
+
+.aviso[hidden] { display: none; }
+
+.aviso__ticket {
+  --canhoto: 42px;
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--canhoto) auto;
+  align-items: center;
+  height: 42px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--rosa-escuro);
+  background: var(--branco);
+  border-radius: 10px;
+  -webkit-mask:
+    radial-gradient(circle 5px at var(--canhoto) 0, #0000 96%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle 5px at var(--canhoto) 100%, #0000 96%, #000) bottom / 100% 51% no-repeat;
+          mask:
+    radial-gradient(circle 5px at var(--canhoto) 0, #0000 96%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle 5px at var(--canhoto) 100%, #0000 96%, #000) bottom / 100% 51% no-repeat;
+}
+
+/* Picote */
+.aviso__ticket::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  left: calc(var(--canhoto) - 1px);
+  border-left: 1.5px dashed rgba(255, 255, 255, 0.85);
+}
+
+.aviso__pct {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  color: var(--branco);
+  background: var(--rosa-ticket);
+}
+
+.aviso__texto { padding: 0 18px 0 14px; white-space: nowrap; }
+
+/* =====================================================
+   LISTA DE UNIDADES
+   ===================================================== */
+.rotulo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 6px 4px 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--linha);
+}
+
+.rotulo h2 {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--roxo);
+}
+
+.rotulo p { font-size: 0.78rem; color: var(--texto-suave); }
+
+.lista { list-style: none; display: grid; gap: 12px; }
+
+.loja {
+  background: var(--branco);
+  border: 1px solid rgba(107, 31, 124, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(42, 36, 40, 0.04), 0 8px 24px -12px rgba(107, 31, 124, 0.12);
+  transition: box-shadow 400ms var(--expo), border-color 400ms var(--expo);
+  animation: entra 1s var(--expo) both;
+  animation-delay: var(--atraso, 0ms);
+}
+
+.loja.is-aberta {
+  border-color: rgba(107, 31, 124, 0.16);
+  box-shadow: 0 1px 2px rgba(42, 36, 40, 0.04), 0 22px 44px -18px rgba(107, 31, 124, 0.3);
+}
+
+/* Cards abaixo da primeira tela: entram ao aparecer na rolagem, como no site */
+html.js .loja[data-reveal] {
+  animation: none;
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 900ms var(--expo),
+    transform 1100ms var(--expo),
+    box-shadow 400ms var(--expo),
+    border-color 400ms var(--expo);
+}
+
+html.js .loja[data-reveal].is-revealed { opacity: 1; transform: none; }
+
+/* Linha clicável */
+.loja__linha {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 10px 14px 10px 10px;
+  text-align: left;
+  border-radius: 20px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.loja__midia { position: relative; width: 84px; height: 100px; }
+
+.loja__foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  background: var(--blush);
+}
+
+/* Adesivos (cupom e promoção): mini tickets abaixo da localização */
+.loja__adesivos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
+
+.adesivo { display: inline-block; filter: drop-shadow(0 2px 5px rgba(99, 32, 102, 0.2)); }
+
+.adesivo span {
+  display: block;
+  padding: 3px 10px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--branco);
+  background: var(--rosa-ticket);
+  border-radius: 4px;
+  -webkit-mask:
+    radial-gradient(circle 3.5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 3.5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
+          mask:
+    radial-gradient(circle 3.5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 3.5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
+}
+
+.adesivo--promo span { background: #B34A1E; }
+
+.loja__info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+
+/* "Nova unidade": linha em itálico com brilho, no tom dos títulos do site */
+.loja__nova {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 2px;
+  font-size: 0.68rem;
+  font-style: italic;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rosa-escuro);
+}
+
+.loja__nova svg { width: 11px; height: 11px; fill: var(--rosa); flex-shrink: 0; }
+
+.loja__nome {
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--texto);
+}
+
+.leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.loja__local { font-size: 0.78rem; line-height: 1.45; color: var(--texto-suave); }
+
+.loja__seta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: var(--roxo);
+  background: var(--fundo);
+  border-radius: 50%;
+  transition: transform 500ms var(--expo), background-color 250ms var(--ease), color 250ms var(--ease);
+}
+
+.loja.is-aberta .loja__seta { transform: rotate(180deg); color: var(--branco); background: var(--roxo); }
+
+/* Painel que desce com as opções */
+.loja__painel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 550ms var(--expo);
+}
+
+.loja.is-aberta .loja__painel { grid-template-rows: 1fr; }
+
+.loja__painel-dentro { min-height: 0; overflow: hidden; }
+
+.loja__opcoes {
+  display: grid;
+  gap: 8px;
+  padding: 6px 12px 14px;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 200ms var(--ease), transform 500ms var(--expo);
+}
+
+.loja.is-aberta .loja__opcoes { opacity: 1; transform: none; transition-delay: 100ms; }
+
+/* =====================================================
+   CUPOM: ticket com canhoto, recortes e picote
+   ===================================================== */
+.cupom {
+  display: block;
+  margin: 8px 0 2px;
+  filter: drop-shadow(0 10px 18px rgba(168, 51, 109, 0.18));
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 300ms var(--expo);
+}
+
+.cupom:active { transform: scale(0.98); }
+
+.cupom__ticket {
+  --canhoto: 78px;
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--canhoto) 1fr;
+  min-height: 112px;
+  overflow: hidden;
+  background: var(--blush);
+  border-radius: 16px;
+  /* Recortes em meia-lua no encontro do canhoto com o corpo, em cima e embaixo */
+  -webkit-mask:
+    radial-gradient(circle 9px at var(--canhoto) 0, #0000 97%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle 9px at var(--canhoto) 100%, #0000 97%, #000) bottom / 100% 51% no-repeat;
+          mask:
+    radial-gradient(circle 9px at var(--canhoto) 0, #0000 97%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle 9px at var(--canhoto) 100%, #0000 97%, #000) bottom / 100% 51% no-repeat;
+}
+
+/* Canhoto rosa com o "%" e brilhos */
+.cupom__canhoto {
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--branco);
+  background: var(--rosa-ticket);
+  background-image: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0) 60%);
+}
+
+.cupom__pct {
+  font-family: var(--display);
+  font-size: 2.3rem;
+  line-height: 1;
+  transform: rotate(-8deg);
+}
+
+.cupom__canhoto .brilho { color: var(--branco); }
+
+/* Picote entre canhoto e corpo */
+.cupom__ticket::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: calc(var(--canhoto) - 1px);
+  border-left: 2px dashed rgba(225, 82, 151, 0.45);
+}
+
+.cupom__corpo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px 14px 20px;
+}
+
+.cupom__titulo {
+  font-family: var(--display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--roxo);
+}
+
+.cupom__texto { font-size: 0.76rem; line-height: 1.45; color: var(--texto-suave); }
+
+.cupom__acao {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px 7px 14px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--branco);
+  background: var(--rosa-ticket);
+  border-radius: 100px;
+  box-shadow: 0 4px 10px -3px rgba(194, 63, 126, 0.5);
+  transition: background-color 250ms var(--ease);
+}
+
+.cupom__acao svg { transition: transform 300ms var(--expo); }
+
+/* Brilho que passa pelo ticket de tempos em tempos (o mesmo efeito dos botões do site) */
+.cupom__ticket::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.45) 30%, rgba(255, 255, 255, 0.45) 40%, rgba(255, 255, 255, 0) 70%);
+  transform: skewX(-30deg);
+  pointer-events: none;
+  animation: varre 4s infinite ease-in-out;
+}
+
+@keyframes varre {
+  0% { left: -150%; }
+  30%, 100% { left: 150%; }
+}
+
+/* =====================================================
+   CANAIS DE AGENDAMENTO (o mesmo desenho do modal do site)
+   ===================================================== */
+.pergunta {
+  margin: 4px 4px 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.canal {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 58px;
+  padding: 12px 16px;
+  color: var(--roxo);
+  background: var(--fundo);
+  border-radius: 16px;
+  transition: background-color 250ms var(--ease), color 250ms var(--ease), transform 200ms ease;
+}
+
+.canal:active { transform: scale(0.985); }
+.canal--principal { color: var(--branco); background: var(--roxo); }
+.canal svg { flex-shrink: 0; }
+
+.canal__texto { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.canal__texto strong { font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
+.canal__texto span { font-size: 0.75rem; line-height: 1.35; opacity: 0.8; }
+
+.canal__seta { transition: transform 300ms var(--expo); }
+
+.loja__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 22px; margin-top: 2px; }
+
+.link-seta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--roxo);
+  transition: color 250ms var(--ease);
+}
+
+.link-seta svg { transition: transform 200ms ease; }
+
+/* =====================================================
+   RODAPÉ
+   ===================================================== */
+.rodape {
+  margin-top: 40px;
+  padding-top: 28px;
+  text-align: center;
+  border-top: 1px solid var(--linha);
+}
+
+.rodape__frase {
+  max-width: 22ch;
+  margin: 0 auto 18px;
+  font-family: var(--display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--roxo);
+}
+
+.rodape__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 24px; }
+
+.pilula {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 10px 18px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--roxo);
+  border: 1.5px solid rgba(107, 31, 124, 0.3);
+  border-radius: 100px;
+  transition: border-color 250ms var(--ease), background-color 250ms var(--ease);
+}
+
+.rodape__copy { font-size: 0.74rem; line-height: 1.7; color: var(--texto-suave); }
+.rodape__copy a { font-weight: 600; color: var(--rosa-escuro); }
+
+/* =====================================================
+   INTERAÇÕES COM MOUSE
+   ===================================================== */
+@media (hover: hover) {
+  .loja:hover { box-shadow: 0 1px 2px rgba(42, 36, 40, 0.04), 0 20px 40px -18px rgba(107, 31, 124, 0.26); }
+  .loja__linha:hover .loja__seta { background: var(--blush); }
+  .loja.is-aberta .loja__linha:hover .loja__seta { background: var(--roxo-hover); }
+  .cupom:hover { transform: translateY(-2px) rotate(-0.6deg); }
+  .cupom:hover .cupom__acao { background: var(--rosa-escuro); }
+  .cupom:hover .cupom__acao svg { transform: translateX(3px); }
+  .canal:hover { background: var(--blush); }
+  .canal--principal:hover { background: var(--roxo-hover); }
+  .canal:hover .canal__seta { transform: translateX(3px); }
+  .link-seta:hover { color: var(--rosa-escuro); }
+  .link-seta:hover svg { transform: translateX(4px); }
+  .pilula:hover { border-color: var(--roxo); background: rgba(107, 31, 124, 0.04); }
+}
+
+@media (min-width: 640px) {
+  .topo { padding-top: 40px; }
+  .topo__logo { margin-bottom: 34px; }
+  .loja__linha { grid-template-columns: 104px minmax(0, 1fr) 34px; gap: 18px; }
+  .loja__midia { width: 104px; height: 120px; }
+  .loja__nome { font-size: 1.08rem; }
+  .loja__opcoes { padding: 6px 18px 18px; }
+  .cupom__ticket { --canhoto: 96px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .cupom__ticket::after { display: none; }
+  .brilho { opacity: 0.8; transform: none; }
+  html.js .loja[data-reveal] { opacity: 1; transform: none; }
+}
+</style>
 </head>
 <body>
 
-<div id="conheca-page">
+<main class="pagina">
 
-  <!-- Partículas de brilho no fundo -->
-  <div class="sparkles-bg" aria-hidden="true">
-    <span class="sparkle sp-1"></span>
-    <span class="sparkle sp-2"></span>
-    <span class="sparkle sp-3"></span>
-    <span class="sparkle sp-4"></span>
-    <span class="sparkle sp-5"></span>
-    <span class="sparkle sp-6"></span>
-    <span class="sparkle sp-7"></span>
-    <span class="sparkle sp-8"></span>
-    <span class="sparkle sp-9"></span>
-    <span class="sparkle sp-10"></span>
-  </div>
+  <header class="topo">
+    <img src="/assets/conheca/logo-esmaltale.svg" alt="Esmaltale, especialistas em unhas" class="topo__logo" width="140" height="43">
+    <span class="topo__tag">Agendamento e cupons</span>
+    <h1 class="topo__titulo">Escolha a sua unidade</h1>
+    <p class="topo__texto" id="texto-topo">Toque na loja para agendar o seu horário ou pegar o seu cupom de desconto.</p>
+    <p class="aviso" id="aviso-cupom" hidden>
+      <span class="aviso__ticket">
+        <span class="aviso__pct" aria-hidden="true">%</span>
+        <span class="aviso__texto" id="aviso-cupom-texto">Cupom ativo</span>
+      </span>
+    </p>
+  </header>
 
-  <!-- Gradiente de fundo decorativo -->
-  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
-  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+  <section aria-labelledby="titulo-unidades">
+    <div class="rotulo">
+      <h2 id="titulo-unidades">Nossas unidades</h2>
+      <p id="contagem-unidades"></p>
+    </div>
 
-  <main class="page-wrapper">
+    <ul class="lista" id="lista-lojas"></ul>
 
-    <!-- HEADER: Logo + Título -->
-    <header class="page-header">
-      <div class="logo-wrapper">
-        <img src="../assets/Logo_cor.png" alt="Esmaltale" class="brand-logo">
-      </div>
+    <noscript>
+      <p style="text-align:center;padding:16px">Veja todas as unidades em <a href="https://esmaltale.com.br/lojas/" style="color:#632066;font-weight:600">esmaltale.com.br/lojas</a>.</p>
+    </noscript>
+  </section>
 
-      <h1 class="page-title">Conheça nossas<br>unidades!</h1>
-      <p class="page-subtitle">Escolha a Esmaltale mais próxima de você para agendar seu atendimento ou resgatar cupons exclusivos 🩷</p>
-    </header>
+  <footer class="rodape">
+    <p class="rodape__frase">A sua pausa favorita de beleza e bem-estar</p>
+    <div class="rodape__links">
+      <a class="pilula" href="https://esmaltale.com.br/" data-evento="click_site">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        esmaltale.com.br
+      </a>
+      <a class="pilula" href="https://www.instagram.com/esmaltale" target="_blank" rel="noopener noreferrer" data-evento="click_instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg>
+        @esmaltale
+      </a>
+    </div>
+    <p class="rodape__copy">© <span id="ano">2026</span> Esmaltale Estética e Beleza<br>Desenvolvido por <a href="https://hup.com.br" target="_blank" rel="noopener noreferrer">Hup Creative</a></p>
+  </footer>
 
-    <!-- SEÇÃO 1: LOJAS COM CUPONS ATIVOS -->
-    <section class="stores-section" id="active-coupons-section" aria-label="Lojas com cupons ativos">
-      <div class="section-badge-header">
-        <span class="section-tag-pill active-tag">
-          <span class="badge-dot-green"></span>
-          Lojas com cupons!
-        </span>
-      </div>
-
-      <div class="stores-grid" id="active-stores-container">
-        <!-- Renderizado dinamicamente via JS / Fallback HTML -->
-      </div>
-    </section>
-
-    <!-- SEÇÃO 2: CONHEÇA NOSSAS LOJAS (OUTRAS UNIDADES) -->
-    <section class="stores-section other-stores-section" id="other-stores-section" aria-label="Outras unidades">
-      <div class="section-badge-header">
-        <span class="section-tag-pill">Conheça nossas lojas</span>
-      </div>
-
-      <div class="stores-grid" id="other-stores-container">
-        <!-- Renderizado dinamicamente via JS / Fallback HTML -->
-      </div>
-    </section>
-
-    <!-- SEÇÃO 3: INSTAGRAM CALLOUT -->
-    <section class="instagram-section" aria-label="Redes sociais">
-      <div class="instagram-card">
-        <div class="insta-icon-wrapper">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        </div>
-        <h2 class="insta-title">Acompanhe-nos no Instagram!</h2>
-        <p class="insta-subtitle">Fique por dentro de inspirações, tendências de unhas e novidades de todas as nossas unidades.</p>
-        
-        <a href="https://www.instagram.com/esmaltale" target="_blank" rel="noopener noreferrer" class="insta-btn" aria-label="Siga a Esmaltale no Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-          <span>Siga @esmaltale no Instagram</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="page-footer">
-      <p class="footer-copy">© 2026 Esmaltale Estética e Beleza. Todos os direitos reservados.</p>
-      <p class="footer-dev">
-        Desenvolvido por <a href="https://hup.com.br" target="_blank" rel="noopener noreferrer">Hup Creative</a>
-      </p>
-    </footer>
-
-  </main>
-</div>
+</main>
 
 <!-- =====================================================
-     SCRIPT DE GERENCIAMENTO AUTOMÁTICO DE LOJAS
+     DADOS DAS UNIDADES
+     -----------------------------------------------------
+     - priority: ordem na lista (1 aparece primeiro). Para mudar a ordem, troque só os números.
+     - hasActiveCoupon / url: atualizados pelo sistema de landing pages. Com cupom ativo, o ticket
+       "Pegar meu cupom" leva para "url" (a landing do cupom).
+     - unitUrl: página da unidade (link "Conhecer a unidade").
+     - mapsUrl: perfil da unidade no Google Maps (link "Ver no mapa"). Vazio = sem o link.
+     - isNew: mostra "Nova unidade" acima do nome.
+     - promo: texto curto de promoção (ex.: 'Promoção'), num adesivo laranja abaixo da localização. Vazio = sem adesivo.
+     - trinksUrl / whatsapp: agendamento. Sem trinksUrl, a opção do Trinks some.
+     - image: foto da frente da unidade (240x288, WebP).
      ===================================================== -->
 <script>
-  // DADOS DE TODAS AS UNIDADES
-  // Para ativar cupons em uma loja no futuro, basta alterar "hasActiveCoupon: true"
   const STORES_DATA = [
     {
-      slug: 'parqueshoppingbahia',
-      name: 'Parque Shopping Bahia',
-      city: 'Lauro de Freitas',
-      address: 'Piso L2 — Corredor das Lojas Americanas',
-      image: '../assets/Lojas/parque-shopping-bahia02.jpg',
-      url: '/parqueshoppingbahia',
-      hasActiveCoupon: true
+      slug: 'shoppingbarra',
+      name: 'Shopping Barra',
+      city: 'Salvador',
+      address: 'Piso L3 Leste · Ao lado da Nike',
+      image: '/assets/conheca/shopping-barra.webp',
+      url: '/shoppingbarra',
+      unitUrl: '/conheca/shoppingbarra',
+      mapsUrl: 'https://www.google.com/maps?cid=7693819465966985537',
+      trinksUrl: 'https://www.trinks.com/esmaltale-shopping-barra',
+      whatsapp: '5571999494089',
+      hasActiveCoupon: true,
+      isNew: true,
+      promo: '',
+      priority: 1
     },
     {
       slug: 'shoppingdabahia',
       name: 'Shopping da Bahia',
       city: 'Salvador',
-      address: 'Piso L3 — Em frente à Riachuelo',
-      image: '../assets/Lojas/shopping-da-bahia.jpg',
+      address: 'Piso L3 · Em frente à Riachuelo',
+      image: '/assets/conheca/shopping-da-bahia.webp',
       url: '/shoppingdabahia',
-      hasActiveCoupon: true
+      unitUrl: '/conheca/shoppingdabahia',
+      mapsUrl: 'https://www.google.com/maps?cid=3673152592179540768',
+      trinksUrl: 'https://www.trinks.com/esmaltale-shopping-da-bahia-',
+      whatsapp: '5571999231497',
+      hasActiveCoupon: true,
+      isNew: false,
+      promo: '',
+      priority: 2
     },
     {
       slug: 'shoppingparalela',
       name: 'Shopping Paralela',
       city: 'Salvador',
-      address: 'Piso L2 — Próximo à Centauro',
-      image: '../assets/Lojas/shopping-paralela.jpg',
+      address: 'Piso L2 · Próximo à Centauro',
+      image: '/assets/conheca/shopping-paralela.webp',
       url: '/shoppingparalela',
-      hasActiveCoupon: true
+      unitUrl: '/conheca/shoppingparalela',
+      mapsUrl: 'https://www.google.com/maps?cid=1865418680387577062',
+      trinksUrl: 'https://www.trinks.com/esmaltale-shop-paralela',
+      whatsapp: '5571991152859',
+      hasActiveCoupon: true,
+      isNew: false,
+      promo: '',
+      priority: 3
     },
     {
-      slug: 'shoppingbarra',
-      name: 'Shopping Barra',
-      city: 'Salvador',
-      address: 'Piso L3 (leste) — Ao lado da Nike',
-      image: '../assets/Lojas/shopping-barra.jpg',
-      url: '/shoppingbarra',
-      hasActiveCoupon: true
+      slug: 'parqueshoppingbahia',
+      name: 'Parque Shopping Bahia',
+      city: 'Lauro de Freitas',
+      address: 'Piso L2 · Próximo às Lojas Americanas',
+      image: '/assets/conheca/parque-shopping-bahia.webp',
+      url: '/parqueshoppingbahia',
+      unitUrl: '/conheca/parqueshoppingbahia',
+      mapsUrl: 'https://www.google.com/maps?cid=17028121796568796822',
+      trinksUrl: 'https://www.trinks.com/esmaltale-salvador-norte-shopping',
+      whatsapp: '5571983259511',
+      hasActiveCoupon: true,
+      isNew: false,
+      promo: '',
+      priority: 4
     },
     {
       slug: 'salvadorshopping',
       name: 'Salvador Shopping',
       city: 'Salvador',
-      address: 'Piso L2 — Próximo à praça central',
-      image: '../assets/Lojas/salvador-shopping.jpg',
+      address: 'Piso L2 · Próximo ao Lar Shopping',
+      image: '/assets/conheca/salvador-shopping.webp',
       url: '/conheca/salvadorshopping',
-      hasActiveCoupon: false
+      unitUrl: '/conheca/salvadorshopping',
+      mapsUrl: 'https://www.google.com/maps?cid=7686953596061038359',
+      trinksUrl: 'https://www.trinks.com/esmaltalesalvadorshopping',
+      whatsapp: '5571993016341',
+      hasActiveCoupon: false,
+      isNew: false,
+      promo: '',
+      priority: 5
     },
     {
       slug: 'shoppingbelavista',
       name: 'Shopping Bela Vista',
       city: 'Salvador',
-      address: 'Piso L2 — Alameda principal',
-      image: '../assets/Lojas/shopping-bela-vista.jpg',
+      address: 'Piso L2 · Próximo à Alpha Fitness',
+      image: '/assets/conheca/shopping-bela-vista.webp',
       url: '/conheca/shoppingbelavista',
-      hasActiveCoupon: false
+      unitUrl: '/conheca/shoppingbelavista',
+      mapsUrl: 'https://www.google.com/maps?cid=11797337463690376936',
+      trinksUrl: 'https://www.trinks.com/esmaltale-shopping-bela-vista',
+      whatsapp: '5571997002950',
+      hasActiveCoupon: false,
+      isNew: false,
+      promo: '',
+      priority: 6
     }
   ];
 
-  function createStoreCardHTML(store, isActiveCoupon) {
-    if (isActiveCoupon) {
-      return `
-        <a href="${store.url}"
-           class="store-card active-coupon-card"
-           data-unit="${store.slug}"
-           aria-label="Ir para a unidade ${store.name}">
-          <div class="card-image-wrapper">
-            <img src="${store.image}" alt="Fachada da Esmaltale no ${store.name}" class="card-image" loading="eager">
-            <div class="card-image-overlay"></div>
-          </div>
-          <div class="card-body">
-            <div class="card-info">
-              <span class="card-location-tag">${store.city}</span>
-              <h2 class="card-title">${store.name}</h2>
-              <p class="card-address">${store.address}</p>
-            </div>
-            <div class="card-cta">
-              <span class="cta-btn active-cta-btn">
-                Ver cupons
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </span>
-            </div>
-          </div>
-        </a>
-      `;
-    } else {
-      return `
-        <a href="${store.url}"
-           class="store-card standard-card"
-           data-unit="${store.slug}"
-           aria-label="Ir para a unidade ${store.name}">
-          <div class="card-image-wrapper">
-            <img src="${store.image}" alt="Fachada da Esmaltale no ${store.name}" class="card-image" loading="lazy">
-            <div class="card-image-overlay"></div>
-          </div>
-          <div class="card-body">
-            <div class="card-info">
-              <span class="card-location-tag">${store.city}</span>
-              <h2 class="card-title">${store.name}</h2>
-              <p class="card-address">${store.address}</p>
-            </div>
-            <div class="card-cta">
-              <span class="cta-btn standard-cta-btn">
-                Conhecer loja
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </span>
-            </div>
-          </div>
-        </a>
-      `;
+  var ESTRELA = 'M12 2c.8 5.2 2.8 7.2 8 8-5.2.8-7.2 2.8-8 8-.8-5.2-2.8-7.2-8-8 5.2-.8 7.2-2.8 8-8z';
+
+  function brilho(x, y, t, atraso) {
+    return '<svg class="brilho" viewBox="0 0 24 24" aria-hidden="true" style="left:' + x + ';top:' + y + ';width:' + t + 'px;height:' + t + 'px;animation-delay:' + atraso + 's"><path d="' + ESTRELA + '"/></svg>';
+  }
+
+  const ICONES = {
+    seta: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>',
+    agenda: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>',
+    whats: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 0 1-1.44-5.01c0-5.2 4.23-9.43 9.43-9.43a9.37 9.37 0 0 1 9.42 9.44c0 5.2-4.23 9.42-9.43 9.42zm8.03-17.45A11.3 11.3 0 0 0 12.05.72C5.79.72.7 5.8.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.6l6-1.57a11.33 11.33 0 0 0 5.43 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></svg>',
+    ir: '<svg class="canal__seta" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>',
+    mapa: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>',
+    irPequena: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>'
+  };
+
+  const CHAVE_ULTIMA = 'esmaltale_ultima_unidade';
+  const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function evento(nome, dados) {
+    if (window.gtag) gtag('event', nome, dados || {});
+  }
+
+  function ordenar(lista) {
+    return lista
+      .map(function (loja, i) { return { loja: loja, i: i }; })
+      .sort(function (a, b) {
+        var pa = typeof a.loja.priority === 'number' ? a.loja.priority : 999;
+        var pb = typeof b.loja.priority === 'number' ? b.loja.priority : 999;
+        return pa - pb || a.i - b.i;
+      })
+      .map(function (x) { return x.loja; });
+  }
+
+  function linkWhats(loja) {
+    var texto = 'Olá! Gostaria de agendar um horário na Esmaltale ' + loja.name + '.';
+    return 'https://wa.me/' + loja.whatsapp + '?text=' + encodeURIComponent(texto);
+  }
+
+  function cartao(loja, i) {
+    var painel = 'painel-' + loja.slug;
+    var adesivos =
+      (loja.hasActiveCoupon ? '<span class="adesivo" aria-hidden="true"><span>Cupom</span></span>' : '') +
+      (loja.promo ? '<span class="adesivo adesivo--promo" aria-hidden="true"><span>' + loja.promo + '</span></span>' : '');
+    if (adesivos) adesivos = '<span class="loja__adesivos">' + adesivos + '</span>';
+    // Os adesivos são decorativos: o leitor de tela recebe o mesmo aviso em texto.
+    var leitura = [loja.hasActiveCoupon ? 'cupom ativo' : '', loja.promo || '']
+      .filter(Boolean).join(', ');
+
+    var cupom = loja.hasActiveCoupon ? (
+      '<a class="cupom" href="' + loja.url + '" data-evento="click_coupon" data-unit="' + loja.slug + '">' +
+        '<span class="cupom__ticket">' +
+          '<span class="cupom__canhoto" aria-hidden="true">' +
+            '<span class="cupom__pct">%</span>' +
+            brilho('16%', '14%', 11, 0) + brilho('70%', '66%', 9, 1.6) + brilho('62%', '12%', 7, 2.6) +
+          '</span>' +
+          '<span class="cupom__corpo">' +
+            '<span><span class="cupom__titulo" style="display:block">Cupom de desconto</span>' +
+            '<span class="cupom__texto" style="display:block;margin-top:3px">Pegue o seu e mostre a imagem na recepção.</span></span>' +
+            '<span class="cupom__acao">Pegar meu cupom ' + ICONES.irPequena + '</span>' +
+          '</span>' +
+        '</span>' +
+      '</a>'
+    ) : '';
+
+    var canais = '';
+    if (loja.trinksUrl) {
+      canais += '<a class="canal canal--principal" href="' + loja.trinksUrl + '" target="_blank" rel="noopener noreferrer" data-evento="click_trinks" data-unit="' + loja.slug + '">' +
+        ICONES.agenda +
+        '<span class="canal__texto"><strong>Agendamento online (Trinks)</strong><span>Escolha profissional e horário na hora</span></span>' +
+        ICONES.ir + '</a>';
     }
+    if (loja.whatsapp) {
+      canais += '<a class="canal" href="' + linkWhats(loja) + '" target="_blank" rel="noopener noreferrer" data-evento="click_whatsapp" data-unit="' + loja.slug + '">' +
+        ICONES.whats +
+        '<span class="canal__texto"><strong>Agendar pelo WhatsApp</strong><span>Fale com a nossa recepção por mensagem</span></span>' +
+        ICONES.ir + '</a>';
+    }
+
+    var links = '';
+    if (loja.mapsUrl) links += '<a class="link-seta" href="' + loja.mapsUrl + '" target="_blank" rel="noopener noreferrer" data-evento="click_map" data-unit="' + loja.slug + '">' + ICONES.mapa + ' Ver no mapa</a>';
+    if (loja.unitUrl) links += '<a class="link-seta" href="' + loja.unitUrl + '" data-evento="click_unit_page" data-unit="' + loja.slug + '">Conhecer a unidade ' + ICONES.irPequena + '</a>';
+
+    // As 3 primeiras entram com a página; as demais, ao aparecer na rolagem.
+    var entrada = i < 3 ? ' style="--atraso:' + (150 + i * 90) + 'ms"' : ' data-reveal';
+
+    return (
+      '<li class="loja" data-slug="' + loja.slug + '"' + entrada + '>' +
+        '<button type="button" class="loja__linha" aria-expanded="false" aria-controls="' + painel + '">' +
+          '<span class="loja__midia">' +
+            '<img class="loja__foto" src="' + loja.image + '" alt="Frente da Esmaltale no ' + loja.name + '" width="84" height="100"' + (i > 2 ? ' loading="lazy"' : (i === 0 ? ' fetchpriority="high"' : '')) + ' decoding="async">' +
+          '</span>' +
+          '<span class="loja__info">' +
+            (loja.isNew ? '<span class="loja__nova"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + ESTRELA + '"/></svg>Nova unidade</span>' : '') +
+            '<span class="loja__nome">' + loja.name + '</span>' +
+            '<span class="loja__local">' + loja.address + '</span>' +
+            adesivos +
+            (leitura ? '<span class="leitor">, ' + leitura + '</span>' : '') +
+          '</span>' +
+          '<span class="loja__seta">' + ICONES.seta + '</span>' +
+        '</button>' +
+        '<div class="loja__painel" id="' + painel + '" role="region" aria-label="Opções do ' + loja.name + '" inert>' +
+          '<div class="loja__painel-dentro">' +
+            '<div class="loja__opcoes">' +
+              (canais ? '<p class="pergunta">Como prefere agendar?</p>' + canais : '') +
+              cupom +
+              (links ? '<div class="loja__links">' + links + '</div>' : '') +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</li>'
+    );
+  }
+
+  function alternar(item, abrir, rolar) {
+    var botao = item.querySelector('.loja__linha');
+    var painel = item.querySelector('.loja__painel');
+    item.classList.toggle('is-aberta', abrir);
+    botao.setAttribute('aria-expanded', String(abrir));
+    if (abrir) painel.removeAttribute('inert'); else painel.setAttribute('inert', '');
+    if (abrir && rolar) {
+      // Depois de abrir, garante que as opções fiquem visíveis na tela.
+      setTimeout(function () {
+        var r = item.getBoundingClientRect();
+        if (r.bottom > window.innerHeight - 12) {
+          item.scrollIntoView({ behavior: reduzMovimento ? 'auto' : 'smooth', block: r.height < window.innerHeight ? 'end' : 'start' });
+        }
+      }, 380);
+    }
+  }
+
+  function revelar(itens) {
+    if (!itens.length) return;
+    if (reduzMovimento || !('IntersectionObserver' in window)) {
+      itens.forEach(function (el) { el.classList.add('is-revealed'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-revealed');
+        obs.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+    itens.forEach(function (el) { obs.observe(el); });
   }
 
   function renderStores() {
-    const activeContainer = document.getElementById('active-stores-container');
-    const otherContainer = document.getElementById('other-stores-container');
-    const activeSection = document.getElementById('active-coupons-section');
-    const otherSection = document.getElementById('other-stores-section');
+    var lojas = ordenar(STORES_DATA);
+    var lista = document.getElementById('lista-lojas');
+    lista.innerHTML = lojas.map(cartao).join('');
 
-    const activeStores = STORES_DATA.filter(s => s.hasActiveCoupon);
-    const otherStores = STORES_DATA.filter(s => !s.hasActiveCoupon);
-
-    if (activeStores.length > 0) {
-      activeSection.style.display = 'block';
-      activeContainer.innerHTML = activeStores.map(s => createStoreCardHTML(s, true)).join('');
+    var comCupom = lojas.filter(function (l) { return l.hasActiveCoupon; }).length;
+    document.getElementById('contagem-unidades').textContent = lojas.length + (lojas.length === 1 ? ' unidade' : ' unidades');
+    if (comCupom > 0) {
+      document.getElementById('aviso-cupom').hidden = false;
+      document.getElementById('aviso-cupom-texto').textContent = comCupom === 1
+        ? 'Cupom ativo em 1 unidade'
+        : 'Cupom ativo em ' + comCupom + ' unidades';
     } else {
-      activeSection.style.display = 'none';
+      document.getElementById('texto-topo').textContent = 'Toque na loja para agendar o seu horário.';
     }
 
-    if (otherStores.length > 0) {
-      otherSection.style.display = 'block';
-      otherContainer.innerHTML = otherStores.map(s => createStoreCardHTML(s, false)).join('');
-    } else {
-      otherSection.style.display = 'none';
-    }
+    var itens = Array.prototype.slice.call(lista.querySelectorAll('.loja'));
+    revelar(Array.prototype.slice.call(lista.querySelectorAll('.loja[data-reveal]')));
 
-    // Analytics click handler
-    document.querySelectorAll('.store-card').forEach(function(card) {
-      card.addEventListener('click', function() {
-        var unit = card.getAttribute('data-unit');
-        if (window.gtag) {
-          gtag('event', 'select_item', {
-            'event_category': 'navigation',
-            'event_label': 'store_selection',
-            'unit': unit
-          });
+    itens.forEach(function (item) {
+      item.querySelector('.loja__linha').addEventListener('click', function () {
+        var abrir = !item.classList.contains('is-aberta');
+        itens.forEach(function (outro) { if (outro !== item) alternar(outro, false); });
+        alternar(item, abrir, true);
+        if (abrir) {
+          try { localStorage.setItem(CHAVE_ULTIMA, item.dataset.slug); } catch (e) {}
+          evento('select_item', { event_category: 'navigation', event_label: 'store_selection', unit: item.dataset.slug });
         }
       });
     });
+
+    // Quem volta à página encontra aberta a última loja escolhida.
+    try {
+      var ultima = localStorage.getItem(CHAVE_ULTIMA);
+      var item = ultima && lista.querySelector('.loja[data-slug="' + ultima + '"]');
+      if (item) alternar(item, true, false);
+    } catch (e) {}
+
+    document.addEventListener('click', function (e) {
+      var alvo = e.target.closest('[data-evento]');
+      if (alvo) evento(alvo.dataset.evento, { unit: alvo.dataset.unit || '' });
+    });
+
+    document.getElementById('ano').textContent = new Date().getFullYear();
   }
 
-  document.addEventListener('DOMContentLoaded', renderStores);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderStores);
+  else renderStores();
 </script>
-
-<style>
-/* =====================================================
-   RESET & BASE
-   ===================================================== */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100dvh;
-}
-
-body {
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #FCF5F6;
-  color: #2A2428;
-  overflow-x: hidden;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* =====================================================
-   DESIGN TOKENS ES MALTALE
-   ===================================================== */
-:root {
-  --pink:        #E0609A;
-  --pink-dark:   #A11E5D;
-  --pink-light:  #F7C5DC;
-  --purple:      #6B1F7C;
-  --purple-dark: #2A2428;
-  --bg:          #FCF5F6;
-  --white:       #FFFFFF;
-
-  --radius-card: 24px;
-  --radius-pill: 100px;
-
-  --shadow-card: 0 8px 32px rgba(107, 31, 124, 0.08);
-  --shadow-hover: 0 20px 48px rgba(107, 31, 124, 0.16);
-
-  --transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* =====================================================
-   BACKGROUND DECORATION
-   ===================================================== */
-#conheca-page {
-  position: relative;
-  min-height: 100dvh;
-}
-
-.bg-orb {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(85px);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.bg-orb-1 {
-  width: 500px;
-  height: 500px;
-  top: -150px;
-  right: -150px;
-  background: radial-gradient(circle, rgba(224, 96, 154, 0.18) 0%, transparent 70%);
-  animation: orbFloat1 12s ease-in-out infinite;
-}
-
-.bg-orb-2 {
-  width: 450px;
-  height: 450px;
-  bottom: -100px;
-  left: -100px;
-  background: radial-gradient(circle, rgba(107, 31, 124, 0.14) 0%, transparent 70%);
-  animation: orbFloat2 15s ease-in-out infinite;
-}
-
-@keyframes orbFloat1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%       { transform: translate(-30px, 30px) scale(1.05); }
-}
-
-@keyframes orbFloat2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%       { transform: translate(20px, -20px) scale(1.08); }
-}
-
-/* =====================================================
-   SPARKLES
-   ===================================================== */
-.sparkles-bg {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.sparkle {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--pink);
-  opacity: 0;
-  animation: sparkleAnim var(--dur, 4s) ease-in-out var(--delay, 0s) infinite;
-}
-
-.sparkle::before {
-  content: '✦';
-  position: absolute;
-  inset: -4px;
-  font-size: 14px;
-  color: var(--pink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sp-1  { --dur: 5s;  --delay: 0s;    top: 8%;  left: 10%; }
-.sp-2  { --dur: 7s;  --delay: 1.2s;  top: 15%; left: 80%; }
-.sp-3  { --dur: 6s;  --delay: 2.4s;  top: 30%; left: 5%;  }
-.sp-4  { --dur: 4.5s;--delay: 0.8s;  top: 45%; left: 90%; }
-.sp-5  { --dur: 8s;  --delay: 3.1s;  top: 60%; left: 20%; }
-.sp-6  { --dur: 5.5s;--delay: 1.7s;  top: 70%; left: 70%; }
-.sp-7  { --dur: 6.5s;--delay: 0.3s;  top: 85%; left: 40%; }
-.sp-8  { --dur: 4s;  --delay: 2.9s;  top: 20%; left: 50%; }
-.sp-9  { --dur: 7.5s;--delay: 1.5s;  top: 75%; left: 88%; }
-.sp-10 { --dur: 5s;  --delay: 3.8s;  top: 50%; left: 55%; }
-
-@keyframes sparkleAnim {
-  0%, 100% { opacity: 0;    transform: scale(0.5) rotate(0deg);   }
-  30%       { opacity: 0.7; transform: scale(1.2) rotate(180deg); }
-  60%       { opacity: 0.4; transform: scale(0.8) rotate(270deg); }
-}
-
-/* =====================================================
-   PAGE WRAPPER
-   ===================================================== */
-.page-wrapper {
-  position: relative;
-  z-index: 1;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px 48px;
-  max-width: 540px;
-  margin: 0 auto;
-}
-
-/* =====================================================
-   HEADER
-   ===================================================== */
-.page-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 32px;
-  width: 100%;
-}
-
-.logo-wrapper {
-  margin-bottom: 20px;
-}
-
-.brand-logo {
-  height: 52px;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(107, 31, 124, 0.15));
-}
-
-.page-title {
-  font-size: clamp(1.7rem, 6.5vw, 2.3rem);
-  font-weight: 800;
-  color: var(--purple);
-  line-height: 1.15;
-  margin-bottom: 12px;
-  letter-spacing: -0.02em;
-}
-
-.page-subtitle {
-  font-size: 0.92rem;
-  color: var(--purple-dark);
-  opacity: 0.70;
-  line-height: 1.6;
-  max-width: 360px;
-}
-
-/* =====================================================
-   SEÇÕES DE LOJAS
-   ===================================================== */
-.stores-section {
-  width: 100%;
-  margin-bottom: 36px;
-}
-
-.section-badge-header {
-  margin-bottom: 16px;
-}
-
-.section-tag-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--purple);
-  background: rgba(107, 31, 124, 0.07);
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(107, 31, 124, 0.15);
-}
-
-.section-tag-pill.active-tag {
-  color: var(--pink-dark);
-  background: linear-gradient(135deg, rgba(224, 96, 154, 0.12), rgba(107, 31, 124, 0.08));
-  border-color: rgba(224, 96, 154, 0.35);
-}
-
-.badge-dot-green {
-  width: 7px;
-  height: 7px;
-  background: #4CAF50;
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.25);
-  animation: pulse-dot 2s ease-in-out infinite;
-  flex-shrink: 0;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.25); }
-  50%       { box-shadow: 0 0 0 5px rgba(76, 175, 80, 0.10); }
-}
-
-.stores-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  width: 100%;
-}
-
-/* =====================================================
-   STORE CARDS
-   ===================================================== */
-.store-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--white);
-  border-radius: var(--radius-card);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-  border: 1px solid rgba(224, 96, 154, 0.10);
-  cursor: pointer;
-  transition: var(--transition);
-  will-change: transform;
-}
-
-.store-card:hover,
-.store-card:focus-visible {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: var(--shadow-hover);
-  border-color: rgba(224, 96, 154, 0.28);
-  outline: none;
-}
-
-.store-card:active {
-  transform: translateY(-2px) scale(0.995);
-}
-
-.card-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 195px;
-  overflow: hidden;
-}
-
-.card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.store-card:hover .card-image {
-  transform: scale(1.05);
-}
-
-.card-image-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 45%,
-    rgba(42, 36, 40, 0.40) 100%
-  );
-  pointer-events: none;
-}
-
-/* --- Body do card --- */
-.card-body {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 20px 20px 24px 20px;
-}
-
-.card-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.card-location-tag {
-  display: block;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--purple);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 3px;
-}
-
-.card-title {
-  font-size: 1.20rem;
-  font-weight: 800;
-  color: var(--purple-dark);
-  line-height: 1.2;
-  margin-bottom: 5px;
-}
-
-.card-address {
-  font-size: 0.84rem;
-  font-weight: 600;
-  color: var(--pink-dark);
-  line-height: 1.45;
-}
-
-/* --- CTA BUTTONS --- */
-.card-cta {
-  flex-shrink: 0;
-  padding: 4px 2px;
-}
-
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 10px 16px;
-  border-radius: var(--radius-pill);
-  transition: var(--transition);
-  white-space: nowrap;
-}
-
-.cta-btn svg {
-  transition: transform 250ms ease;
-  flex-shrink: 0;
-}
-
-/* Botão em roxo sólido com pulso para lojas com cupom */
-.active-cta-btn {
-  background: var(--purple);
-  color: #ffffff;
-  box-shadow: 0 4px 14px rgba(107, 31, 124, 0.35);
-  animation: pulseCta 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.store-card:hover .active-cta-btn {
-  background: #541862;
-  box-shadow: 0 6px 20px rgba(107, 31, 124, 0.50);
-}
-
-.store-card:hover .cta-btn svg {
-  transform: translateX(4px);
-}
-
-@keyframes pulseCta {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 4px 14px rgba(107, 31, 124, 0.35);
-  }
-  50% {
-    transform: scale(1.04);
-    box-shadow: 0 6px 20px rgba(107, 31, 124, 0.55), 0 0 12px rgba(107, 31, 124, 0.30);
-  }
-}
-
-/* Botão em roxo sólido para lojas sem cupom ativo */
-.standard-cta-btn {
-  background: var(--purple);
-  color: #ffffff;
-  box-shadow: 0 4px 14px rgba(107, 31, 124, 0.25);
-}
-
-.store-card:hover .standard-cta-btn {
-  background: #541862;
-  box-shadow: 0 6px 20px rgba(107, 31, 124, 0.45);
-}
-
-/* =====================================================
-   SEÇÃO INSTAGRAM CALLOUT
-   ===================================================== */
-.instagram-section {
-  width: 100%;
-  margin-bottom: 32px;
-}
-
-.instagram-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background: linear-gradient(135deg, rgba(224, 96, 154, 0.08), rgba(107, 31, 124, 0.06));
-  border: 1px solid rgba(224, 96, 154, 0.25);
-  border-radius: var(--radius-card);
-  padding: 28px 24px;
-  box-shadow: 0 8px 30px rgba(107, 31, 124, 0.06);
-  backdrop-filter: blur(8px);
-}
-
-.insta-icon-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: var(--purple);
-  color: #ffffff;
-  box-shadow: 0 6px 18px rgba(107, 31, 124, 0.30);
-  margin-bottom: 14px;
-}
-
-.insta-title {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--purple-dark);
-  margin-bottom: 8px;
-  line-height: 1.25;
-}
-
-.insta-subtitle {
-  font-size: 0.86rem;
-  color: var(--purple-dark);
-  opacity: 0.70;
-  line-height: 1.5;
-  max-width: 380px;
-  margin-bottom: 20px;
-}
-
-.insta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--purple);
-  color: #ffffff;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 12px 22px;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 6px 20px rgba(107, 31, 124, 0.35);
-  transition: var(--transition);
-}
-
-.insta-btn:hover {
-  background: #541862;
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 28px rgba(107, 31, 124, 0.50);
-}
-
-/* =====================================================
-   FOOTER
-   ===================================================== */
-.page-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  margin-top: auto;
-  padding-top: 8px;
-  text-align: center;
-}
-
-.footer-copy {
-  font-size: 0.74rem;
-  color: var(--purple-dark);
-  opacity: 0.45;
-}
-
-.footer-dev {
-  font-size: 0.74rem;
-  color: var(--purple-dark);
-  opacity: 0.40;
-}
-
-.footer-dev a {
-  color: var(--pink-dark);
-  font-weight: 700;
-  transition: var(--transition);
-}
-
-.footer-dev a:hover {
-  color: var(--purple);
-}
-
-/* =====================================================
-   RESPONSIVO — DESKTOP
-   ===================================================== */
-@media (min-width: 768px) {
-  .page-wrapper {
-    max-width: 860px;
-    padding: 56px 32px 64px;
-  }
-
-  .page-title {
-    font-size: 2.5rem;
-  }
-
-  .stores-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .card-image-wrapper {
-    height: 210px;
-  }
-}
-</style>
 
 </body>
 </html>
