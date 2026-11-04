@@ -83,6 +83,7 @@
   --sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --suave: cubic-bezier(0.25, 1, 0.45, 1);
 }
 
 html { -webkit-text-size-adjust: 100%; accent-color: var(--roxo); }
@@ -364,7 +365,7 @@ html.js .loja[data-reveal].is-revealed { opacity: 1; transform: none; }
   color: var(--roxo);
   background: var(--fundo);
   border-radius: 50%;
-  transition: transform 500ms var(--expo), background-color 250ms var(--ease), color 250ms var(--ease);
+  transition: transform 480ms var(--suave), background-color 250ms var(--ease), color 250ms var(--ease);
 }
 
 .loja.is-aberta .loja__seta { transform: rotate(180deg); color: var(--branco); background: var(--roxo); }
@@ -373,7 +374,7 @@ html.js .loja[data-reveal].is-revealed { opacity: 1; transform: none; }
 .loja__painel {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 550ms var(--expo);
+  transition: grid-template-rows 520ms var(--suave);
 }
 
 .loja.is-aberta .loja__painel { grid-template-rows: 1fr; }

@@ -101,6 +101,7 @@
   --sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --suave: cubic-bezier(0.25, 1, 0.45, 1);
 }
 
 html { -webkit-text-size-adjust: 100%; accent-color: var(--roxo); }
@@ -343,7 +344,7 @@ html.js .loja[data-reveal].is-revealed { opacity: 1; transform: none; }
   border-radius: 999px;
   background: var(--fundo);
   color: var(--roxo);
-  transition: transform 0.35s var(--expo), background 0.2s var(--ease), color 0.2s var(--ease);
+  transition: transform 0.48s var(--suave), background 0.25s var(--ease), color 0.25s var(--ease);
 }
 
 .loja:hover .loja__seta { background: var(--blush); }
@@ -360,7 +361,7 @@ html.js .loja[data-reveal].is-revealed { opacity: 1; transform: none; }
 .loja__painel {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.38s var(--expo);
+  transition: grid-template-rows 0.52s var(--suave);
 }
 
 .loja.is-aberta .loja__painel { grid-template-rows: 1fr; }
@@ -543,7 +544,7 @@ html.js .loja[data-reveal].is-revealed { opacity: 1; transform: none; }
 }
 
 .box-presente__seta-icone {
-  transition: transform 0.35s var(--expo);
+  transition: transform 0.48s var(--suave);
 }
 
 .box-presente.is-aberto .box-presente__seta-icone {
@@ -559,7 +560,7 @@ html.js .loja[data-reveal].is-revealed { opacity: 1; transform: none; }
 .box-presente__painel {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s var(--expo);
+  transition: grid-template-rows 0.52s var(--suave);
 }
 
 .box-presente.is-aberto .box-presente__painel {
