@@ -757,6 +757,8 @@
         </button>
       </div>
     </div>
+    <!-- Canvas para confetes caírem por cima do modal (top-layer) -->
+    <canvas id="confetti-canvas" style="position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99999;"></canvas>
   </dialog>
 
   <!-- ==================== MODAL DE SELEÇÃO DE AGENDAMENTO (TRINKS / WHATSAPP) ==================== -->
@@ -2571,8 +2573,20 @@ dialog#gallery-modal::backdrop {
       couponModal.showModal();
       document.body.style.overflow = 'hidden';
       
-      // Efeito de confetes ao abrir o cupom
-      if (window.confetti) {
+      // Efeito de confetes caindo pela frente do modal
+      const confettiCanvas = document.getElementById('confetti-canvas');
+      if (confettiCanvas && window.confetti) {
+        confettiCanvas.width = window.innerWidth;
+        confettiCanvas.height = window.innerHeight;
+        const modalConfetti = confetti.create(confettiCanvas, { resize: false, useWorker: false });
+        modalConfetti({
+          particleCount: 110,
+          spread: 70,
+          origin: { y: 0.45 },
+          colors: ['#E0609A', '#6B1F7C', '#E8605A', '#F8BEDB', '#FFFFFF'],
+          disableForReducedMotion: true
+        });
+      } else if (window.confetti) {
         confetti({
           particleCount: 70,
           spread: 60,
@@ -2594,6 +2608,11 @@ dialog#gallery-modal::backdrop {
     if (couponModal) {
       couponModal.close();
       document.body.style.overflow = '';
+      const confettiCanvas = document.getElementById('confetti-canvas');
+      if (confettiCanvas) {
+        const ctx = confettiCanvas.getContext('2d');
+        if (ctx) ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      }
     }
   };
 

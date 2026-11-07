@@ -764,8 +764,6 @@
 
   <!-- ==================== MODAL DE EXIBIÇÃO DO CUPOM ==================== -->
   <dialog id="coupon-modal" class="modal-dialog">
-    <!-- Canvas para Confete cair por cima do modal (z-index alto e dentro do dialog top-layer) -->
-    <canvas id="confetti-canvas" style="position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999;"></canvas>
     <div class="modal-wrapper">
       <button class="modal-close-btn" onclick="closeCouponModal()" aria-label="Fechar Modal">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="close-icon"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -815,6 +813,8 @@
         </button>
       </div>
     </div>
+    <!-- Canvas para confetes caírem por cima do modal (top-layer) -->
+    <canvas id="confetti-canvas" style="position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99999;"></canvas>
   </dialog>
 
 
@@ -3638,15 +3638,7 @@ body, html {
   const couponModal = document.getElementById('coupon-modal');
   let currentCouponData = {};
 
-  // Confete local para cair por cima do modal (no top-layer)
-  let localConfetti = null;
-  const confettiCanvas = document.getElementById('confetti-canvas');
-  if (confettiCanvas && window.confetti) {
-    localConfetti = confetti.create(confettiCanvas, {
-      resize: true,
-      useWorker: true
-    });
-  }
+// Confete local gerenciado dinamicamente ao abrir o modal
 
   window.openCouponModal = function(val, title) {
     if (!couponModal) return;
@@ -3676,19 +3668,24 @@ body, html {
     document.body.style.overflow = 'hidden';
 
     // Dispara a chuva de confetes por cima do modal usando o canvas local!
-    if (localConfetti) {
-      localConfetti({
-        particleCount: 120,
-        spread: 80,
-        origin: { y: 0.4 }, // ligeiramente acima do centro da tela do dialog
-        colors: ['#E0609A', '#6B1F7C', '#A11E5D', '#FFD700', '#FFFFFF']
+    const confettiCanvas = document.getElementById('confetti-canvas');
+    if (confettiCanvas && window.confetti) {
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+      const modalConfetti = confetti.create(confettiCanvas, { resize: false, useWorker: false });
+      modalConfetti({
+        particleCount: 110,
+        spread: 70,
+        origin: { y: 0.45 },
+        colors: ['#E0609A', '#6B1F7C', '#E8605A', '#F8BEDB', '#FFFFFF'],
+        disableForReducedMotion: true
       });
     } else if (window.confetti) {
       confetti({
-        particleCount: 120,
-        spread: 80,
-        origin: { y: 0.65 },
-        colors: ['#E0609A', '#6B1F7C', '#A11E5D', '#FFD700', '#FFFFFF']
+        particleCount: 70,
+        spread: 60,
+        origin: { y: 0.6 },
+        colors: ['#E0609A', '#6B1F7C', '#E8605A']
       });
     }
   };
@@ -3697,6 +3694,11 @@ body, html {
     if (couponModal) {
       couponModal.close();
       document.body.style.overflow = '';
+      const confettiCanvas = document.getElementById('confetti-canvas');
+      if (confettiCanvas) {
+        const ctx = confettiCanvas.getContext('2d');
+        if (ctx) ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      }
     }
   };
 
