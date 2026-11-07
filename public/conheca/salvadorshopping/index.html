@@ -92,7 +92,7 @@
   <meta name="twitter:image" content="https://loja.esmaltale.com.br/assets/Lojas/salvador-shopping.jpg">
 
   <!-- JSON-LD Structured Data -->
-  <script type="application/ld-json">
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BeautySalon",
@@ -112,23 +112,23 @@
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "-12.9785",
-      "longitude": "-38.4551"
+      "latitude": "-12.9785509",
+      "longitude": "-38.4541098"
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "10:00",
-      "closes": "22:00"
-    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "22:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday"],
+        "opens": "12:00",
+        "closes": "21:00"
+      }
+    ],
     "sameAs": [
       "https://www.instagram.com/esmaltale",
       "https://www.trinks.com/esmaltalesalvadorshopping"
@@ -136,7 +136,7 @@
   }
   </script>
 
-  <script type="application/ld-json">
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -2279,5 +2279,13 @@ dialog#gallery-modal::backdrop {
 })();
 </script>
 
+<script>
+  window.slideUnits = window.slideUnits || function (direcao) {
+    var trilho = document.getElementById('units-slider');
+    if (!trilho) return;
+    var passo = trilho.clientWidth * 0.8;
+    trilho.scrollBy({ left: direcao === 'next' ? passo : -passo, behavior: 'smooth' });
+  };
+</script>
 </body>
 </html>

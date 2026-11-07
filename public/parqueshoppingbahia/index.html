@@ -105,7 +105,7 @@
   <meta name="twitter:image" content="https://loja.esmaltale.com.br/assets/Lojas/parque-shopping-bahia.jpg">
 
   <!-- JSON-LD Structured Data (SEO / AI search engine optimization) -->
-  <script type="application/ld-json">
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BeautySalon",
@@ -125,23 +125,23 @@
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "-12.893111",
-      "longitude": "-38.330456"
+      "latitude": "-12.8884395",
+      "longitude": "-38.318028"
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "10:00",
-      "closes": "22:00"
-    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "22:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday"],
+        "opens": "12:00",
+        "closes": "21:00"
+      }
+    ],
     "sameAs": [
       "https://www.instagram.com/esmaltale",
       "https://www.trinks.com/esmaltale-salvador-norte-shopping"
@@ -149,7 +149,7 @@
   }
   </script>
 
-  <script type="application/ld-json">
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -778,7 +778,7 @@
           </div>
 
           <div class="ticket-validity-box">
-            Válido de 01/09 a 07/10/2026
+            Válido por tempo limitado
           </div>
         </div>
       </div>
@@ -788,7 +788,7 @@
       </p>
 
       <div class="coupon-modal-actions">
-        <button class="action-btn download-btn" onclick="downloadCoupon()">
+        <button id="download-coupon-btn" class="action-btn download-btn" onclick="downloadCoupon()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="action-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Salvar cupom
         </button>
@@ -4127,5 +4127,13 @@ body, html {
 })();
 </script>
 
+<script>
+  window.slideUnits = window.slideUnits || function (direcao) {
+    var trilho = document.getElementById('units-slider');
+    if (!trilho) return;
+    var passo = trilho.clientWidth * 0.8;
+    trilho.scrollBy({ left: direcao === 'next' ? passo : -passo, behavior: 'smooth' });
+  };
+</script>
 </body>
 </html>
