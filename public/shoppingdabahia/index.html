@@ -3674,12 +3674,13 @@ body, html {
       confettiCanvas.height = window.innerHeight;
       const modalConfetti = confetti.create(confettiCanvas, { resize: false, useWorker: false });
       modalConfetti({
-        particleCount: 110,
-        spread: 70,
-        origin: { y: 0.45 },
-        colors: ['#E0609A', '#6B1F7C', '#E8605A', '#F8BEDB', '#FFFFFF'],
-        disableForReducedMotion: true
-      });
+          particleCount: 130,
+          spread: 80,
+          origin: { y: 0.35 },
+          colors: ['#E0609A', '#6B1F7C', '#E8605A', '#F8BEDB', '#FFD700', '#FFFFFF'],
+          ticks: 250,
+          scalar: 1.2
+        });
     } else if (window.confetti) {
       confetti({
         particleCount: 70,
