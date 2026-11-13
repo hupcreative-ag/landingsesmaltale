@@ -85,9 +85,13 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://loja.esmaltale.com.br/shoppingbarra">
 
-  <!-- Favicon / Ícone da Guia -->
-  <link rel="icon" type="image/png" href="../assets/logofav.png">
-  <link rel="apple-touch-icon" href="../assets/logofav.png">
+  <!-- Favicon / Ícones para Navegadores e Google Search (múltiplos de 48px) -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
@@ -212,6 +216,12 @@
   <section class="hero-section">
     <!-- Camada de textura/ambiente com a foto da loja em opacidade reduzida -->
     <div class="hero-bg"></div>
+    <div class="hero-top-nav">
+      <a href="/shoppingbarra/en/" class="lang-switch-btn" title="English Version">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lang-icon"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>English</span>
+      </a>
+    </div>
     <div class="hero-content">
       <a href="https://esmaltale.com.br/" target="_blank" rel="noopener noreferrer" class="hero-logo-link" aria-label="Esmaltale - Site Institucional"><img src="/assets/landing/logo-esmaltale-roxo.svg" alt="Esmaltale Logo" class="hero-logo" fetchpriority="high"></a>
       
@@ -984,6 +994,39 @@ body, html {
   mix-blend-mode: luminosity;
   pointer-events: none;
   z-index: 1;
+}
+
+#esmaltale-landing .hero-top-nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+#esmaltale-landing .lang-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-purple);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(99, 32, 102, 0.18);
+  border-radius: 100px;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  box-shadow: 0 2px 8px rgba(107, 31, 124, 0.08);
+}
+
+#esmaltale-landing .lang-switch-btn:hover {
+  background: #ffffff;
+  color: var(--color-pink-dark);
+  border-color: var(--color-pink);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107, 31, 124, 0.16);
 }
 
 #esmaltale-landing .hero-content {
